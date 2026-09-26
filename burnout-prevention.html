@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fallstudie — Früherkennungsarchitektur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --paper: #f8fafc;
+    --surface: #ffffff;
+    --border: #cbd5e1;
+    --border-subtle: #e2e8f0;
+    --ink: #0f172a;
+    --steel: #334155;
+    --muted: #64748b;
+    --navy: #16324f;
+    --blue: #46698f;
+    --blue-glow: rgba(70, 105, 143, 0.08);
+    --blue-line: rgba(70, 105, 143, 0.35);
+    --orange: #e95d0e;
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@page { size: A4 portrait; margin: 14mm; }
+body { font-family: var(--font-sans); color: var(--ink); background: var(--paper); font-size: 11px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 182mm; margin: 0 auto; padding: 0 4mm; }
+a { color: var(--blue); text-decoration: none; font-weight: 500; }
+.doc-head { padding: 20px 0 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.kicker { font-family: var(--font-mono); font-size: 9px; color: var(--orange); text-transform: uppercase; letter-spacing: 2.4px; margin-bottom: 10px; font-weight: 600; display: flex; align-items: center; gap: 7px; }
+.kicker::before { content: ""; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; display: inline-block; }
+h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.4px; line-height: 1.2; margin-bottom: 8px; }
+.doc-sub { font-size: 11px; color: var(--muted); }
+h2 { font-size: 14px; font-weight: 600; color: var(--ink); margin: 24px 0 10px; }
+h2::after { content: ""; display: block; width: 42px; height: 2px; background: var(--orange); margin-top: 6px; border-radius: 2px; }
+p { margin-bottom: 10px; color: var(--steel); }
+p strong { color: var(--ink); font-weight: 600; }
+.nutshell { background: var(--surface); border: 1px solid var(--blue-line); border-left: 6px solid var(--orange); border-radius: 10px; padding: 20px 26px; margin: 0 0 16px; }
+.nutshell .ns-kicker { font-family: var(--font-mono); font-size: 8.5px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: 600; }
+.nutshell .ns-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.35; }
+.nutshell .ns-title em { font-style: normal; color: var(--orange); }
+.nutshell p { font-size: 10.8px; color: var(--steel); margin: 0; line-height: 1.68; }
+.dopamine { background: linear-gradient(135deg, #46698f 0%, #3a5a7a 100%); border-radius: 10px; padding: 18px 26px; margin: 0 0 20px; }
+.dopamine .d-kicker { font-family: var(--font-mono); font-size: 8.5px; color: #ff8c4b; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: 600; text-align: center; }
+.dopamine .d-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+.dopamine .d-item { text-align: center; }
+.dopamine .d-val { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: #ff8c4b; margin-bottom: 5px; line-height: 1.1; }
+.dopamine .d-label { font-size: 9px; color: rgba(255,255,255,0.9); line-height: 1.4; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 500; }
+.diagram-card { background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 18px 20px 12px; margin: 14px 0; }
+.diagram-card svg { width: 100%; height: auto; display: block; }
+.diagram-card .chart-sub { font-size: 9.4px; color: var(--muted); margin-top: 8px; text-align: center; font-style: italic; }
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0 4px; }
+.kpi { background: var(--surface); border: 1px solid var(--border-subtle); border-top: 3px solid var(--orange); border-radius: 7px; padding: 14px 12px 10px; text-align: center; box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04); }
+.kpi .k-val { font-family: var(--font-mono); font-size: 16px; font-weight: 600; color: var(--blue); margin-bottom: 5px; }
+.kpi .k-label { font-size: 8.4px; color: var(--muted); line-height: 1.45; text-transform: uppercase; letter-spacing: 0.4px; }
+.kpi-src { font-size: 8.6px; color: var(--muted); font-style: italic; margin-top: 2px; margin-bottom: 14px; text-align: right; }
+.principle { background: var(--surface); border: 1px solid var(--border-subtle); border-left: 3px solid var(--orange); border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; }
+.principle strong { display: block; font-size: 11.2px; color: var(--ink); margin-bottom: 3px; }
+.principle span { font-size: 10.2px; color: var(--steel); }
+table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 7px; overflow: hidden; margin: 12px 0; font-size: 10.2px; }
+th { text-align: left; font-family: var(--font-mono); font-size: 8.4px; text-transform: uppercase; letter-spacing: 1px; color: #fff; background: var(--navy); padding: 8px 13px; }
+td { padding: 8px 13px; border-bottom: 1px solid var(--border-subtle); color: var(--steel); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td.strong { color: var(--ink); font-weight: 600; white-space: nowrap; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.total td { background: var(--blue-glow); font-weight: 600; color: var(--ink); border-top: 2px solid var(--blue); }
+.state-legend { display: flex; gap: 10px; margin: 8px 0 12px; flex-wrap: wrap; }
+.state-chip { font-family: var(--font-mono); font-size: 8.6px; font-weight: 600; letter-spacing: 0.5px; padding: 5px 11px; border-radius: 4px; border: 1px solid; }
+.chip-green { color: #065f46; border-color: #065f46; background: #ecfdf5; }
+.chip-yellow { color: #b45309; border-color: #b45309; background: #fffbeb; }
+.chip-red { color: #b91c1c; border-color: #b91c1c; background: #fef2f2; }
+.compliance-strip { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 6px; }
+.comp-chip { font-family: var(--font-mono); font-size: 8.8px; color: var(--navy); background: #edf2f7; border: 1px solid var(--blue-line); border-radius: 4px; padding: 5px 10px; }
+.not-box { background: var(--surface); border: 1px dashed var(--border); border-radius: 7px; padding: 14px 18px; margin: 14px 0 6px; }
+.not-box p { margin-bottom: 6px; font-size: 10.2px; }
+.not-box p:last-child { margin-bottom: 0; }
+.foot { margin-top: 24px; border-top: 3px solid var(--orange); padding-top: 12px; font-size: 9px; color: var(--muted); line-height: 1.6; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="doc-head">
+        <div class="kicker">Fallstudie · Früherkennungsarchitektur</div>
+        <h1>Das Signal vor der Absenz</h1>
+        <p class="doc-sub">90-Tage-Piloten für prädiktives betriebliches Gesundheitsmanagement — DAX-40-Konzern (anonymisiert)</p>
+    </div>
+    <div class="nutshell">
+        <div class="ns-kicker">Worum es geht</div>
+        <div class="ns-title">Die Lücke messen. <em>Am Signal intervenieren.</em> Die Wirtschaftlichkeit beweisen.</div>
+        <p>Ein 90-Tage-Pilot, der die Diskrepanz zwischen der Absicht eines Gesundheitsprogramms und seiner gelebten Realität misst — auf Abteilungsebene, anonymisiert, unter Betriebsratsvereinbarung.</p>
+    </div>
+    <div class="dopamine">
+        <div class="d-kicker">Was dies für den Mandanten bedeuten könnte</div>
+        <div class="d-grid">
+            <div class="d-item"><div class="d-val">€ 40 M</div><div class="d-label">Illustrative jährliche direkte Absenzkosten — die Baseline, die der Pilot misst</div></div>
+            <div class="d-item"><div class="d-val">≤ 3 Monate</div><div class="d-label">Zeit, bis der Pilot sich selbst refinanziert — selbst unter konservativsten Annahmen</div></div>
+            <div class="d-item"><div class="d-val">1,5–2×</div><div class="d-label">Zusätzlicher Produktivitätsverlust durch Präsentismus — nicht eingerechnet, in dieselbe Richtung weisend</div></div>
+        </div>
+    </div>
+    <h2>1 · Die These</h2>
+    <p>Jede große Organisation betreibt zwei Gesundheitssysteme. Das erste lebt in Richtliniendokumenten — Programme, Standards, Wellbeing-Angebote. Das zweite lebt in den Daten: aggregierte Absenzmuster, anonymisierte Vorsorgetrends, Partizipationsraten. Forschung und Praxis zeigen, dass die beiden selten übereinstimmen. <strong>Die Lücke zwischen ihnen ist der früheste messbare Prädiktor für Absenzkrisen</strong>, sichtbar Monate vor dem ersten Langzeitfall.</p>
+    <div class="diagram-card">
+        <svg viewBox="0 0 740 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lücke zwischen Richtlinienabsicht und gelebter Realität">
+            <polygon points="60,60 680,60 680,165 420,115 320,90 200,65 60,60" fill="#46698f" opacity="0.07"/>
+            <line x1="60" y1="60" x2="680" y2="60" stroke="#46698f" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 60,60 C 200,65 320,90 420,115 C 520,140 600,155 680,165" fill="none" stroke="#334155" stroke-width="2.2" stroke-linecap="round"/>
+            <text x="670" y="50" font-size="10.5" fill="#46698f" text-anchor="end" font-family="Inter, sans-serif" font-weight="600">RICHTLINIENABSICHT</text>
+            <text x="670" y="180" font-size="10.5" fill="#334155" text-anchor="end" font-family="Inter, sans-serif" font-weight="600">GELEBTE REALITÄT</text>
+            <text x="380" y="100" font-size="11" fill="#46698f" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" opacity="0.7">DIE LÜCKE</text>
+            <circle cx="260" cy="72" r="6" fill="#fff" stroke="#46698f" stroke-width="2"/>
+            <text x="260" y="94" font-size="9" fill="#46698f" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600">SIGNAL ERKENNBAR</text>
+            <text x="260" y="106" font-size="8" fill="#64748b" text-anchor="middle" font-family="Inter, sans-serif">Monate vor Ausbruch</text>
+            <circle cx="500" cy="132" r="6" fill="#fff" stroke="#b45309" stroke-width="2"/>
+            <text x="500" y="154" font-size="9" fill="#b45309" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600">ERSTER LANGZEITFALL</text>
+            <circle cx="640" cy="158" r="6" fill="#fff" stroke="#b91c1c" stroke-width="2"/>
+            <text x="610" y="178" font-size="9" fill="#b91c1c" text-anchor="end" font-family="JetBrains Mono, monospace" font-weight="600">CHRONISCH</text>
+            <line x1="60" y1="200" x2="680" y2="200" stroke="#cbd5e1" stroke-width="1"/>
+            <text x="60" y="218" font-size="8.4" fill="#64748b" font-family="Inter, sans-serif">Q1</text>
+            <text x="205" y="218" font-size="8.4" fill="#64748b" font-family="Inter, sans-serif">Q3</text>
+            <text x="370" y="218" font-size="8.4" fill="#64748b" font-family="Inter, sans-serif">Q6</text>
+            <text x="525" y="218" font-size="8.4" fill="#64748b" font-family="Inter, sans-serif">Q9</text>
+            <text x="668" y="218" font-size="8.4" fill="#64748b" font-family="Inter, sans-serif">Q12</text>
+        </svg>
+        <p class="chart-sub">Illustrativ: Die Richtlinienlinie zeigt, was das Gesundheitsprogramm verspricht; die Realitätslinie zeigt, was aggregierte Daten typischerweise offenlegen.</p>
+    </div>
+    <div class="kpi-row">
+        <div class="kpi"><div class="k-val">≈ 20 T</div><div class="k-label">Absenztage pro Mitarbeiter pro Jahr — öffentliche deutsche Benchmarks 2023–24</div></div>
+        <div class="kpi"><div class="k-val">≈ 25 T</div><div class="k-label">Durchschnittliche Dauer psychisch bedingter Absenz — längste aller Ursachen</div></div>
+        <div class="kpi"><div class="k-val">9.000</div><div class="k-label">Mitarbeitende im Scope — Industriepark, laut Rollenbeschreibung</div></div>
+        <div class="kpi"><div class="k-val">3×</div><div class="k-label">ROI-Multiplikator bei Einbeziehung von Präsentismus — Literatur: 1,5–2×</div></div>
+    </div>
+    <p class="kpi-src">Alle Werte: öffentliche Benchmarks — illustrative Platzhalter, in Phase 1 durch echte Standortdaten zu ersetzen.</p>
+    <h2>2 · Drei Prinzipien</h2>
+    <div class="principle"><strong>Die Lücke messen, bevor das Symptom behandelt wird.</strong><span>Die Analyseeinheit ist die Diskrepanz zwischen beabsichtigter und beobachteter Gesundheit. Lücke zuerst, Programm danach.</span></div>
+    <div class="principle"><strong>Aggregiert, nie individuell.</strong><span>Jedes Signal operiert auf Abteilungsebene. Betriebsrats-Mitbestimmung (BetrVG § 87 Abs. 1 Nr. 6) ist von Tag eins an eingeplant.</span></div>
+    <div class="principle"><strong>Jede Zahl ist eine Hypothese.</strong><span>Öffentliche Benchmarks eröffnen die Argumentation; die Daten des Standorts schließen sie.</span></div>
+    <h2>3 · Der 90-Tage-Pilot</h2>
+    <table>
+        <thead><tr><th style="width:16%">Phase</th><th style="width:38%">Ziel</th><th>Ergebnis</th></tr></thead>
+        <tbody>
+            <tr><td class="strong">Woche 1–4<br>Grundlage</td><td>Dateninventur, Betriebsrats-Alignment, Baseline-Lückenmessung.</td><td>Lückenkarte: wo Richtlinienabsicht und Daten auseinandergehen.</td></tr>
+            <tr><td class="strong">Woche 5–8<br>Signalarchitektur</td><td>KPI-Definition, Validierung, Schwellenlogik, Drift-Monitoring.</td><td>Validiertes Signalmodell mit GRÜN / GELB / ROT.</td></tr>
+            <tr><td class="strong">Woche 9–12<br>Intervention</td><td>Pilotabteilungen mit GELB / ROT-Signalen, prä-registrierte Metriken.</td><td>Erster Read-out mit Konfidenzintervallen.</td></tr>
+        </tbody>
+    </table>
+    <h3>Signaletworths</h3>
+    <div class="state-legend">
+        <span class="state-chip chip-green">GRÜN — Standard-Monitoring</span>
+        <span class="state-chip chip-yellow">GELB — Strukturierte Prüfung</span>
+        <span class="state-chip chip-red">ROT — Interventionsteam, 90-Tage-Plan</span>
+    </div>
+    <h2>4 · Compliance</h2>
+    <div class="compliance-strip">
+        <span class="comp-chip">DSGVO Art. 9 — aggregiert, de-identifiziert</span>
+        <span class="comp-chip">EU-KI-VO (VO (EU) 2024/1689)</span>
+        <span class="comp-chip">BetrVG § 87 (1) 6</span>
+        <span class="comp-chip">MDR-Grenze</span>
+    </div>
+    <div class="not-box">
+        <p><strong>Dieser Vorschlag</strong> ist ein Forschungsdesign für einen anonymisierten DAX-40-Mandanten. Alle Zahlen sind Platzhalter aus öffentlichen Benchmarks. Keine Unternehmensdaten wurden verwendet.</p>
+    </div>
+    <div class="foot">
+        <span>Dr. Nabil Ktari · Facharzt für Innere Medizin</span>
+        <span>Arbeitsprobe · Anonymisiert · 2026</span>
+    </div>
+</div>
+</body>
+</html>
