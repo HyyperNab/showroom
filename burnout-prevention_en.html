@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Early Signal Detection Architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --ink: #16324f; --blue: #46698f; --steel: #334155; --muted: #64748b; --orange: #e95d0e; --paper: #f8fafc; --border: #e2e8f0; --surface: #fff; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); padding: 40px 20px; line-height: 1.7; }
+.wrap { max-width: 800px; margin: 0 auto; }
+.kicker { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+h1 { font-size: 24px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+h2 { font-size: 15px; font-weight: 600; margin: 28px 0 12px; color: var(--ink); }
+h3 { font-size: 12px; font-weight: 600; margin: 20px 0 8px; color: var(--blue); }
+p { margin-bottom: 14px; color: var(--steel); font-size: 11.5px; }
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.kpi .val { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; color: var(--blue); margin-bottom: 4px; }
+.kpi .label { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 10px; }
+th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 8px; text-transform: uppercase; letter-spacing: 1px; color: #fff; background: var(--ink); padding: 8px 12px; }
+td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--steel); }
+td strong { color: var(--ink); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+.chip { background: #edf2f7; border: 1px solid var(--border); padding: 5px 10px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 7.5px; color: var(--ink); }
+.note { font-size: 9px; color: var(--muted); font-style: italic; margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="kicker">Case Study · Early Signal Detection Architecture</div>
+    <h1>The Signal Before the Absence</h1>
+    <p style="color: var(--muted); font-size: 11px;">90-day pilot for predictive occupational health monitoring — Large industrial client (anonymized)</p>
+
+    <h2>In a Nutshell</h2>
+    <p style="font-size: 12.5px; color: var(--ink); font-weight: 500;">Measure the gap. Intervene at the signal. Prove the economics.</p>
+    <p>A 90-day pilot that measures the discrepancy between a health program's stated intent and its lived reality — at department level, anonymized, under works-council agreement. The gap is the earliest measurable predictor of absence crises, visible months before the first long-term case.</p>
+
+    <div class="kpi-row">
+        <div class="kpi"><div class="val">~20d</div><div class="label">Absence days per employee per year — public benchmarks</div></div>
+        <div class="kpi"><div class="val">~25d</div><div class="label">Avg. duration of mental-health absence — longest of all causes</div></div>
+        <div class="kpi"><div class="val">9,000</div><div class="label">Employees in scope — industrial site</div></div>
+        <div class="kpi"><div class="val">3x</div><div class="label">ROI multiplier when presenteeism effects are included</div></div>
+    </div>
+
+    <h2>1 · The Thesis</h2>
+    <p>Every large organization runs two health systems. The first lives in policy documents — programs, standards, wellness offerings. The second lives in the data: aggregated absence patterns, anonymized screening trends, participation rates. Research and practice show that the two rarely match. <strong>The gap between them is the earliest measurable predictor of absence crises</strong>, visible months before the first long-term case.</p>
+
+    <h2>2 · Three Principles</h2>
+    <p><strong>Measure the gap before treating the symptom.</strong> The unit of analysis is the discrepancy between intended and observed health. Gap first, program second.</p>
+    <p><strong>Aggregated, never individual.</strong> Every signal operates at department level. Works-council co-determination is designed in from day one.</p>
+    <p><strong>Every number is a hypothesis.</strong> Public benchmarks open the argument; the site's own data closes it.</p>
+
+    <h2>3 · The 90-Day Pilot</h2>
+    <table>
+        <thead><tr><th style="width:16%">Phase</th><th style="width:38%">Goal</th><th>Output</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Week 1–4<br>Foundation</strong></td><td>Data inventory: which streams exist, which are accessible at aggregate level, which legal basis applies. Works-council alignment briefing. Baseline gap measurement.</td><td>Gap map: where policy intent and observed data diverge, ranked by signal strength and cost burden.</td></tr>
+            <tr><td><strong>Week 5–8<br>Signal Architecture</strong></td><td>KPI definition and validation; threshold logic; department-level signal thresholds with documented drift monitoring.</td><td>Validated signal model with GREEN / YELLOW / RED definitions, ready for works-council review.</td></tr>
+            <tr><td><strong>Week 9–12<br>Intervention</strong></td><td>Two to three pilot departments with YELLOW / RED signals; appropriate intervention design; pre-registered evaluation metrics.</td><td>First read-out: signal validity, intervention acceptance, effect estimate — with confidence intervals, not point estimates.</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Signal Thresholds — Department Level Only</h3>
+    <div class="chip-row">
+        <span class="chip" style="color: #065f46; border-color: #065f46; background: #ecfdf5;">GREEN — Indicators within expected range → Standard monitoring</span>
+        <span class="chip" style="color: #b45309; border-color: #b45309; background: #fffbeb;">YELLOW — One indicator drifting, two consecutive quarters → Structured review</span>
+        <span class="chip" style="color: #b91c1c; border-color: #b91c1c; background: #fef2f2;">RED — Multiple indicators converging → Intervention team, 90-day recovery plan</span>
+    </div>
+    <p>No status triggers automated actions on individuals. Every YELLOW and RED is reviewed by occupational health professionals before an intervention is designed — human-in-the-loop is not a retrofitted feature, it is the operating model.</p>
+
+    <h2>4 · Compliance Architecture</h2>
+    <div class="chip-row">
+        <span class="chip">GDPR Art. 9 — aggregate, de-identified by design</span>
+        <span class="chip">EU AI Act (Reg. (EU) 2024/1689) — no autonomous individual decisions</span>
+        <span class="chip">Works Council Act — co-determination from day one, not retrofitted</span>
+        <span class="chip">MDR boundary — decision support, never diagnosis</span>
+    </div>
+
+    <p class="note">All values are public benchmarks — illustrative placeholders, to be replaced with actual site data in Phase 1. No client data was used. Dr. Nabil Ktari · Specialist in Internal Medicine · Work Sample · Anonymized · 2026</p>
+</div>
+</body>
+</html>

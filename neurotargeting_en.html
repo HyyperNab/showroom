@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Behavioral Engagement Architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --ink: #16324f; --blue: #46698f; --steel: #334155; --muted: #64748b; --orange: #e95d0e; --paper: #f8fafc; --border: #e2e8f0; --surface: #fff; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); padding: 40px 20px; line-height: 1.7; }
+.wrap { max-width: 800px; margin: 0 auto; }
+.kicker { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+h1 { font-size: 24px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+h2 { font-size: 15px; font-weight: 600; margin: 28px 0 12px; color: var(--ink); }
+h3 { font-size: 12px; font-weight: 600; margin: 20px 0 8px; color: var(--blue); }
+p { margin-bottom: 14px; color: var(--steel); font-size: 11.5px; }
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.kpi .val { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; color: var(--blue); margin-bottom: 4px; }
+.kpi .label { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 10px; }
+th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 8px; text-transform: uppercase; letter-spacing: 1px; color: #fff; background: var(--ink); padding: 8px 12px; }
+td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--steel); }
+td strong { color: var(--ink); }
+.note { font-size: 9px; color: var(--muted); font-style: italic; margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="kicker">Case Study · Behavioral Engagement Architecture</div>
+    <h1>Neural Timing and Segmentation</h1>
+    <p style="color: var(--muted); font-size: 11px;">Behavioral engagement architecture — Voice-based communication platform (anonymized)</p>
+
+    <h2>What This Is About</h2>
+    <p style="font-size: 12.5px; color: var(--ink); font-weight: 500;">Engagement is not a question of volume. It is a question of timing.</p>
+    <p>A complete engagement architecture for a voice-based communication platform: segmentation by user profile, timing optimization based on neural receptivity windows, signal-driven intervention design, and preventive safeguards against system fatigue.</p>
+
+    <div class="kpi-row">
+        <div class="kpi"><div class="val">4</div><div class="label">Segment classes — each with its own timing window and budget share</div></div>
+        <div class="kpi"><div class="val">T+24h</div><div class="label">Retargeting window — synchronized to user biorhythm</div></div>
+        <div class="kpi"><div class="val">7.3x</div><div class="label">Projected ROI of the architecture model</div></div>
+    </div>
+
+    <h2>1 · The Four Segments</h2>
+    <p>Each segment has its own neural receptivity window — the time of day when the attention threshold for audio signals is lowest and binding readiness is highest.</p>
+    <table>
+        <thead><tr><th style="width:30%">Segment Profile</th><th style="width:28%">Receptivity Window</th><th style="width:14%">Budget Share</th><th>LTV</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Segment 01</strong> — Late evening, high spontaneous binding readiness after demanding day</td><td>23:00 – 02:00</td><td>37%</td><td>€45</td></tr>
+            <tr><td><strong>Segment 02</strong> — Early evening, discretion-oriented, quality-seeking, high loyalty after first contact</td><td>20:00 – 22:00</td><td>47%</td><td>€85</td></tr>
+            <tr><td><strong>Segment 03</strong> — Transition, digitally native but too restless for pure audio; serves as algorithm feeder</td><td>18:30 – 20:00</td><td>4%</td><td>€22</td></tr>
+            <tr><td><strong>Segment 04</strong> — Retargeting, proven interest, last interaction T+24/T+48; loss-aversion driven</td><td>Exactly T+24h</td><td>12%</td><td>€40</td></tr>
+        </tbody>
+    </table>
+
+    <h2>2 · The Timing Principle</h2>
+    <p><strong>Signals outside the window are noise.</strong> A perfectly designed signal that arrives outside its receptivity window is ignored — the budget is burned. The architecture forces every signal to declare its window before it is sent.</p>
+    <p><strong>Biorhythm is the clock.</strong> Budget allocation follows neural receptivity, not availability. The system concentrates spend in the hours when the brain is most receptive to the specific signal type.</p>
+    <p><strong>Fatigue is computational.</strong> Audio signals habituate quickly. The architecture varies pitch, pauses, and ambient texture every 48–72 hours to maintain click-through rates.</p>
+
+    <h2>3 · Application to Telemedicine</h2>
+    <p>The method — segmentation by receptivity profile, timing by neural windows, intervention only after signal validation — transfers directly to patient communication:</p>
+    <table>
+        <thead><tr><th style="width:35%">Marketing Principle</th><th>Telemedicine Analog</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Receptivity window</strong></td><td>The moment when a patient is most receptive to a health message — e.g., after a consultation, before a follow-up appointment</td></tr>
+            <tr><td><strong>Segment logic</strong></td><td>Different patient groups (chronic vs. acute, preventive vs. reactive) receive different communication strategies</td></tr>
+            <tr><td><strong>Retargeting window</strong></td><td>Follow-up after consultation — exactly when the patient is most receptive to adherence messaging</td></tr>
+            <tr><td><strong>Anti-fatigue</strong></td><td>Communication content rotates systematically to prevent desensitization</td></tr>
+        </tbody>
+    </table>
+
+    <p class="note">All industry-identifying features have been removed. The method — segmentation, timing windows, retargeting logic, anti-fatigue — is original and transferable to any communication-based platform. Dr. Nabil Ktari · Specialist in Internal Medicine · Work Sample · Anonymized · 2026</p>
+</div>
+</body>
+</html>
