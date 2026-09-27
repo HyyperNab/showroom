@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Neural-State Ventilation Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --ink: #16324f; --blue: #46698f; --steel: #334155; --muted: #64748b; --orange: #e95d0e; --paper: #f8fafc; --border: #e2e8f0; --surface: #fff; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); padding: 40px 20px; line-height: 1.65; }
+.wrap { max-width: 800px; margin: 0 auto; }
+.kicker { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+h1 { font-size: 24px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+h2 { font-size: 15px; font-weight: 600; margin: 28px 0 12px; color: var(--ink); }
+h3 { font-size: 12px; font-weight: 600; margin: 20px 0 8px; color: var(--blue); }
+p { margin-bottom: 14px; color: var(--steel); font-size: 11.5px; }
+sup { color: var(--blue); font-weight: 600; font-size: 8px; }
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.kpi .val { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; color: var(--blue); margin-bottom: 4px; }
+.kpi .label { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 10px; }
+th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 8px; text-transform: uppercase; letter-spacing: 1px; color: #fff; background: var(--ink); padding: 8px 12px; }
+td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--steel); vertical-align: top; }
+td strong { color: var(--ink); font-weight: 500; }
+.ref-list { margin: 16px 0 24px 24px; font-size: 10px; color: var(--steel); line-height: 1.6; }
+.ref-list li { margin-bottom: 6px; }
+.note { font-size: 9px; color: var(--muted); font-style: italic; margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="kicker">Case Study &middot; Edge AI &amp; Closed-Loop Control</div>
+    <h1>A Novel AI Approach to Brainstem Rhythm and Weaning</h1>
+    <p style="color: var(--muted); font-size: 11px;">Autonomous closed-loop health-tech architecture &mdash; critical care medical device platform (anonymized)</p>
+
+    <h2>Overview</h2>
+    <p style="font-size: 12.5px; color: var(--ink); font-weight: 500;">From a systems engineering perspective, weaning is a closed-loop control problem governed by the biological oscillator, not just airway mechanics.</p>
+    <p>This document details a novel AI-driven architecture for neural-state ventilation. It introduces real-time machine learning classification of the eight pathological breathing patterns associated with brainstem injury. Based on the inferred neural state, the system optimizes waveform timing, applies non-invasive phrenic nerve stimulation to restore neural drive, and maintains a cyber-physical safety floor that reverts to conventional ventilation in under 50 milliseconds.</p>
+
+    <div class="kpi-row">
+        <div class="kpi"><div class="val">8</div><div class="label">ML Pattern Classes mapping to specific brainstem lesions</div></div>
+        <div class="kpi"><div class="val">&lt;50ms</div><div class="label">Deterministic safety fallback (hardware-level isolation)</div></div>
+        <div class="kpi"><div class="val">&euro;125M</div><div class="label">Target annual savings for statutory health insurance (Germany)</div></div>
+    </div>
+
+    <h2>1. The Eight Neural Signatures</h2>
+    <p>Brainstem damage from stroke, trauma, or hypoxia alters the respiratory oscillator. These alterations fall into eight recognizable signal patterns<sup>[1]</sup>. Because each pattern indicates a different biological state, a uniform pneumatic algorithm is often counterproductive. The edge AI classifies the pattern signature first, then prescribes the algorithmic intervention.</p>
+    <table>
+        <thead><tr><th style="width:24%">Pattern</th><th style="width:34%">Neural Lesion</th><th>Algorithmic Intervention</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Central apnea</strong></td><td>PreB&ouml;tzC + RTN failure</td><td>Timed mandatory breaths at patient-specific frequency</td></tr>
+            <tr><td><strong>Cheyne-Stokes</strong></td><td>RTN cyclical silencing (high loop gain)</td><td>Dampen loop gain with controlled expiratory floor</td></tr>
+            <tr><td><strong>Ataxic / Biot</strong></td><td>Inhibitory collapse, pacemaker chaos</td><td>Structured periodic input to re-entrain the oscillator</td></tr>
+            <tr><td><strong>Apneustic</strong></td><td>K&ouml;lliker-Fuse / B&ouml;tzinger lesion</td><td>Timed expiratory trigger to terminate prolonged inspiration</td></tr>
+            <tr><td><strong>ACHS (Ondine&rsquo;s Curse)</strong></td><td>RTN / lateral medullary (PHOX2B mutation)</td><td>Full-gain backup with mandatory rate floor &ge;12/min</td></tr>
+            <tr><td><strong>Opioid-induced</strong></td><td>PreB&ouml;tzC hyperpolarisation (&micro;-opioid)</td><td>Gentle pacing; alert if rate falls below biological threshold</td></tr>
+            <tr><td><strong>Gasping</strong></td><td>Metabolic failure / terminal</td><td>Full ventilation with pacing on every breath</td></tr>
+            <tr><td><strong>Eupnea</strong></td><td>Intact oscillator</td><td>Standard automated weaning protocol</td></tr>
+        </tbody>
+    </table>
+
+    <h2>2. System Dynamics and Control Logic</h2>
+    <p><strong>State-dependent actuation.</strong> A waveform optimized for one neural state may harm another. For example, treating Cheyne-Stokes respiration as central apnea exacerbates the system&rsquo;s cycling. The architecture requires high-confidence pattern validation before altering ventilation parameters. This approach builds mathematically on recent proofs that the ventral respiratory column operates as a rotational latent manifold<sup>[2]</sup>.</p>
+    <p><strong>Targeting the biological controller.</strong> The lung is a passive mechanical plant governed by well-understood Newtonian mechanics. In neurogenic respiratory failure, the lung functions normally, but the upstream biological controller (the brainstem) fails. Current ventilators adjust the plant. This architecture targets the controller, leaving the established lung mechanics untouched.</p>
+    <p><strong>Neuromuscular preservation.</strong> Ventilator-induced diaphragm dysfunction occurs rapidly during inactivity. By applying non-invasive phrenic stimulation, the system creates a bio-feedback loop that preserves muscle contraction patterns without requiring surgical implants or central venous catheters.</p>
+
+    <h2>3. The Sensor and Compute Hardware Stack</h2>
+    <p>The system is engineered as an IoT software and sensor upgrade to an existing ICU ventilator platform. It leaves the core pneumatic hardware untouched and adds an external edge-computing layer for sensor fusion and inference.</p>
+    <table>
+        <thead><tr><th style="width:20%">Component</th><th style="width:34%">Function</th><th style="width:12%">Invasive?</th><th>Role in the Stack</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Base ventilator</strong></td><td>Pneumatic delivery (pressure, volume, gas)</td><td>No</td><td>Untouched mechanical core</td></tr>
+            <tr><td><strong>Depth camera</strong></td><td>Chest-wall and abdominal motion tracking</td><td>No</td><td>Optical thoraco-abdominal synchrony signal</td></tr>
+            <tr><td><strong>Edge GPU</strong></td><td>Local AI inference (no cloud dependency)</td><td>No</td><td>On-device ML pattern classification</td></tr>
+            <tr><td><strong>Phrenic belt</strong></td><td>Transcutaneous diaphragm stimulation + sEMG</td><td>No</td><td>Restores neural drive and records bio-signals</td></tr>
+            <tr><td><strong>Ad-minima EEG</strong></td><td>4-channel frontal recording</td><td>No</td><td>Monitors neuro-arousal and sedation state</td></tr>
+            <tr><td><strong>tcCO&#8322; sensor</strong></td><td>Transcutaneous CO&#8322; measurement</td><td>No</td><td>Provides continuous chemoreflex feedback</td></tr>
+        </tbody>
+    </table>
+    <p>The primary structural innovation is the pacing belt. Current phrenic pacing requires surgical implants or intramuscular electrodes. The proposed transcutaneous belt both records surface EMG (to verify brainstem signal output) and stimulates the phrenic nerve non-invasively, acting as a bidirectional cyber-physical interface.</p>
+
+    <h2>4. AI Architecture and Deterministic Safety</h2>
+    <p>Interventions require both pattern classification and strict statistical confidence. The entire pipeline runs on the edge device, ensuring patient health data remains strictly local and simplifying data-privacy compliance by design.</p>
+    <table>
+        <thead><tr><th style="width:18%">Layer</th><th>Function</th><th>Learned Component?</th></tr></thead>
+        <tbody>
+            <tr><td><strong>L1 &middot; Sensor fusion</strong></td><td>Synchronizes flow, pressure, EIT, CO&#8322;, camera, and EMG at 200 Hz</td><td>No</td></tr>
+            <tr><td><strong>L2 &middot; Processing</strong></td><td>Calculates fractal variability (Hurst), entropy, and dominant frequency</td><td>Partial</td></tr>
+            <tr><td><strong>L3 &middot; Classifier</strong></td><td>Transformer + CRF generating a posterior over the eight patterns based on underlying spiking network topologies<sup>[3]</sup></td><td>Yes (frozen at release)</td></tr>
+            <tr><td><strong>L4 &middot; Control</strong></td><td>Model predictive control (MPC) for waveform timing and pacing</td><td>Partial</td></tr>
+            <tr><td><strong>L5 &middot; Orchestration</strong></td><td>Weighted fusion of sensor inputs</td><td>No (rule-based)</td></tr>
+            <tr><td><strong>L6 &middot; Interface</strong></td><td>Displays patterns, confidence scores, and single-tap overrides</td><td>No</td></tr>
+            <tr><td><strong>L0 &middot; Safety floor</strong></td><td>Formally verified deterministic controller (Ada SPARK)</td><td><strong>None</strong></td></tr>
+        </tbody>
+    </table>
+    <p><strong>Cyber-physical separation.</strong> The AI stack (classification, control, orchestration) acts as the advisory layer. The hardware-level safety floor enforces the limits. Written as a deterministic state machine, the safety floor maintains hard limits on pressure, volume, and rate. If a hardware or software fault occurs, it isolates the AI and reverts the system to conventional ventilation in under 50 milliseconds.</p>
+    <p><strong>Distributed Machine Learning.</strong> To improve the model without transferring raw patient data, the architecture utilizes federated learning<sup>[5]</sup>. Each hospital site trains the model locally; only the algorithmic gradients are aggregated centrally, secured via differential privacy. During clinical trials, however, the classifier remains strictly frozen to ensure regulatory consistency.</p>
+
+    <h2>5. Regulatory Strategy for SaMD</h2>
+    <p>In Germany, the IPReG statute<sup>[8]</sup> mandates an objective assessment of weaning potential before discharging patients to long-term home ventilation. Currently, no automated system meets this requirement. This Software as a Medical Device (SaMD) architecture is designed to fulfill that statutory mandate and address the associated &euro;119,565 per-patient economic burden of weaning failure<sup>[4]</sup>.</p>
+    <table>
+        <thead><tr><th style="width:20%">Jurisdiction</th><th style="width:34%">Pathway</th><th style="width:14%">Class</th><th>Target</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Europe</strong></td><td>MDR 2017/745 + AI Act Art. 6(1)</td><td>IIb</td><td>2035</td></tr>
+            <tr><td><strong>Germany</strong></td><td>NUB Status 1 &rarr; OPS code</td><td>&mdash;</td><td>2035</td></tr>
+            <tr><td><strong>USA</strong></td><td>FDA De Novo + PCCP (AI change control)</td><td>II</td><td>2038</td></tr>
+            <tr><td><strong>Japan</strong></td><td>PMDA Sakigake designation</td><td>Program Device</td><td>2037</td></tr>
+            <tr><td><strong>China</strong></td><td>NMPA Innovation + bridging study</td><td>III</td><td>2038</td></tr>
+        </tbody>
+    </table>
+    <p>Under the EU AI Act<sup>[6]</sup>, this is classified as a high-risk system. Compliance measures &mdash; algorithmic risk management, model transparency, human-in-the-loop oversight, and post-market monitoring &mdash; are baked into the software architecture from the outset. The validation pathway is strictly gated: starting with retrospective data validation, progressing to a clinical pilot, and concluding with a 500-patient randomized controlled trial. Future algorithmic iterations will leverage predetermined change control plans (PCCP)<sup>[7]</sup> to enable continuous integration without complete regulatory resubmission.</p>
+
+    <h2>6. System Limitations and Clinical Unknowns</h2>
+    <p><strong>Training Data Gap.</strong> The eight-pattern taxonomy is based on established clinical observation, and the underlying neural models are scientifically validated. However, real-time closed-loop control based on these classifications has not yet been proven to improve weaning outcomes in human trials. The retrospective study is engineered to test this premise on existing datasets before significant capital is deployed.</p>
+    <p><strong>Hardware Scaling.</strong> Transcutaneous stimulation requires higher current than implanted electrodes. It remains an engineering challenge to ensure that a current high enough to elicit meaningful diaphragm contraction is consistently well-tolerated by critically ill patients, accounting for variable skin impedance and clinical edema.</p>
+    <p><strong>Classification Boundaries.</strong> Biological breathing patterns are rarely discrete; a patient may transition from Cheyne-Stokes to central apnea dynamically. The ML classifier outputs a probability distribution to handle this noise, but clinical acceptance of probabilistic UI outputs over binary labels requires targeted usability engineering.</p>
+
+    <h2>7. Platform &amp; Digital Biomarker Extensions</h2>
+    <p><strong>Digital Biomarkers for Neuro-Monitoring.</strong> The edge inference pipeline can function independently as a continuous neural-state monitor. Patients who wean successfully but fail to recover healthy biological variability (e.g., normal Hurst exponents) remain at high risk for re-intubation. A standalone software monitor could serve subacute units without needing the pneumatic ventilator hardware.</p>
+    <p><strong>IoT Home Care Integration.</strong> The sensing belt and edge compute module could support long-term home ventilation patients, feeding the federated learning network and improving remote compliance monitoring outside the intensive care unit.</p>
+    <p><strong>Predictive Pharmacological Modeling.</strong> Because the system reads the neural oscillator&rsquo;s output, it can detect respiratory changes induced by drugs &mdash; such as opioid depression or sedative blunting &mdash; before they manifest as critical blood gas abnormalities. This creates a novel early-warning digital biomarker for respiratory pharmacology.</p>
+
+    <h2>8. Selected References</h2>
+    <ol class="ref-list">
+        <li>Summ C, et al. Disordered breathing patterns in brainstem injury: A clinical taxonomy. <em>Respir Physiol Neurobiol</em>. 2022;300:103869.</li>
+        <li>Bush NE, Ramirez JM. The ventral respiratory column operates as a rotational latent manifold. <em>Nat Neurosci</em>. 2024;27(2):259-271.</li>
+        <li>De Toni L, Perricone F, et al. A computational model of the respiratory CPG for the artificial control of breathing. <em>Bioengineering</em>. 2025;12(1):1163.</li>
+        <li>Michels JD, et al. The economic burden of weaning failure in neurocritical care. <em>Respiration</em>. 2023;102(9):813-820.</li>
+        <li>Kaissis GA, Makowski MR, R&uuml;ckert D, Braren RF. Secure, privacy-preserving and federated machine learning in medical imaging. <em>Nat Mach Intell</em>. 2020;2(6):305-311.</li>
+        <li>European Parliament and Council. Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). <em>Official Journal of the European Union</em>. 2024.</li>
+        <li>U.S. Food and Drug Administration (FDA). Marketing Submission Recommendations for a Predetermined Change Control Plan for Artificial Intelligence/Machine Learning (AI/ML)-Enabled Device Software Functions. <em>FDA Guidance Document</em>. 2024.</li>
+        <li>Bundesgesetzblatt. Intensivpflege- und Rehabilitationsst&auml;rkungsgesetz (IPReG). <em>BGBl. I S. 2220</em>. 2020.</li>
+    </ol>
+
+    <p class="note">All client-identifying features have been removed. The method &mdash; edge AI pattern classification, closed-loop neural timing, transcutaneous phrenic pacing, and staged SaMD regulatory validation &mdash; is an original architecture transferable to other closed-loop physiological control platforms. Dr. Nabil Ktari, M.D. &middot; Specialist in Internal Medicine &middot; Work Sample &middot; Anonymized &middot; 2026</p>
+</div>
+</body>
+</html>
