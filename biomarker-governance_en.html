@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Study — Biomarker Data Governance Architecture (Anonymized)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --ink: #16324f; --blue: #46698f; --steel: #334155; --muted: #64748b; --orange: #e95d0e; --paper: #f8fafc; --border: #e2e8f0; --surface: #fff; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); padding: 40px 20px; line-height: 1.65; }
+.wrap { max-width: 800px; margin: 0 auto; }
+.kicker { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+h1 { font-size: 22px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+h2 { font-size: 14px; font-weight: 600; margin: 24px 0 10px; color: var(--ink); }
+h3 { font-size: 11px; font-weight: 600; margin: 16px 0 6px; color: var(--blue); }
+p { margin-bottom: 12px; color: var(--steel); font-size: 11px; line-height: 1.7; }
+sup { color: var(--blue); font-weight: 600; font-size: 7px; }
+strong { font-weight: 600; color: var(--ink); }
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 8px; padding: 12px 10px; text-align: center; }
+.kpi .val { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; color: var(--blue); margin-bottom: 3px; }
+.kpi .label { font-size: 7px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 9px; }
+th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 7px; text-transform: uppercase; letter-spacing: 1px; color: #fff; background: var(--ink); padding: 6px 8px; }
+td { padding: 6px 8px; border-bottom: 1px solid var(--border); color: var(--steel); vertical-align: top; line-height: 1.5; }
+.callout { background: #fdf6f0; border-left: 4px solid var(--orange); padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 9.5px; color: var(--steel); line-height: 1.6; }
+.note { font-size: 8px; color: var(--muted); font-style: italic; margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="kicker">Case Study &middot; Clinical AI Governance &middot; Anonymized</div>
+    <h1>Biomarker Data Governance Architecture for a European Longevity Platform</h1>
+    <p style="color: var(--muted); font-size: 10px;">Clinical safety, cross-border regulatory fencing, and cultural calibration &mdash; deployed architecture (anonymized with written client consent)</p>
+
+    <h2>Overview</h2>
+    <p>A European longevity startup analyzing a high-dimensional biomarker panel needed clinical governance architecture to scale AI-generated health protocols across four jurisdictions without triggering premature Medical Device Regulation (MDR) classification. The engagement covered three workstreams: a deterministic safety gate for AI output validation, a cross-border regulatory matrix, and a cultural calibration layer for cross-border market expansion.</p>
+
+    <div class="kpi-row">
+        <div class="kpi"><div class="val">3-Gate</div><div class="label">Clinical safety<br>pipeline</div></div>
+        <div class="kpi"><div class="val">4</div><div class="label">Jurisdictions<br>regulated</div></div>
+        <div class="kpi"><div class="val">18 mo</div><div class="label">Realistic<br>implementation</div></div>
+    </div>
+
+    <h2>1. The Density Problem</h2>
+    <p>At a high-dimensional biomarker panel per user, the combinatorial space is not linear. Manual clinical review cannot scale at that density without either stalling product velocity or accepting a hallucination rate that a clinical environment would never tolerate. The bottleneck is not AI model quality &mdash; it is the deterministic safety layer that validates clinical output before it reaches the user.</p>
+
+    <h2>2. The Three-Gate Architecture</h2>
+    <h3>Gate 1 &mdash; Ingestion &amp; Drift Governance</h3>
+    <p>Different labs across jurisdictions use different reference ranges, units, and assay methodologies for the same biomarker. Without a normalization layer, the system generates false positives at the data-entry level. Gate 1 normalizes all inputs to a canonical FHIR-based representation, flags values outside plausible ranges, and attaches provenance metadata for audit.</p>
+
+    <h3>Gate 2 &mdash; Protocol Validation &amp; Safety</h3>
+    <p>AI-generated protocols are checked against hard-coded clinical rules: contraindications, drug interactions, boundary conditions, and red-flag symptoms. This gate does not use AI &mdash; it uses deterministic logic. If the AI suggests a supplement that interacts with a user&rsquo;s baseline medication, the protocol is blocked and escalated.</p>
+
+    <h3>Gate 3 &mdash; Regulatory Fencing &amp; Medical Governance</h3>
+    <p>The output is checked against the regulatory perimeter of the user&rsquo;s jurisdiction. A wellness claim that keeps a product out of MDR scope in one country can reclassify it as an unlicensed medical device in another. The system adjusts the wording or holds the output for physician review.</p>
+
+    <h2>3. Cross-Border Regulatory Matrix</h2>
+    <table>
+        <thead><tr><th style="width:15%">Jurisdiction</th><th style="width:15%">Authority</th><th style="width:25%">Strategy</th><th style="width:15%">Risk</th><th>Cultural Adaptation Rule</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Market A</strong></td><td>National authority</td><td>Wellness optimization language</td><td style="color:#b45309;font-weight:600">Medium</td><td>Home market &mdash; highest scrutiny</td></tr>
+            <tr><td><strong>Market B</strong></td><td>National authority</td><td>Avoid &ldquo;medical purpose&rdquo; claims</td><td style="color:#b45309;font-weight:600">Medium</td><td>AI guidance evolving</td></tr>
+            <tr><td><strong>Market C</strong></td><td>National authority</td><td>Enforces aggressively on unlicensed SaMD</td><td style="color:#b91c1c;font-weight:600">High</td><td>Regional protocol variation must be framed as &ldquo;preference alignment,&rdquo; not &ldquo;clinical adaptation&rdquo;</td></tr>
+            <tr><td><strong>Market D</strong></td><td>National authority</td><td>Follow Market C model; lower enforcement</td><td style="color:#065f46;font-weight:600">Low</td><td>Same EU MDR framework applies</td></tr>
+        </tbody>
+    </table>
+
+    <h2>4. Cultural Calibration Layer</h2>
+    <p>Biomarkers are necessary but not sufficient. Two users with identical metabolic profiles will respond to the same protocol differently depending on their meal timing, alcohol consumption pattern, sleep chronotype, occupational rhythm, and the cultural framework through which they interpret &ldquo;health.&rdquo; The cultural calibration layer maps these vectors and adjusts protocol delivery accordingly &mdash; without triggering MDR classification.</p>
+    <div class="callout"><strong>Key insight:</strong> Genes and markers say something. But the microgranularities &mdash; aging demographics, drinking and social habits, working hours, climate, meal timing &mdash; determine whether the protocol is followed. A protocol not followed is a protocol that fails.</div>
+
+    <h2>5. Implementation Timeline (Realistic)</h2>
+    <table>
+        <thead><tr><th style="width:18%">Phase</th><th style="width:12%">Months</th><th>Objective</th><th style="width:25%">Deliverable</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Audit &amp; Brakes</strong></td><td>M 1&ndash;4</td><td>Onboard team. Audit current AI protocols. Implement deterministic kill-switch.</td><td>Safety gate live. Risk register. QMS skeleton.</td></tr>
+            <tr><td><strong>Interoperability</strong></td><td>M 5&ndash;9</td><td>Standardize biomarker inputs across jurisdictions via HL7 FHIR. Pilot with 2&ndash;3 labs.</td><td>FHIR pipeline. Harmonized reference ranges.</td></tr>
+            <tr><td><strong>Jurisdictional Fencing</strong></td><td>M 10&ndash;14</td><td>Localize clinical protocols per jurisdiction. Engage external regulatory counsel.</td><td>Per-jurisdiction protocol matrix. Signed position papers.</td></tr>
+            <tr><td><strong>Certification Call</strong></td><td>M 15&ndash;18</td><td>Data-driven decision: stay in wellness scope or trigger CE marking.</td><td>Board recommendation. ISO 13485 roadmap if needed.</td></tr>
+        </tbody>
+    </table>
+
+    <h2>6. Systems Powering This Engagement</h2>
+    <p>The deterministic safety gate is powered by a live system (CGNR Matrix, deployed on Vercel). The decision engine processing pharmacological interactions is live (MOAC QMM). The regulatory fencing engine is live (RAGNAR OMNI). The lab data governance layer is live (ChronosLab). All systems are open source on GitHub.</p>
+
+    <p class="note">All client-identifying features have been removed. Published with written client consent under full anonymity. No proprietary or trade secrets are disclosed. The architecture &mdash; deterministic safety gates, cross-border regulatory matrices, and cultural calibration &mdash; is the consultant&rsquo;s original work. Dr. Nabil Ktari, M.D. &middot; Specialist in Internal Medicine &middot; 2026</p>
+</div>
+</body>
+</html>
