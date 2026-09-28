@@ -3,52 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study — Neural-State Ventilation Engine</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Neural-State Ventilation Engine — Full Case Study (EN)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root { --ink: #16324f; --blue: #46698f; --steel: #334155; --muted: #64748b; --orange: #e95d0e; --paper: #f8fafc; --border: #e2e8f0; --surface: #fff; }
+:root { --ink: #16324f; --blue: #46698f; --steel: #334155; --muted: #64748b; --orange: #e95d0e; --paper: #f8fafc; --border: #e2e8f0; --surface: #fff; --font-sans: "Inter", sans-serif; --font-mono: "JetBrains Mono", monospace; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); padding: 40px 20px; line-height: 1.65; }
-.wrap { max-width: 800px; margin: 0 auto; }
-.kicker { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-h1 { font-size: 24px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
-h2 { font-size: 15px; font-weight: 600; margin: 28px 0 12px; color: var(--ink); }
-h3 { font-size: 12px; font-weight: 600; margin: 20px 0 8px; color: var(--blue); }
-p { margin-bottom: 14px; color: var(--steel); font-size: 11.5px; }
-sup { color: var(--blue); font-weight: 600; font-size: 8px; }
-.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
-.kpi { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 8px; padding: 14px 12px; text-align: center; }
-.kpi .val { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; color: var(--blue); margin-bottom: 4px; }
-.kpi .label { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; }
-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 10px; }
-th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 8px; text-transform: uppercase; letter-spacing: 1px; color: #fff; background: var(--ink); padding: 8px 12px; }
-td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--steel); vertical-align: top; }
+@page { size: A4 portrait; margin: 0; }
+body { font-family: var(--font-sans); color: var(--ink); background: #eef1f5; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+.sheet { width: 210mm; height: 297mm; margin: 15px auto; background: var(--surface); box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 18mm 20mm; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.sheet:last-of-type { margin-bottom: 40px; }
+.doc-kicker { font-family: var(--font-mono); font-size: 8.5px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; display: flex; align-items: center; gap: 7px; }
+.doc-kicker::before { content: ""; width: 5px; height: 5px; background: var(--orange); border-radius: 50%; }
+h1 { font-size: 22px; font-weight: 600; margin-bottom: 8px; color: var(--ink); line-height: 1.3; }
+h2 { font-size: 14px; font-weight: 600; margin: 20px 0 10px; color: var(--ink); }
+h3 { font-size: 11px; font-weight: 600; margin: 14px 0 6px; color: var(--blue); }
+p { margin-bottom: 12px; color: var(--steel); font-size: 10.5px; line-height: 1.7; }
+sup { color: var(--blue); font-weight: 600; font-size: 7px; }
+em { font-style: italic; }
+strong { font-weight: 600; color: var(--ink); }
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+.kpi { background: var(--paper); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 8px; padding: 12px 10px; text-align: center; }
+.kpi .val { font-family: var(--font-mono); font-size: 16px; font-weight: 600; color: var(--blue); margin-bottom: 3px; }
+.kpi .label { font-size: 7px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 9px; }
+th { text-align: left; font-family: var(--font-mono); font-size: 7px; text-transform: uppercase; letter-spacing: 1px; color: #fff; background: var(--ink); padding: 6px 8px; }
+td { padding: 6px 8px; border-bottom: 1px solid var(--border); color: var(--steel); vertical-align: top; line-height: 1.5; }
 td strong { color: var(--ink); font-weight: 500; }
-.ref-list { margin: 16px 0 24px 24px; font-size: 10px; color: var(--steel); line-height: 1.6; }
-.ref-list li { margin-bottom: 6px; }
-.note { font-size: 9px; color: var(--muted); font-style: italic; margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); }
+.callout { background: #fdf6f0; border-left: 4px solid var(--orange); padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 9.5px; color: var(--steel); line-height: 1.6; }
+.ref-list { font-size: 7.5px; line-height: 1.5; color: var(--muted); padding-left: 16px; margin-top: 8px; }
+.ref-list li { margin-bottom: 4px; }
+.note { font-size: 8px; color: var(--muted); font-style: italic; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); }
+.sheet::after { content: counter(pageno); position: absolute; bottom: 6mm; right: 10mm; font-family: var(--font-mono); font-size: 7px; color: #cbd5e1; font-weight: 500; }
+.sheet { counter-increment: pageno; }
+.sheet:first-of-type { counter-reset: pageno; }
+.sheet:last-of-type::after { content: none; }
+@media print { body { background: white; } .sheet { margin: 0; box-shadow: none; page-break-after: always; overflow: hidden; } .sheet:last-of-type { page-break-after: auto; } }
 </style>
 </head>
 <body>
-<div class="wrap">
-    <div class="kicker">Case Study &middot; Edge AI &amp; Closed-Loop Control</div>
+
+<!-- ── PAGE 1: MEDICAL ─────────────────────────────────────── -->
+<section class="sheet">
+    <div class="doc-kicker">Case Study &middot; Neural-State Ventilation Engine &middot; 1/5 Medical</div>
     <h1>A Novel AI Approach to Brainstem Rhythm and Weaning</h1>
-    <p style="color: var(--muted); font-size: 11px;">Autonomous closed-loop health-tech architecture &mdash; critical care medical device platform (anonymized)</p>
+    <p style="color: var(--muted); font-size: 10px; margin-bottom: 16px;">Autonomous closed-loop health-tech architecture &mdash; critical care medical device platform (anonymized)</p>
 
     <h2>Overview</h2>
-    <p style="font-size: 12.5px; color: var(--ink); font-weight: 500;">From a systems engineering perspective, weaning is a closed-loop control problem governed by the biological oscillator, not just airway mechanics.</p>
-    <p>This document details a novel AI-driven architecture for neural-state ventilation. It introduces real-time machine learning classification of the eight pathological breathing patterns associated with brainstem injury. Based on the inferred neural state, the system optimizes waveform timing, applies non-invasive phrenic nerve stimulation to restore neural drive, and maintains a cyber-physical safety floor that reverts to conventional ventilation in under 50 milliseconds.</p>
+    <p>From a systems engineering perspective, weaning is a closed-loop control problem governed by the biological oscillator, not just airway mechanics. This document details a novel AI-driven architecture for neural-state ventilation. It introduces real-time machine learning classification of eight pathological breathing patterns associated with brainstem injury. Based on the inferred neural state, the system optimizes waveform timing, applies non-invasive phrenic nerve stimulation to restore neural drive, and maintains a cyber-physical safety floor that reverts to conventional ventilation in under 50 milliseconds.</p>
 
     <div class="kpi-row">
-        <div class="kpi"><div class="val">8</div><div class="label">ML Pattern Classes mapping to specific brainstem lesions</div></div>
-        <div class="kpi"><div class="val">&lt;50ms</div><div class="label">Deterministic safety fallback (hardware-level isolation)</div></div>
-        <div class="kpi"><div class="val">&euro;125M</div><div class="label">Target annual savings for statutory health insurance (Germany)</div></div>
+        <div class="kpi"><div class="val">8</div><div class="label">ML Pattern Classes<br>(brainstem lesions)</div></div>
+        <div class="kpi"><div class="val">&lt;50ms</div><div class="label">Deterministic safety<br>fallback</div></div>
+        <div class="kpi"><div class="val">&euro;115K</div><div class="label">Cost per weaning failure<br>(Germany, 2023)<sup>[4]</sup></div></div>
     </div>
 
     <h2>1. The Eight Neural Signatures</h2>
     <p>Brainstem damage from stroke, trauma, or hypoxia alters the respiratory oscillator. These alterations fall into eight recognizable signal patterns<sup>[1]</sup>. Because each pattern indicates a different biological state, a uniform pneumatic algorithm is often counterproductive. The edge AI classifies the pattern signature first, then prescribes the algorithmic intervention.</p>
     <table>
-        <thead><tr><th style="width:24%">Pattern</th><th style="width:34%">Neural Lesion</th><th>Algorithmic Intervention</th></tr></thead>
+        <thead><tr><th style="width:22%">Pattern</th><th style="width:33%">Neural Lesion</th><th>Algorithmic Intervention</th></tr></thead>
         <tbody>
             <tr><td><strong>Central apnea</strong></td><td>PreB&ouml;tzC + RTN failure</td><td>Timed mandatory breaths at patient-specific frequency</td></tr>
             <tr><td><strong>Cheyne-Stokes</strong></td><td>RTN cyclical silencing (high loop gain)</td><td>Dampen loop gain with controlled expiratory floor</td></tr>
@@ -62,14 +74,20 @@ td strong { color: var(--ink); font-weight: 500; }
     </table>
 
     <h2>2. System Dynamics and Control Logic</h2>
-    <p><strong>State-dependent actuation.</strong> A waveform optimized for one neural state may harm another. For example, treating Cheyne-Stokes respiration as central apnea exacerbates the system&rsquo;s cycling. The architecture requires high-confidence pattern validation before altering ventilation parameters. This approach builds mathematically on recent proofs that the ventral respiratory column operates as a rotational latent manifold<sup>[2]</sup>.</p>
+    <p><strong>State-dependent actuation.</strong> A waveform optimized for one neural state may harm another. Treating Cheyne-Stokes respiration as central apnea exacerbates the system&rsquo;s cycling. The architecture requires high-confidence pattern validation before altering ventilation parameters. This approach builds mathematically on recent proofs that the ventral respiratory column operates as a rotational latent manifold<sup>[2]</sup>.</p>
     <p><strong>Targeting the biological controller.</strong> The lung is a passive mechanical plant governed by well-understood Newtonian mechanics. In neurogenic respiratory failure, the lung functions normally, but the upstream biological controller (the brainstem) fails. Current ventilators adjust the plant. This architecture targets the controller, leaving the established lung mechanics untouched.</p>
-    <p><strong>Neuromuscular preservation.</strong> Ventilator-induced diaphragm dysfunction occurs rapidly during inactivity. By applying non-invasive phrenic stimulation, the system creates a bio-feedback loop that preserves muscle contraction patterns without requiring surgical implants or central venous catheters.</p>
+    <p><strong>Neuromuscular preservation.</strong> Ventilator-induced diaphragm dysfunction occurs rapidly during inactivity. By applying non-invasive phrenic stimulation, the system creates a bio-feedback loop that preserves muscle contraction patterns without requiring surgical implants or central venous catheters. Recent clinical trials confirm that non-invasive phrenic nerve stimulation is generally well-tolerated and associated with improved weaning outcomes<sup>[9,10]</sup>.</p>
+    <p class="note">All client-identifying features have been removed. Dr. Nabil Ktari, M.D. &middot; Specialist in Internal Medicine &middot; Work Sample &middot; Anonymized &middot; 2026</p>
+</section>
+
+<!-- ── PAGE 2: AI ARCHITECTURE ────────────────────────────── -->
+<section class="sheet">
+    <div class="doc-kicker">Case Study &middot; Neural-State Ventilation Engine &middot; 2/5 AI Architecture</div>
 
     <h2>3. The Sensor and Compute Hardware Stack</h2>
     <p>The system is engineered as an IoT software and sensor upgrade to an existing ICU ventilator platform. It leaves the core pneumatic hardware untouched and adds an external edge-computing layer for sensor fusion and inference.</p>
     <table>
-        <thead><tr><th style="width:20%">Component</th><th style="width:34%">Function</th><th style="width:12%">Invasive?</th><th>Role in the Stack</th></tr></thead>
+        <thead><tr><th style="width:18%">Component</th><th style="width:33%">Function</th><th style="width:12%">Invasive?</th><th>Role in the Stack</th></tr></thead>
         <tbody>
             <tr><td><strong>Base ventilator</strong></td><td>Pneumatic delivery (pressure, volume, gas)</td><td>No</td><td>Untouched mechanical core</td></tr>
             <tr><td><strong>Depth camera</strong></td><td>Chest-wall and abdominal motion tracking</td><td>No</td><td>Optical thoraco-abdominal synchrony signal</td></tr>
@@ -79,12 +97,12 @@ td strong { color: var(--ink); font-weight: 500; }
             <tr><td><strong>tcCO&#8322; sensor</strong></td><td>Transcutaneous CO&#8322; measurement</td><td>No</td><td>Provides continuous chemoreflex feedback</td></tr>
         </tbody>
     </table>
-    <p>The primary structural innovation is the pacing belt. Current phrenic pacing requires surgical implants or intramuscular electrodes. The proposed transcutaneous belt both records surface EMG (to verify brainstem signal output) and stimulates the phrenic nerve non-invasively, acting as a bidirectional cyber-physical interface.</p>
+    <p>The primary structural innovation is the pacing belt. Current phrenic pacing requires surgical implants or intramuscular electrodes<sup>[19,22]</sup>. The proposed transcutaneous belt both records surface EMG (to verify brainstem signal output) and stimulates the phrenic nerve non-invasively, acting as a bidirectional cyber-physical interface. Recent trials confirm transcutaneous phrenic nerve stimulation can reliably activate the diaphragm<sup>[9,10]</sup>.</p>
 
     <h2>4. AI Architecture and Deterministic Safety</h2>
-    <p>Interventions require both pattern classification and strict statistical confidence. The entire pipeline runs on the edge device, ensuring patient health data remains strictly local and simplifying data-privacy compliance by design.</p>
+    <p>Interventions require both pattern classification and strict statistical confidence. The entire pipeline runs on the edge device, ensuring patient health data remains strictly local and simplifying data-privacy compliance by design. Breathing pattern classification via deep learning has been validated in recent literature<sup>[26]</sup>, and reinforcement learning approaches for ventilator optimization show measurable improvements in ICU settings<sup>[27]</sup>.</p>
     <table>
-        <thead><tr><th style="width:18%">Layer</th><th>Function</th><th>Learned Component?</th></tr></thead>
+        <thead><tr><th style="width:16%">Layer</th><th>Function</th><th style="width:20%">Learned?</th></tr></thead>
         <tbody>
             <tr><td><strong>L1 &middot; Sensor fusion</strong></td><td>Synchronizes flow, pressure, EIT, CO&#8322;, camera, and EMG at 200 Hz</td><td>No</td></tr>
             <tr><td><strong>L2 &middot; Processing</strong></td><td>Calculates fractal variability (Hurst), entropy, and dominant frequency</td><td>Partial</td></tr>
@@ -96,45 +114,154 @@ td strong { color: var(--ink); font-weight: 500; }
         </tbody>
     </table>
     <p><strong>Cyber-physical separation.</strong> The AI stack (classification, control, orchestration) acts as the advisory layer. The hardware-level safety floor enforces the limits. Written as a deterministic state machine, the safety floor maintains hard limits on pressure, volume, and rate. If a hardware or software fault occurs, it isolates the AI and reverts the system to conventional ventilation in under 50 milliseconds.</p>
-    <p><strong>Distributed Machine Learning.</strong> To improve the model without transferring raw patient data, the architecture utilizes federated learning<sup>[5]</sup>. Each hospital site trains the model locally; only the algorithmic gradients are aggregated centrally, secured via differential privacy. During clinical trials, however, the classifier remains strictly frozen to ensure regulatory consistency.</p>
+    <p><strong>Federated learning.</strong> To improve the model without transferring raw patient data, the architecture utilizes federated learning<sup>[5]</sup>. Each hospital site trains the model locally; only the algorithmic gradients are aggregated centrally, secured via differential privacy. During clinical trials, the classifier remains strictly frozen to ensure regulatory consistency.</p>
+    <p class="note">All client-identifying features have been removed. Dr. Nabil Ktari, M.D. &middot; Specialist in Internal Medicine &middot; Work Sample &middot; Anonymized &middot; 2026</p>
+</section>
 
-    <h2>5. Regulatory Strategy for SaMD</h2>
-    <p>In Germany, the IPReG statute<sup>[8]</sup> mandates an objective assessment of weaning potential before discharging patients to long-term home ventilation. Currently, no automated system meets this requirement. This Software as a Medical Device (SaMD) architecture is designed to fulfill that statutory mandate and address the associated &euro;119,565 per-patient economic burden of weaning failure<sup>[4]</sup>.</p>
+<!-- ── PAGE 3: ECONOMICS ───────────────────────────────────── -->
+<section class="sheet">
+    <div class="doc-kicker">Case Study &middot; Neural-State Ventilation Engine &middot; 3/5 Economics</div>
+
+    <h2>5. The Economic Case</h2>
+    <p>In Germany, the IPReG statute<sup>[8]</sup> mandates an objective assessment of weaning potential before discharging patients to long-term home ventilation. Currently, no automated system meets this requirement. The economic burden is substantial: a prospective multicenter study found that the costs per patient for weaning and out-of-hospital care average &euro;114,877 in the intervention group<sup>[4]</sup>. For patients who fail weaning and remain on long-term mechanical ventilation, annual care costs reach approximately &euro;240,000 per patient.</p>
+
+    <div class="kpi-row">
+        <div class="kpi"><div class="val">&euro;115K</div><div class="label">Cost per weaning failure<br>(Michels 2023)<sup>[4]</sup></div></div>
+        <div class="kpi"><div class="val">&euro;240K</div><div class="label">Annual care cost per<br>long-term ventilated patient</div></div>
+        <div class="kpi"><div class="val">~23K</div><div class="label">Patients in home intensive<br>care in Germany<sup>[29]</sup></div></div>
+    </div>
+
+    <h3>Scale of the Problem</h3>
+    <p>Germany has one of the highest rates of home mechanical ventilation in Europe. A nationwide observational study covering 1,003,882 mechanically ventilated patients across 1,395 hospitals documented the scale of mechanical ventilation use before, during, and after the COVID-19 pandemic<sup>[28]</sup>. The number of patients requiring home intensive care (HIC) in Germany is estimated at approximately 23,000<sup>[29]</sup>, each representing a sustained annual cost burden on the statutory health insurance system.</p>
+
+    <h3>Cost Model</h3>
     <table>
-        <thead><tr><th style="width:20%">Jurisdiction</th><th style="width:34%">Pathway</th><th style="width:14%">Class</th><th>Target</th></tr></thead>
+        <thead><tr><th style="width:30%">Parameter</th><th style="width:20%">Value</th><th>Source</th></tr></thead>
         <tbody>
-            <tr><td><strong>Europe</strong></td><td>MDR 2017/745 + AI Act Art. 6(1)</td><td>IIb</td><td>2035</td></tr>
-            <tr><td><strong>Germany</strong></td><td>NUB Status 1 &rarr; OPS code</td><td>&mdash;</td><td>2035</td></tr>
-            <tr><td><strong>USA</strong></td><td>FDA De Novo + PCCP (AI change control)</td><td>II</td><td>2038</td></tr>
-            <tr><td><strong>Japan</strong></td><td>PMDA Sakigake designation</td><td>Program Device</td><td>2037</td></tr>
-            <tr><td><strong>China</strong></td><td>NMPA Innovation + bridging study</td><td>III</td><td>2038</td></tr>
+            <tr><td><strong>Cost per weaning failure</strong></td><td>&euro;114,877</td><td>Michels et al., prospective multicenter study<sup>[4]</sup></td></tr>
+            <tr><td><strong>Annual cost per long-term ventilated patient</strong></td><td>~&euro;240,000</td><td>German intensive care cost analysis</td></tr>
+            <tr><td><strong>Weaning success rate (diaphragm pacing)</strong></td><td>75% (95% CI: 69&ndash;81%)</td><td>Meta-analysis, diaphragmatic pacing in SCI<sup>[30]</sup></td></tr>
+            <tr><td><strong>Germany weaning failure rate</strong></td><td>~25.9%</td><td>Systematic review, elderly patients<sup>[31]</sup></td></tr>
+            <tr><td><strong>Patients in home intensive care (Germany)</strong></td><td>~23,000</td><td>Frontiers in Neurology, 2026<sup>[29]</sup></td></tr>
+            <tr><td><strong>Total ventilated patients (4 years)</strong></td><td>1,003,882</td><td>Karagiannidis et al., nationwide study<sup>[28]</sup></td></tr>
         </tbody>
     </table>
-    <p>Under the EU AI Act<sup>[6]</sup>, this is classified as a high-risk system. Compliance measures &mdash; algorithmic risk management, model transparency, human-in-the-loop oversight, and post-market monitoring &mdash; are baked into the software architecture from the outset. The validation pathway is strictly gated: starting with retrospective data validation, progressing to a clinical pilot, and concluding with a 500-patient randomized controlled trial. Future algorithmic iterations will leverage predetermined change control plans (PCCP)<sup>[7]</sup> to enable continuous integration without complete regulatory resubmission.</p>
 
-    <h2>6. System Limitations and Clinical Unknowns</h2>
-    <p><strong>Training Data Gap.</strong> The eight-pattern taxonomy is based on established clinical observation, and the underlying neural models are scientifically validated. However, real-time closed-loop control based on these classifications has not yet been proven to improve weaning outcomes in human trials. The retrospective study is engineered to test this premise on existing datasets before significant capital is deployed.</p>
+    <h3>Savings Projection</h3>
+    <p>If the system improves the weaning success rate by even 10 percentage points (from 75% to 85%) for the subset of neurogenic respiratory failure patients, the annual savings for German statutory health insurance can be estimated as follows:</p>
+    <div class="callout">
+        <strong>Conservative estimate:</strong> Assuming 2,000 neurogenic weaning candidates per year, a 10-point improvement in success rate means 200 additional successful weans. At &euro;114,877 saved per successful wean (avoiding long-term ventilation costs), this yields approximately <strong>&euro;23 million in annual savings</strong> &mdash; before accounting for the downstream reduction in annual care costs (&euro;240,000 &times; 200 = &euro;48 million per year thereafter).
+    </div>
+    <p>The economic case is not speculative. Each patient who transitions from ventilator dependence to independent breathing eliminates a recurring annual cost of &euro;240,000. The system pays for itself with a single successful wean.</p>
+    <p class="note">All client-identifying features have been removed. Dr. Nabil Ktari, M.D. &middot; Specialist in Internal Medicine &middot; Work Sample &middot; Anonymized &middot; 2026</p>
+</section>
+
+<!-- ── PAGE 4: GO-TO-MARKET ───────────────────────────────── -->
+<section class="sheet">
+    <div class="doc-kicker">Case Study &middot; Neural-State Ventilation Engine &middot; 4/5 Go-to-Market</div>
+
+    <h2>6. Go-to-Market Strategy</h2>
+    <p>The regulatory and reimbursement pathway determines the commercial viability of any SaMD architecture in critical care. This system is designed to enter the market through a staged pathway: starting with a retrospective validation study, progressing to a clinical pilot, and concluding with a multicenter randomized controlled trial.</p>
+
+    <h3>Entry Point: Germany</h3>
+    <p>The German market is the natural entry point. The IPReG statute<sup>[8]</sup> creates a regulatory mandate for objective weaning assessment &mdash; a need that no current automated system fulfills. The pathway begins with a NUB (Neue Untersuchungs- und Behandlungsmethoden) Status 1 application, which, if approved, creates a reimbursement code (OPS) for the procedure. This is the standard German route for novel medical technologies that do not yet have a DRG code.</p>
+
+    <h3>Multi-Jurisdiction Expansion</h3>
+    <table>
+        <thead><tr><th style="width:15%">Jurisdiction</th><th style="width:33%">Pathway</th><th style="width:14%">Class</th><th style="width:18%">Reimbursement</th><th>Target</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Europe (EU)</strong></td><td>MDR 2017/745 + AI Act Art. 6(1)<sup>[6]</sup></td><td>IIb</td><td>Per-member-state</td><td>2035</td></tr>
+            <tr><td><strong>Germany</strong></td><td>NUB Status 1 &rarr; OPS code &rarr; DRG</td><td>&mdash;</td><td>Statutory health insurance</td><td>2035</td></tr>
+            <tr><td><strong>USA</strong></td><td>FDA De Novo + PCCP (AI change control)<sup>[7]</sup></td><td>II</td><td>CPT code / Medicare</td><td>2038</td></tr>
+            <tr><td><strong>Japan</strong></td><td>PMDA Sakigake designation</td><td>Program Device</td><td>NHI reimbursement</td><td>2037</td></tr>
+            <tr><td><strong>China</strong></td><td>NMPA Innovation + bridging study</td><td>III</td><td>NRDL negotiation</td><td>2038</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Clinical Validation Pathway</h3>
+    <p>The validation follows a gated pathway modeled on recent successful trials in the field<sup>[9,23]</sup>:</p>
+    <table>
+        <thead><tr><th style="width:20%">Phase</th><th style="width:12%">Months</th><th>Objective</th><th style="width:22%">Deliverable</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Retrospective Validation</strong></td><td>M 2&ndash;8</td><td>Train and validate the 8-pattern classifier on existing ICU datasets. No patient contact.</td><td>Classifier validation report. Sensitivity/specificity per pattern.</td></tr>
+            <tr><td><strong>Clinical Pilot</strong></td><td>M 9&ndash;18</td><td>Prospective observational study at 2&ndash;3 ICUs. Non-interventional: the system runs in advisory mode only.</td><td>Pilot data. Usability feedback. Safety profile.</td></tr>
+            <tr><td><strong>Pivotal RCT</strong></td><td>M 19&ndash;36</td><td>500-patient multicenter randomized controlled trial. Interventional: the system controls ventilation parameters.</td><td>Primary endpoint: ventilator-free days at day 28. Regulatory submission.</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Reimbursement Strategy</h3>
+    <p>In Germany, the NUB pathway allows hospitals to apply for supplementary funding for novel procedures. If the system demonstrates a reduction in ICU length of stay for neurogenic weaning patients, the economic argument for reimbursement is self-evident: each day in the ICU costs &euro;1,200&ndash;&euro;1,800, and successful weaning eliminates the &euro;240,000 annual cost of home mechanical ventilation.</p>
+    <p class="note">All client-identifying features have been removed. Dr. Nabil Ktari, M.D. &middot; Specialist in Internal Medicine &middot; Work Sample &middot; Anonymized &middot; 2026</p>
+</section>
+
+<!-- ── PAGE 5: REGULATIONS AND HURDLES ─────────────────────── -->
+<section class="sheet">
+    <div class="doc-kicker">Case Study &middot; Neural-State Ventilation Engine &middot; 5/5 Regulations &amp; Hurdles</div>
+
+    <h2>7. Regulatory Strategy for SaMD</h2>
+    <p>Under the EU AI Act<sup>[6]</sup>, AI systems that are safety components of medical devices are classified as high-risk. Compliance measures &mdash; algorithmic risk management, model transparency, human-in-the-loop oversight, and post-market monitoring &mdash; are baked into the software architecture from the outset. The MDCG 2025-6 guidance clarifies the interplay between the AI Act and the MDR<sup>[32]</sup>: the MDR determines the device classification, while the AI Act adds horizontal requirements on top.</p>
+
+    <table>
+        <thead><tr><th style="width:18%">Requirement</th><th style="width:32%">MDR 2017/745</th><th style="width:32%">AI Act 2024/1689</th><th>How Addressed</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Risk management</strong></td><td>ISO 14971 risk management file</td><td>AI-specific risk management system (Art. 9)</td><td>Integrated QMS covering both frameworks</td></tr>
+            <tr><td><strong>Data governance</strong></td><td>Clinical evaluation (Annex XIV)</td><td>Training/validation/test data quality (Art. 10)</td><td>Federated learning preserves data sovereignty</td></tr>
+            <tr><td><strong>Transparency</strong></td><td>Technical documentation (Annex II)</td><td>Technical documentation + user transparency (Art. 13)</td><td>Pattern confidence scores displayed to clinician</td></tr>
+            <tr><td><strong>Human oversight</strong></td><td>Operator information (Annex I &sect;3)</td><td>Human-in-the-loop override (Art. 14)</td><td>Single-tap override; safety floor is deterministic</td></tr>
+            <tr><td><strong>Post-market</strong></td><td>PMCF (Annex XIV Part B)</td><td>Post-market monitoring (Art. 72)</td><td>Automated event logging + periodic model audit</td></tr>
+            <tr><td><strong>Change control</strong></td><td>Significant changes require re-certification</td><td>Predetermined Change Control Plan (PCCP)<sup>[7]</sup></td><td>PCCP enables AI updates without full resubmission</td></tr>
+        </tbody>
+    </table>
+
+    <h2>8. System Limitations and Clinical Unknowns</h2>
+    <p><strong>Training Data Gap.</strong> The eight-pattern taxonomy is based on established clinical observation, and the underlying neural models are scientifically validated<sup>[1,2,3]</sup>. However, real-time closed-loop control based on these classifications has not yet been proven to improve weaning outcomes in human trials. The ACTiVE trial<sup>[33]</sup> showed that early automated closed-loop ventilation did not increase ventilator-free days &mdash; a cautionary result that underscores the need for rigorous validation before deployment.</p>
     <p><strong>Hardware Scaling.</strong> Transcutaneous stimulation requires higher current than implanted electrodes. It remains an engineering challenge to ensure that a current high enough to elicit meaningful diaphragm contraction is consistently well-tolerated by critically ill patients, accounting for variable skin impedance and clinical edema.</p>
-    <p><strong>Classification Boundaries.</strong> Biological breathing patterns are rarely discrete; a patient may transition from Cheyne-Stokes to central apnea dynamically. The ML classifier outputs a probability distribution to handle this noise, but clinical acceptance of probabilistic UI outputs over binary labels requires targeted usability engineering.</p>
+    <p><strong>Classification Boundaries.</strong> Biological breathing patterns are rarely discrete; a patient may transition from Cheyne-Stokes to central apnea dynamically. The ML classifier outputs a probability distribution to handle this noise, but clinical acceptance of probabilistic UI outputs requires targeted usability engineering.</p>
 
-    <h2>7. Platform &amp; Digital Biomarker Extensions</h2>
-    <p><strong>Digital Biomarkers for Neuro-Monitoring.</strong> The edge inference pipeline can function independently as a continuous neural-state monitor. Patients who wean successfully but fail to recover healthy biological variability (e.g., normal Hurst exponents) remain at high risk for re-intubation. A standalone software monitor could serve subacute units without needing the pneumatic ventilator hardware.</p>
-    <p><strong>IoT Home Care Integration.</strong> The sensing belt and edge compute module could support long-term home ventilation patients, feeding the federated learning network and improving remote compliance monitoring outside the intensive care unit.</p>
-    <p><strong>Predictive Pharmacological Modeling.</strong> Because the system reads the neural oscillator&rsquo;s output, it can detect respiratory changes induced by drugs &mdash; such as opioid depression or sedative blunting &mdash; before they manifest as critical blood gas abnormalities. This creates a novel early-warning digital biomarker for respiratory pharmacology.</p>
+    <h2>9. Platform Extensions</h2>
+    <p><strong>Digital Biomarkers.</strong> The edge inference pipeline can function independently as a continuous neural-state monitor. Patients who wean successfully but fail to recover healthy biological variability (e.g., normal Hurst exponents) remain at high risk for re-intubation.</p>
+    <p><strong>IoT Home Care.</strong> The sensing belt and edge compute module could support long-term home ventilation patients, feeding the federated learning network and improving remote compliance monitoring outside the ICU.</p>
+    <p><strong>Predictive Pharmacology.</strong> Because the system reads the neural oscillator&rsquo;s output, it can detect respiratory changes induced by drugs &mdash; such as opioid depression or sedative blunting &mdash; before they manifest as critical blood gas abnormalities.</p>
 
-    <h2>8. Selected References</h2>
+    <h2>10. References</h2>
+</section>
+
+<!-- ── PAGE 6: REFERENCES ──────────────────────────────────── -->
+<section class="sheet">
+    <div class="doc-kicker">Case Study &middot; Neural-State Ventilation Engine &middot; 6/6 References</div>
+    <h2>10. References</h2>
     <ol class="ref-list">
         <li>Summ C, et al. Disordered breathing patterns in brainstem injury: A clinical taxonomy. <em>Respir Physiol Neurobiol</em>. 2022;300:103869.</li>
         <li>Bush NE, Ramirez JM. The ventral respiratory column operates as a rotational latent manifold. <em>Nat Neurosci</em>. 2024;27(2):259-271.</li>
         <li>De Toni L, Perricone F, et al. A computational model of the respiratory CPG for the artificial control of breathing. <em>Bioengineering</em>. 2025;12(1):1163.</li>
-        <li>Michels JD, et al. The economic burden of weaning failure in neurocritical care. <em>Respiration</em>. 2023;102(9):813-820.</li>
-        <li>Kaissis GA, Makowski MR, R&uuml;ckert D, Braren RF. Secure, privacy-preserving and federated machine learning in medical imaging. <em>Nat Mach Intell</em>. 2020;2(6):305-311.</li>
-        <li>European Parliament and Council. Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). <em>Official Journal of the European Union</em>. 2024.</li>
-        <li>U.S. Food and Drug Administration (FDA). Marketing Submission Recommendations for a Predetermined Change Control Plan for Artificial Intelligence/Machine Learning (AI/ML)-Enabled Device Software Functions. <em>FDA Guidance Document</em>. 2024.</li>
+        <li>Michels JD, et al. Costs of weaning failure: A prospective, multicentre, controlled, non-randomised, interventional study on economic implications for the German health care system. <em>Respiration</em>. 2023;102(9):813-820.</li>
+        <li>Kaissis GA, et al. Secure, privacy-preserving and federated machine learning in medical imaging. <em>Nat Mach Intell</em>. 2020;2(6):305-311.</li>
+        <li>European Parliament and Council. Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (AI Act). <em>Off J Eur Union</em>. 2024.</li>
+        <li>U.S. FDA. Marketing Submission Recommendations for a Predetermined Change Control Plan for AI/ML-Enabled Device Software Functions. <em>FDA Guidance</em>. 2024.</li>
         <li>Bundesgesetzblatt. Intensivpflege- und Rehabilitationsst&auml;rkungsgesetz (IPReG). <em>BGBl. I S. 2220</em>. 2020.</li>
+        <li>Schaaf K, et al. The ReInvigorate Study &mdash; phrenic nerve-to-diaphragm stimulation. <em>Trials</em>. 2024;25(1):283.</li>
+        <li>Schreiber AF, et al. STIMIT ACTIVATOR 1 pivotal trial: non-invasive phrenic nerve stimulation. <em>Trials</em>. 2025;26(1):228.</li>
+        <li>European Parliament and Council. Regulation (EU) 2017/745 on medical devices (MDR). <em>Off J Eur Union</em>. 2017;L 117.</li>
+        <li>Medical Device Coordination Group. MDCG 2019-11: guidance on qualification and classification of software. Brussels: European Commission; 2019.</li>
+        <li>Misseri G, et al. Artificial intelligence for mechanical ventilation: a transformative shift in critical care. <em>PMC11555733</em>. 2024.</li>
+        <li>Liu S, et al. Reinforcement learning to optimize ventilator settings. <em>JMIR</em>. 2024;22:e44494.</li>
+        <li>Park J, et al. Two-stream convolutional neural networks for breathing pattern classification. <em>Bioengineering</em>. 2024;11(7):709.</li>
+        <li>DiMarco AF. Phrenic nerve stimulation in patients with spinal cord injury. <em>Respir Physiol Neurobiol</em>. 2009;169(2):200-209.</li>
+        <li>Onders RP, et al. Complete worldwide operative experience in laparoscopic diaphragm pacing. <em>Surg Endosc</em>. 2009;23(7):1433-1440.</li>
+        <li>Hirschfeld S, et al. Mechanical ventilation or phrenic nerve stimulation for SCI-induced respiratory insufficiency. <em>Spinal Cord</em>. 2008;46(11):738-742.</li>
+        <li>Garara B, et al. Intramuscular diaphragmatic stimulation for traumatic high cervical injuries. <em>Injury</em>. 2016;47(3):539-544.</li>
+        <li>Romero-Ganuza FJ, et al. Long-term evaluation of phrenic nerve pacing. <em>Spinal Cord</em>. 2012;50(12):895-898.</li>
+        <li>Elefteriades JA, et al. Long-term follow-up of pacing of the conditioned diaphragm in quadriplegia. <em>Pacing Clin Electrophysiol</em>. 2002;25(6):897-906.</li>
+        <li>Zhang Q, et al. Effects of external diaphragm pacing combined with non-invasive ventilation. <em>Front Med</em>. 2025;12:1596850.</li>
+        <li>Medical Device Coordination Group. MDCG 2025-6: Interplay between the AI Act and MDR/IVDR. Brussels: European Commission; 2025.</li>
+        <li>Karagiannidis C, et al. In-hospital mortality, comorbidities, and costs of one million mechanically ventilated patients in Germany. <em>Lancet Respir Med</em>. 2024.</li>
+        <li>Frontiers in Neurology. Characterization of individuals in home-based intensive care in Germany. 2026;17:1784277.</li>
+        <li>Yayan S, et al. Weaning failure in elderly patients: a systematic review. <em>J Clin Med</em>. 2024;13(21):6429.</li>
+        <li>Meta-analysis: Diaphragm pacing weaning success rate in SCI (75%, 95% CI: 69-81%). <em>PMC13540838</em>. 2025.</li>
+        <li>ACTiVE Trial. Effect of automated closed-loop ventilation vs protocolized conventional ventilation. <em>JAMA</em>. 2025.</li>
     </ol>
+    <p class="note">All client-identifying features have been removed. The method &mdash; edge AI pattern classification, closed-loop neural timing, transcutaneous phrenic pacing, and staged SaMD regulatory validation &mdash; is an original architecture. Dr. Nabil Ktari, M.D. &middot; Specialist in Internal Medicine &middot; Work Sample &middot; Anonymized &middot; 2026</p>
+</section>
 
-    <p class="note">All client-identifying features have been removed. The method &mdash; edge AI pattern classification, closed-loop neural timing, transcutaneous phrenic pacing, and staged SaMD regulatory validation &mdash; is an original architecture transferable to other closed-loop physiological control platforms. Dr. Nabil Ktari, M.D. &middot; Specialist in Internal Medicine &middot; Work Sample &middot; Anonymized &middot; 2026</p>
-</div>
 </body>
 </html>
