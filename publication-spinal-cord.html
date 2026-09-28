@@ -11,34 +11,157 @@
 :root {
     --navy: #16324f;
     --blue: #46698f;
+    --steel: #334155;
+    --muted: #64748b;
     --orange: #e95d0e;
     --paper: #f8fafc;
-    --text: #334155;
+    --surface: #ffffff;
+    --border: #e2e8f0;
     --font-sans: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
 }
-body { font-family: var(--font-sans); background: var(--paper); color: var(--text); line-height: 1.6; padding: 40px 20px; }
-.container { max-width: 800px; margin: 0 auto; background: white; padding: 60px; box-shadow: 0 4px 30px rgba(0,0,0,0.05); border-radius: 8px; }
-h1 { font-size: 2.2rem; color: var(--navy); line-height: 1.2; margin-bottom: 20px; }
-.meta { font-size: 0.9rem; color: var(--blue); border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 30px; }
-.authors { font-weight: 600; margin-bottom: 10px; }
-h2 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); margin-top: 40px; margin-bottom: 15px; }
-p { margin-bottom: 15px; text-align: justify; }
-.back-link { display: inline-block; margin-top: 50px; color: var(--blue); text-decoration: none; font-weight: 500; }
-.back-link:hover { color: var(--orange); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); background: var(--paper); color: var(--steel); line-height: 1.7; padding: 40px 20px; -webkit-font-smoothing: antialiased; }
+.container { max-width: 820px; margin: 0 auto; background: var(--surface); padding: 60px 70px; box-shadow: 0 4px 30px rgba(0,0,0,0.05); border-radius: 8px; }
+
+.kicker { font-family: var(--font-mono); font-size: 10px; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; font-weight: 600; }
+h1 { font-size: 26px; color: var(--navy); line-height: 1.3; margin-bottom: 20px; font-weight: 600; }
+
+.meta-block { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; margin-bottom: 36px; }
+.authors { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; line-height: 1.5; }
+.affiliations { font-size: 11px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+.journal { font-family: var(--font-mono); font-size: 11px; color: var(--blue); font-weight: 500; }
+.correspondence { font-size: 11px; color: var(--muted); margin-top: 8px; }
+
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--orange); margin-top: 36px; margin-bottom: 14px; font-weight: 600; }
+h3 { font-size: 14px; color: var(--navy); margin-top: 24px; margin-bottom: 10px; font-weight: 600; }
+
+p { margin-bottom: 14px; font-size: 13px; text-align: justify; color: var(--steel); line-height: 1.75; }
+
+.abstract-block { background: var(--paper); padding: 24px 28px; border-radius: 6px; border-left: 4px solid var(--blue); margin-bottom: 30px; }
+.abstract-block p { font-size: 12.5px; }
+.abstract-label { font-weight: 600; color: var(--navy); }
+
+.keywords { margin-top: 16px; font-size: 12px; color: var(--muted); }
+.keywords strong { color: var(--navy); }
+
+.ref-list { margin: 16px 0 0 20px; font-size: 11px; color: var(--muted); line-height: 1.6; counter-reset: ref; }
+.ref-list li { margin-bottom: 6px; padding-left: 4px; }
+.ref-list li::before { content: counter(ref) ". "; counter-increment: ref; font-weight: 600; color: var(--blue); }
+
+.abbrev-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 11px; }
+.abbrev-table td { padding: 4px 10px; border-bottom: 1px solid var(--border); }
+.abbrev-table td:first-child { font-weight: 600; color: var(--navy); width: 25%; font-family: var(--font-mono); font-size: 10px; }
+.abbrev-table td:last-child { color: var(--muted); }
+
+.note { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--border); }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>Sustained participation and quality of life after three decades of phrenic nerve stimulation and home mechanical ventilation in high cervical spinal cord injury</h1>
-    <div class="meta">
-        <div class="authors">Laura Peiler, Nabil Ktari, Maria-Cristina Hallwachs, Sven Hirschfeld, Martin Groß</div>
-        <div>Springer Nature · Spinal Cord · Case Report (Accepted 2026)</div>
+    <div class="kicker">Publication &middot; Springer Nature &middot; Spinal Cord</div>
+    <h1>Sustained participation and quality of life after three decades of phrenic nerve stimulation and home mechanical ventilation in high cervical spinal cord injury: a clinical case report</h1>
+
+    <div class="meta-block">
+        <div class="authors">Laura Peiler<sup>1+</sup>, Nabil Ktari<sup>2+</sup>, Maria-Cristina Hallwachs<sup>3,4</sup>, Sven Hirschfeld<sup>4,5</sup>, Martin Gro&szlig;<sup>1,4,6</sup></div>
+        <div class="affiliations">
+            <sup>1</sup>Faculty VI Medicine and Health Sciences, Carl von Ossietzky Universit&auml;t Oldenburg, Oldenburg, Germany<br>
+            <sup>2</sup>Evangelisches Krankenhaus Oldenburg, Oldenburg, Germany<br>
+            <sup>3</sup>F&ouml;rdergemeinschaft der Querschnittgel&auml;hmten in Deutschland e.V. (FGQ), Stuttgart, Germany<br>
+            <sup>4</sup>Deutsche Interdisziplin&auml;re Gesellschaft f&uuml;r Au&szlig;erklinische Beatmung und Intensivversorgung (DIGAB), Bovenden-Lengern, Germany<br>
+            <sup>5</sup>BG Klinikum Hamburg, Hamburg, Germany<br>
+            <sup>6</sup>MEDIAN Klinik Bad Tennstedt, Bad Tennstedt, Germany<br>
+            <sup>+</sup>Equal contributions
+        </div>
+        <div class="journal">Spinal Cord &middot; Case Report &middot; Accepted 2026</div>
+        <div class="correspondence">Correspondence: Sven Hirschfeld &mdash; s.hirschfeld@bgk-hamburg.de</div>
     </div>
+
     <h2>Abstract</h2>
-    <p>Healthcare professionals generally underestimate quality of life (QOL) after high cervical spinal cord injury (SCI) with ventilator dependence compared with patient self-reports. This case provides long-term observational data from a community-dwelling individual with high cervical spinal cord injury...</p>
+    <div class="abstract-block">
+        <p><span class="abstract-label">Study Design:</span> Case Report</p>
+        <p><span class="abstract-label">Objectives:</span> Healthcare professionals generally underestimate quality of life (QOL) after high cervical spinal cord injury (SCI) with ventilator dependence compared with patient self-reports. This case provides long-term observational data from a community-dwelling individual with high cervical spinal cord injury that may inform prognostic counseling in the acute setting by broadening awareness of long-term outcome variability and may also inform rehabilitation by illustrating achievable levels of participation in selected individuals.</p>
+        <p><span class="abstract-label">Setting:</span> Long-term care in Germany</p>
+        <p><span class="abstract-label">Methods:</span> Clinical case report and semi-structured interview</p>
+        <p><span class="abstract-label">Results:</span> A woman sustained C1&ndash;C3, AIS A tetraplegia from a diving accident at age 18. Tracheostomy and continuous mechanical ventilation were implemented. Bilateral phrenic nerve stimulator implantation at one year post-injury permitted daytime ventilator-free breathing and physiological speech. Following 15 months of inpatient treatment, she was discharged home with 24-hour intensive nursing care and has never lived in an institutional setting. Now aged 50, she has held leadership positions in national organizations promoting the rights of people with disability and users of home mechanical ventilation and out-of-hospital intensive care, chairs a charitable foundation, and travels internationally. She reported high life satisfaction and described her work as both exhausting and meaningful, stating that caring for her body enables her to fulfil responsibilities from which she derives purpose.</p>
+        <p><span class="abstract-label">Conclusion:</span> Complete high cervical tetraplegia with ventilator dependence was compatible with three decades of community living, professional leadership, and reported well-being. Factors associated with this outcome included community-based living, family resources, the ability to speak, and sustained engagement in meaningful activity. This case illustrates that quality of life after SCI is influenced by multiple interacting factors, including participation and perceived control, alongside neurological status.</p>
+        <p class="keywords"><strong>Keywords:</strong> spinal cord injury, quality of life, phrenic nerve stimulation, home mechanical ventilation, out-of-hospital intensive care</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>High cervical spinal cord injury (SCI) involving the C5 segment or above may result in tetraplegia and ventilatory pump failure, necessitating mechanical ventilation. Clinicians counseling patients and families in the acute setting often assume that such injuries preclude a satisfying life [1, 2]. Emergency care providers significantly underestimate QOL in this population compared with patient self-report [1]. Life expectancy data for ventilator-dependent persons with SCI, although improving, remain sobering: first-year mortality is substantial, and long-term survival requires vigilant respiratory management [3, 4].</p>
+    <p>Research spanning four decades does not support prognostic nihilism. Semi-structured interviews with 15 individuals with complete C4-level injuries or higher showed that life with high SCI can be fulfilling if there is adequate support from society [5]. Bach and Tilton found no significant difference in life satisfaction between persons with high tetraplegia who were ventilator-dependent and those who were not: ventilator users were, in fact, more satisfied with housing, family life, and employment [6]. Subsequent systematic reviews, meta-analyses, and longitudinal cohort studies have consistently shown that subjective well-being after spinal cord injury is primarily associated with psychosocial and participation-related factors, including social support, perceived control, coping processes, and engagement in meaningful activities [7&ndash;15]. Albrecht and Devlieger termed the discrepancy between objective impairment and subjective well-being the &ldquo;disability paradox&rdquo; [16].</p>
+    <p>Phrenic nerve stimulation (PNS) and intramuscular diaphragm pacing systems (DPS) are neuromodulatory techniques that restore diaphragmatic ventilation in patients with high cervical spinal cord injury by either direct electrical stimulation of the phrenic nerve or implantation of electrodes into the diaphragm muscle [19&ndash;22]. By electrically activating the diaphragm, these techniques can enable ventilator-free intervals and, in selected cases, long-term weaning from mechanical ventilation [19&ndash;23]. Reported benefits include improved speech production and reduced tracheostomy-related morbidity [21, 22]. Long-term data suggest that phrenic nerve stimulation can be maintained over many years and, in selected cases, for decades with appropriate device maintenance [23, 24]. Combined with adequate home-care infrastructure, PNS may support transition to home-based ventilation and increased functional independence in selected patients [19&ndash;21, 23, 24].</p>
+    <p>We report the 31-year outcome of a woman with complete C1&ndash;C3 tetraplegia who received bilateral PNS implantation at one year post-injury and has lived in her own home since discharge. Quality of life was assessed using a semi-structured interview, without administration of a standardized QoL instrument, to capture patient-defined perspectives and narrative accounts of long-term well-being [25].</p>
+
+    <h2>Case Presentation</h2>
+
+    <h3>Patient Information</h3>
+    <p>In May 1993, two weeks after completing secondary school, an 18-year-old woman dove into a swimming pool approximately one meter deep while on holiday in Greece. She sustained immediate complete paralysis but remained conscious. Her father provided rescue breathing at the scene. She was stabilized locally and transferred by air ambulance to a German spinal cord center the following day.</p>
+    <p>Imaging demonstrated an Anderson type II dens fracture with hemorrhage into the cervical spinal cord. The fracture was managed conservatively with Crutchfield tongs; no surgical stabilization was performed. Neurological examination confirmed sensorimotor complete tetraplegia: motor level C1, sensory level C3&ndash;C4, American Spinal Injury Association Impairment Scale (AIS) grade A. Invasive mechanical ventilation was required from injury onset.</p>
+
+    <h3>Clinical Findings</h3>
+    <p>Voluntary movement was absent in all extremities. Sensation to light touch and pinprick was absent below C4. Deep tendon reflexes were initially absent; spasticity developed over subsequent months. Respiratory examination confirmed absent diaphragmatic movement bilaterally. Phrenic nerve conduction testing demonstrated preserved phrenic nerve function, supporting eligibility for phrenic nerve stimulation [19]. Complications during acute hospitalization included an occipital pressure injury with resulting permanent alopecia, recurrent urinary tract infections, neurogenic bladder, and secondary hypopituitarism requiring hormone replacement.</p>
+
+    <h3>Timeline</h3>
+    <p>In May 1993, the patient sustained a diving-related high cervical spinal cord injury resulting in complete sensorimotor tetraplegia. Acute management included Crutchfield traction, tracheostomy, and invasive mechanical ventilation. She remained hospitalized for 15 months. In February 1994, a bilateral phrenic nerve stimulator was implanted, followed by diaphragm conditioning and home modifications. She was discharged home in mid-1994 with 24-hour intensive nursing care. Daytime ventilator-free breathing was achieved, and the tracheostomy was decannulated during daytime periods, enabling physiological phonation. Between 2003 and 2004, recurrent pneumonias necessitated nocturnal positive pressure ventilation, establishing a hybrid respiratory support regimen. In May 2023, failure of the left-sided phrenic nerve stimulator necessitated surgical replacement. In 2025, the external stimulator was upgraded to a waterproof system.</p>
+
+    <h3>Current Management</h3>
+    <p>Respiratory support combines daytime phrenic nerve stimulation with nocturnal assisted pressure-controlled ventilation. During the day, bilateral PNS is applied via external induction coils; the mechanical ventilator is disconnected, the tracheal tube is removed, and the tracheostoma is occluded, allowing physiological inspiration through the upper airway and spoken communication. At night, assisted pressure-controlled ventilation (APCV) is applied via the tracheal tube. Airway clearance follows a structured daily regimen consisting of mechanical insufflation-exsufflation three times daily, oscillating vest therapy, heated humidification, salbutamol nebulization, and tracheal suctioning [26].</p>
+    <p>Care is provided by a 24-hour specialized nursing service; the current provider has cared for her continuously for eight years. Transfers are performed manually using kinesthetic techniques. Daily care is supported by a height-adjustable bed and a shower stretcher.</p>
+
+    <h3>Living Situation and Participation</h3>
+    <p>While physical structural modifications addressed basic mobility requirements, the patient&rsquo;s high-level motor impairment necessitated a secondary phase of digital integration. A Voice-User Interface (VUI) was implemented as an Ambient Assisted Living (AAL) layer, allowing autonomous control of lighting, thermoregulation, and communication protocols, effectively bridging the gap between physical accessibility and functional independence.</p>
+    <p>She operates her wheelchair via chin control and travels in an adapted van equipped with a lift and stretcher. Over three decades, her roles have included co-founding a Center for Independent Living, establishing peer counseling for users of home mechanical ventilation, contributing to clinical guideline development (DMGP S2k guideline), serving on the executive board of the DIGAB since 2023, co-organizing the DIGAB 2024 congress, and chairing the Board of Trustees of a family foundation for people with disabilities. She performed professionally with an international theatre ensemble, participated in assisted paragliding, speaks regularly at conferences, and travels annually to France.</p>
+
+    <h3>Patient Perspective</h3>
+    <p>The patient described her activities as exhausting but enriching. She stated that caring for her body makes sense because it enables her to fulfil responsibilities from which she derives meaning. She regards the accident not as loss but as the origin of work she values, particularly peer support for newly injured individuals. She reported persistent prejudice: strangers assume intellectual disability based on visible impairment and altered speech. Despite these frustrations, she reported high life satisfaction, attributing it to meaningful work, social relationships, and control over her own daily schedule.</p>
+
+    <h2>Discussion</h2>
+    <p>At 31 years post-injury, this patient with complete C1&ndash;C3 tetraplegia, ventilator dependence, and phrenic nerve stimulation lives in her own home, has held leadership positions in national patient and professional organizations, travels internationally, and reports high life satisfaction. This case illustrates findings from the broader literature, which indicate that subjective well-being after spinal cord injury is not solely determined by injury severity. Meta-analyses and cohort studies suggest that neurological level, motor function, and respiratory independence are weak or indirect predictors of life satisfaction, whereas psychosocial and participation-related factors &mdash; including social support, income, meaningful occupation, perceived control, and social participation &mdash; are more consistently associated with subjective well-being [7, 8, 11&ndash;13, 27, 28].</p>
+    <p>Phrenic nerve stimulation was associated with ventilator-free breathing and phonation, facilitating social interaction and professional communication. In this case, recurrent pneumonias necessitated a transition from full-time pacing to a hybrid regimen consisting of daytime phrenic nerve stimulation and nocturnal mechanical ventilation. The device has functioned for more than 30 years with one surgical replacement and one system upgrade [20, 24, 30].</p>
+    <p>Two features of her trajectory warrant attention. First, she was never institutionalized. Nursing home residence is consistently associated with lower perceived control and reduced life satisfaction after spinal cord injury [8, 11, 31]. The 1994 decision to pursue home care, made by her family and a nursing team without prior experience in home ventilation, may have contributed to long-term community living. Second, she constructed meaningful occupation around disability-related work, including peer counseling, advocacy, guideline development, and foundation leadership. She described the accident as the source of work she values [32, 33].</p>
+
+    <h2>Limitations</h2>
+    <p>Several factors limit the generalizability of this observation. First, injury occurred at age 18, after completion of secondary education. Second, her family had the financial and practical resources to support the transition to home care. Third, the German statutory health and long-term care insurance system funded 24-hour specialized nursing at home, a level of publicly financed support not available across all healthcare systems. Fourth, her high level of social engagement reflects an individual life trajectory rather than a reproducible intervention. Finally, the case-report literature on long-term spinal cord injury outcomes is subject to publication bias favouring positive outcomes [34, 35].</p>
+
     <h2>Conclusion</h2>
-    <p>Complete high cervical tetraplegia with ventilator dependence was compatible with three decades of community living, professional leadership, and reported well-being. Factors associated with this outcome included community-based living, family resources, the ability to speak, and sustained engagement in meaningful activity.</p>
-    <a href="index.html" class="back-link">← Zurück zum Showroom</a>
+    <p>A woman with complete C1&ndash;C3 tetraplegia and ventilator dependence has lived at home for 31 years, never in an institutional setting. Daytime phrenic nerve stimulation enabled speech and extended periods without mechanical ventilation. She has built a career in disability advocacy, contributed to clinical guidelines, and chaired a charitable foundation. Her outcome depended on specific contextual conditions &mdash; early home discharge, functioning phrenic nerve stimulation, family resources, and a healthcare system that funded 24-hour nursing &mdash; which are not universally available. For clinicians counselling patients and families in the acute phase, this case adds a concrete long-term data point to the existing literature, highlighting the heterogeneity of outcomes and the importance of cautious prognostic framing.</p>
+
+    <h2>Abbreviations</h2>
+    <table class="abbrev-table">
+        <tr><td>AIS</td><td>American Spinal Injury Association Impairment Scale</td></tr>
+        <tr><td>APCV</td><td>Assisted pressure-controlled ventilation</td></tr>
+        <tr><td>DIGAB</td><td>Deutsche Interdisziplin&auml;re Gesellschaft f&uuml;r Au&szlig;erklinische Beatmung und Intensivversorgung</td></tr>
+        <tr><td>DMGP</td><td>Deutschsprachige Medizinische Gesellschaft f&uuml;r Paraplegiologie</td></tr>
+        <tr><td>DPS</td><td>Diaphragm pacing systems</td></tr>
+        <tr><td>ERCP</td><td>Endoscopic retrograde cholangiopancreatography</td></tr>
+        <tr><td>FGQ</td><td>F&ouml;rdergemeinschaft der Querschnittgel&auml;hmten in Deutschland e.V.</td></tr>
+        <tr><td>PNS</td><td>Phrenic nerve stimulation / phrenic nerve stimulator</td></tr>
+        <tr><td>QOL</td><td>Quality of life</td></tr>
+        <tr><td>SCI</td><td>Spinal cord injury</td></tr>
+    </table>
+
+    <h2>Selected References</h2>
+    <ol class="ref-list">
+        <li>Gerhart KA, et al. Quality of life following spinal cord injury: knowledge and attitudes of emergency care providers. <em>Ann Emerg Med</em>. 1994;23(4):807&ndash;812.</li>
+        <li>Ubel PA, et al. Misimagining the unimaginable: the disability paradox and health care decision making. <em>Health Psychol</em>. 2005;24(4S):S57&ndash;S62.</li>
+        <li>DeVivo MJ, Ivie CS. Life expectancy of ventilator-dependent persons with spinal cord injuries. <em>Chest</em>. 1995;108(1):226&ndash;232.</li>
+        <li>Shavelle RM, et al. Long-term survival of persons ventilator dependent after spinal cord injury. <em>J Spinal Cord Med</em>. 2006;29(5):511&ndash;519.</li>
+        <li>Hammell KW. Quality of life among people with high spinal cord injury living in the community. <em>Spinal Cord</em>. 2004;42(11):607&ndash;620.</li>
+        <li>Bach JR, Tilton MC. Life satisfaction and well-being measures in ventilator assisted individuals with traumatic tetraplegia. <em>Arch Phys Med Rehabil</em>. 1994;75(6):626&ndash;632.</li>
+        <li>Post MW, van Leeuwen CM. Psychosocial issues in spinal cord injury: a review. <em>Spinal Cord</em>. 2012;50(5):382&ndash;389.</li>
+        <li>Hammell KW. Quality of life after spinal cord injury: a meta-synthesis of qualitative findings. <em>Spinal Cord</em>. 2007;45(2):124&ndash;139.</li>
+        <li>Albrecht GL, Devlieger PJ. The disability paradox: high quality of life against all odds. <em>Soc Sci Med</em>. 1999;48(8):977&ndash;988.</li>
+        <li>DiMarco AF. Phrenic nerve stimulation in patients with spinal cord injury. <em>Respir Physiol Neurobiol</em>. 2009;169(2):200&ndash;209.</li>
+        <li>Hirschfeld S, et al. Mechanical ventilation or phrenic nerve stimulation for treatment of spinal cord injury-induced respiratory insufficiency. <em>Spinal Cord</em>. 2008;46(11):738&ndash;742.</li>
+        <li>Elefteriades JA, et al. Long-term follow-up of pacing of the conditioned diaphragm in quadriplegia. <em>Pacing Clin Electrophysiol</em>. 2002;25(6):897&ndash;906.</li>
+        <li>van Leeuwen CM, et al. Trajectories in the course of life satisfaction after spinal cord injury: identification and predictors. <em>Arch Phys Med Rehabil</em>. 2011;92(2):207&ndash;213.</li>
+        <li>Cao Y, et al. Life satisfaction trend and mortality after traumatic spinal cord injury: a cohort study. <em>Arch Phys Med Rehabil</em>. 2023;104(6):867&ndash;873.</li>
+        <li>Charlifue S, et al. Mechanical ventilation, health, and quality of life following spinal cord injury. <em>Arch Phys Med Rehabil</em>. 2011;92(3):457&ndash;463.</li>
+    </ol>
+
+    <p class="note">Author contributions: LP &mdash; data collection, writing (original draft). NK &mdash; conceptualization, writing (original draft). M-CH &mdash; patient perspective, data collection, writing (review). SH &mdash; writing (review). MG &mdash; conceptualization, writing (review). No funding received. Written informed consent obtained from the patient. The authors used generative AI (Anthropic Claude, DeepSeek V3) as a drafting and language-editing aid under full editorial supervision of the authors, who take responsibility for the accuracy and integrity of the content.</p>
 </div>
 </body>
 </html>
