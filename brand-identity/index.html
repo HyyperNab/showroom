@@ -160,20 +160,36 @@ p { margin-bottom: 14px; line-height: 1.7; }
 
 <nav class="top-nav" id="topnav">
     <div class="nav-inner">
-        <div class="nav-brand">Dr. Nabil Ktari, M.D.</div>
-        <button id="navtoggle" aria-label="Menu">&#9776;</button>
+        <a href="#cover" class="nav-brand">Dr. Nabil Ktari, M.D.</a>
         <div class="nav-links" id="navlinks">
-            <a href="#cover" class="active">Cover</a>
+            <a href="#cover">Cover</a>
             <a href="#toc">Index</a>
-            <a href="#clinical">Clinical</a>
-            <a href="#systems">Systems</a>
-            <a href="#research">Research</a>
-            <a href="#regulatory">Regulatory</a>
+            <div class="nav-dropdown">
+                <a href="#systems" class="dropdown-toggle">My Work ▾</a>
+                <div class="dropdown-menu">
+                    <a href="#clinical">Clinical</a>
+                    <a href="#systems">Systems</a>
+                    <a href="#regulatory">Regulatory</a>
+                </div>
+            </div>
             <a href="#services">Services</a>
+            <div class="nav-dropdown">
+                <a href="#abbreviations" class="dropdown-toggle">Annexes ▾</a>
+                <div class="dropdown-menu">
+                    <a href="#abbreviations">Abbreviations</a>
+                    <a href="#references">References</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="#disclaimer" class="dropdown-toggle">Legal ▾</a>
+                <div class="dropdown-menu">
+                    <a href="#disclaimer">NDA &amp; Consent</a>
+                    <a href="https://hyypernab.github.io/showroom/legal/" target="_blank">Impressum</a>
+                </div>
+            </div>
             <a href="#contact">Contact</a>
-            <a href="#abbreviations">Abbreviations</a>
-            <a href="#disclaimer">Disclaimer</a>
         </div>
+        <button class="nav-toggle" id="navtoggle" aria-label="Toggle navigation">&#9776;</button>
     </div>
 </nav>
 
