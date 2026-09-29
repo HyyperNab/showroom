@@ -109,7 +109,7 @@ p { margin-bottom: 14px; line-height: 1.7; }
 .nav-dropdown:hover .dropdown-menu { display: block; animation: fadeSlide 0.2s ease-out; }
 .dropdown-menu a { display: block; padding: 8px 16px; font-size: 12px; color: var(--steel); border: none; }
 .dropdown-menu a:hover { background: var(--paper); color: var(--teal); }
-.dropdown-toggle { cursor: default; }
+.dropdown-toggle { cursor: default; color: #ffffff; font-size: 12px; }
 
 .nda-block { background: var(--paper); border: 1px dashed var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--steel); line-height: 1.6; }
 .nda-divider { border: none; border-top: 1px dashed var(--border); margin: 14px 0; }
@@ -172,7 +172,7 @@ p { margin-bottom: 14px; line-height: 1.7; }
             <a href="#cover">Cover</a>
             <a href="#toc">Index</a>
             <div class="nav-dropdown">
-                <span class="dropdown-toggle" style="color: #ffffff;">My Work ▾</span>
+                <span class="dropdown-toggle">My Work ▾</span>
                 <div class="dropdown-menu">
                     <a href="#clinical">Clinical</a>
                     <a href="#systems">Systems</a>
@@ -181,14 +181,14 @@ p { margin-bottom: 14px; line-height: 1.7; }
             </div>
             <a href="#services">Services</a>
             <div class="nav-dropdown">
-                <span class="dropdown-toggle" style="color: #ffffff;">Annexes ▾</span>
+                <span class="dropdown-toggle">Annexes ▾</span>
                 <div class="dropdown-menu">
                     <a href="#abbreviations">Abbreviations</a>
                     <a href="#references">References</a>
                 </div>
             </div>
             <div class="nav-dropdown">
-                <span class="dropdown-toggle" style="color: #ffffff;">Legal ▾</span>
+                <span class="dropdown-toggle">Legal ▾</span>
                 <div class="dropdown-menu">
                     <a href="#disclaimer">NDA &amp; Consent</a>
                     <a href="https://hyypernab.github.io/showroom/legal/" target="_blank">Impressum</a>
@@ -450,15 +450,15 @@ p { margin-bottom: 14px; line-height: 1.7; }
     <h2 style="color: var(--navy); margin-bottom: 24px;">Consent, NDA &amp; Regulation</h2>
     
     <div class="disclaimer" style="margin-bottom: 20px;">
-        <strong style="color: var(--navy);">Client Consent:</strong> All client engagement case studies are published with explicit consent from the respective clients. Client identities, proprietary methods, and trade secrets have been removed or anonymized. No confidential information is disclosed. Clients may withdraw their consent at any time, upon which the relevant case study will be removed from this portfolio.
+        <strong style="color: var(--navy);">Client Consent:</strong> All client engagement case studies are published with explicit consent from the respective clients. Clients may withdraw their consent at any time, upon which the relevant case study will be removed from this portfolio.
+    </div>
+    
+    <div class="disclaimer" style="margin-bottom: 20px;">
+        <strong style="color: var(--navy);">Anonymization:</strong> Client identities, proprietary methods, and trade secrets have been removed or anonymized. Client names are replaced with sector descriptors (e.g., "DAX-40 Industrial," "European Longevity Startup"). No back-identification is possible from the published content. No confidential information is disclosed.
     </div>
     
     <div class="disclaimer" style="margin-bottom: 20px;">
         <strong style="color: var(--navy);">NDA Protection:</strong> Ongoing research collaborations are described at summary level only. Technical specifications, partner institutions, budget figures, and timelines are protected by NDA and available on request under authorization from all parties.
-    </div>
-    
-    <div class="disclaimer" style="margin-bottom: 20px;">
-        <strong style="color: var(--navy);">Anonymization:</strong> Client names are replaced with sector descriptors (e.g., "DAX-40 Industrial," "European Longevity Startup"). No back-identification is possible from the published content.
     </div>
     
     <div class="disclaimer" style="margin-bottom: 20px;">
@@ -469,10 +469,12 @@ p { margin-bottom: 14px; line-height: 1.7; }
         <strong style="color: var(--navy);">Applicable Law:</strong> This portfolio is operated under the laws of the Federal Republic of Germany. Content is provided for informational purposes only and does not constitute legal, regulatory, or medical advice. Any engagement arising from this portfolio is subject to a separate written agreement.
     </div>
     
-    <h3 style="margin-top: 32px; color: var(--navy);">Publications</h3>
+    <div class="disclaimer" style="margin-bottom: 20px;">
+        <strong style="color: var(--navy);">Publications:</strong> Peer-reviewed publications are cited with DOI or journal reference. Publication summaries link to the original journal or publisher pages. No content on this portfolio replaces the original peer-reviewed articles.
+    </div>
     
-    <h3 style="margin-top: 28px; color: var(--navy);">Impressum</h3>
-    <p style="font-size: 13px; color: var(--steel); line-height: 1.6;">Please follow this <a href="https://hyypernab.github.io/showroom/legal/" target="_blank">link</a> for the Impressum.</p>
+    <h3 style="margin-top: 28px; margin-bottom: 12px; color: var(--navy);">Impressum</h3>
+    <p style="font-size: 13px; color: var(--steel); line-height: 1.6;">Please follow this <a href="https://hyypernab.github.io/showroom/legal/" target="_blank" style="color: var(--steel); border-bottom: 1px solid var(--border);">link</a> for the Impressum.</p>
     
     <div class="slide-num">9</div>
 </section>
