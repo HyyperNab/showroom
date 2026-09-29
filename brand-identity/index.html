@@ -104,12 +104,12 @@ p { margin-bottom: 14px; line-height: 1.7; }
 .service-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
 .service-desc { font-size: 13px; color: var(--steel); line-height: 1.6; }
 
-.nav-dropdown { position: relative; display: inline-block; }
+.nav-dropdown { position: relative; display: flex; align-items: center; }
 .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-subtle); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 8px 0; min-width: 160px; z-index: 1001; }
 .nav-dropdown:hover .dropdown-menu { display: block; animation: fadeSlide 0.2s ease-out; }
 .dropdown-menu a { display: block; padding: 8px 16px; font-size: 12px; color: var(--steel); border: none; }
 .dropdown-menu a:hover { background: var(--paper); color: var(--teal); }
-.dropdown-toggle { cursor: default; color: #ffffff; font-size: 12px; }
+.dropdown-toggle { cursor: default; color: #ffffff; font-size: 12px; display: flex; align-items: center; height: 100%; }
 
 .nda-block { background: var(--paper); border: 1px dashed var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--steel); line-height: 1.6; }
 .nda-divider { border: none; border-top: 1px dashed var(--border); margin: 14px 0; }
@@ -270,12 +270,12 @@ p { margin-bottom: 14px; line-height: 1.7; }
 .service-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
 .service-desc { font-size: 13px; color: var(--steel); line-height: 1.6; }
 
-.nav-dropdown { position: relative; display: inline-block; }
+.nav-dropdown { position: relative; display: flex; align-items: center; }
 .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-subtle); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 8px 0; min-width: 160px; z-index: 1001; }
 .nav-dropdown:hover .dropdown-menu { display: block; animation: fadeSlide 0.2s ease-out; }
 .dropdown-menu a { display: block; padding: 8px 16px; font-size: 12px; color: var(--steel); border: none; }
 .dropdown-menu a:hover { background: var(--paper); color: var(--teal); }
-.dropdown-toggle { cursor: default; color: #ffffff; font-size: 12px; }
+.dropdown-toggle { cursor: default; color: #ffffff; font-size: 12px; display: flex; align-items: center; height: 100%; }
 
 .nda-block { background: var(--paper); border: 1px dashed var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--steel); line-height: 1.6; }
 .nda-divider { border: none; border-top: 1px dashed var(--border); margin: 14px 0; }
@@ -347,13 +347,6 @@ p { margin-bottom: 14px; line-height: 1.7; }
             </div>
             <a href="#services">Services</a>
             <div class="nav-dropdown">
-                <span class="dropdown-toggle">Annexes</span>
-                <div class="dropdown-menu">
-                    <a href="#abbreviations">Abbreviations</a>
-                    <a href="#references">References</a>
-                </div>
-            </div>
-            <div class="nav-dropdown">
                 <span class="dropdown-toggle">Legal</span>
                 <div class="dropdown-menu">
                     <a href="#disclaimer">NDA &amp; Consent</a>
@@ -361,6 +354,13 @@ p { margin-bottom: 14px; line-height: 1.7; }
                 </div>
             </div>
             <a href="#contact">Contact</a>
+            <div class="nav-dropdown">
+                <span class="dropdown-toggle">Annexes</span>
+                <div class="dropdown-menu">
+                    <a href="#abbreviations">Abbreviations</a>
+                    <a href="#references">References</a>
+                </div>
+            </div>
         </div>
         <button class="nav-toggle" id="navtoggle" aria-label="Toggle navigation">&#9776;</button>
     </div>
