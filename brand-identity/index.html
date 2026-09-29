@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Nabil Ktari, M.D. — Brand Identity Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --surface: #ffffff;
+    --paper: #f8fafc;
+    --border: #cbd5e1;
+    --border-subtle: #e2e8f0;
+    --ink: #0f172a;
+    --steel: #334155;
+    --muted: #64748b;
+    --navy: #16324f;
+    --blue: #46698f;
+    --blue-line: rgba(70, 105, 143, 0.35);
+    --orange: #e95d0e;
+    --teal: #0d9488;
+    --teal-light: #14b8a6;
+    --teal-bg: #f0fdfa;
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-snap-type: y mandatory; }
+body { font-family: var(--font-sans); color: var(--ink); background: var(--navy); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+/* ── Fade-in ── */
+@keyframes fadeSlide { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.slide { opacity: 0; }
+.slide.visible { animation: fadeSlide 0.4s ease-out both; }
+
+/* ── Slides ── */
+.slide {
+    width: 100vw; min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: stretch;
+    padding: 6vh 8vw; position: relative;
+    scroll-snap-align: start; scroll-snap-stop: always;
+    overflow: hidden; background: var(--surface); color: var(--ink);
+}
+.slide.dark { background: var(--navy); color: #e2e8f0; }
+.slide.dark h1, .slide.dark h2, .slide.dark h3 { color: #f1f5f9; }
+.slide.dark p { color: #cbd5e1 !important; }
+.slide.dark strong { color: #f1f5f9; }
+.slide.dark .kpi .val { color: var(--teal-light) !important; }
+.slide.dark .kpi .label { color: #94a3b8 !important; }
+.slide.dark .kpi { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); }
+.slide.dark .chip { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1); color: #e2e8f0; }
+.slide.dark .case-card { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
+.slide.dark .case-card .case-title { color: #f1f5f9; }
+.slide.dark .case-card .case-desc { color: #94a3b8; }
+.slide.dark .nda-block { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.08); color: #64748b; }
+.slide.dark th { background: rgba(255,255,255,0.1); color: #f1f5f9; }
+.slide.dark td { color: #94a3b8; border-color: rgba(255,255,255,0.06); }
+
+/* ── Navigation ── */
+nav.top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(15,23,42,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; }
+nav.top-nav.hidden { transform: translateY(-100%); }
+.nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 20px; }
+.nav-brand { font-family: var(--font-mono); font-size: 12px; color: #e2e8f0; font-weight: 600; letter-spacing: 1px; white-space: nowrap; }
+.nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+.nav-links a { color: #94a3b8; font-size: 12px; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover, .nav-links a.active { color: var(--orange); }
+#navtoggle { display: none; background: none; border: none; color: #e2e8f0; font-size: 20px; cursor: pointer; }
+
+/* ── Typography ── */
+h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 600; letter-spacing: -1px; margin-bottom: 12px; }
+h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 600; margin-bottom: 20px; letter-spacing: -0.5px; }
+h3 { font-size: clamp(16px, 2vw, 20px); font-weight: 600; margin-bottom: 12px; }
+p { margin-bottom: 14px; line-height: 1.7; }
+
+/* ── Components ── */
+.kicker { font-family: var(--font-mono); font-size: 11px; color: var(--orange); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; margin-bottom: 30px; }
+.slide.dark .kicker { color: var(--orange); }
+
+.nutshell { background: var(--paper); border-left: 4px solid var(--orange); padding: 28px 36px; border-radius: 0 8px 8px 0; max-width: 700px; margin: 0 auto; }
+.nutshell p { font-size: 16px; line-height: 1.8; color: var(--steel); }
+
+.kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 30px 0; }
+.kpi { background: var(--paper); border: 1px solid var(--border-subtle); border-top: 3px solid var(--blue); border-radius: 8px; padding: 18px 14px; text-align: center; }
+.kpi .val { font-family: var(--font-mono); font-size: clamp(22px, 2.5vw, 30px); font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.kpi .label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; font-weight: 500; }
+
+.case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 20px; }
+.case-card { background: var(--paper); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; }
+.case-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.case-codename { font-family: var(--font-mono); font-size: 10px; color: var(--muted); margin-bottom: 8px; }
+.case-desc { font-size: 13px; color: var(--steel); margin-bottom: 12px; line-height: 1.5; flex-grow: 1; }
+.case-fokus { font-family: var(--font-mono); font-size: 10px; color: var(--muted); margin-bottom: 10px; }
+.case-fokus strong { color: var(--orange); }
+.case-link { font-family: var(--font-mono); font-size: 11px; border-top: 1px solid var(--border-subtle); padding-top: 10px; }
+.case-link a { color: var(--orange); font-weight: 600; text-decoration: none; }
+.case-link a:hover { text-decoration: underline; }
+
+.chip-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0; }
+.chip { background: var(--teal-bg); border: 1px solid var(--teal); padding: 10px 20px; border-radius: 4px; font-family: var(--font-mono); font-size: 13px; color: var(--teal); font-weight: 600; }
+
+.service-card { background: var(--paper); border: 1px solid var(--border-subtle); border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; padding: 24px 28px; margin-bottom: 16px; }
+.service-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.service-desc { font-size: 13px; color: var(--steel); line-height: 1.6; }
+
+.nda-block { background: var(--paper); border: 1px dashed var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.nda-divider { border: none; border-top: 1px dashed var(--border); margin: 14px 0; }
+.nda-label { font-family: var(--font-mono); font-size: 10px; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+
+.disclaimer { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--steel); line-height: 1.6; }
+.disclaimer strong { color: var(--navy); }
+
+.reg-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.reg-table th { text-align: left; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--border); }
+.reg-table td { padding: 10px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--steel); vertical-align: top; }
+.reg-table td:first-child { font-weight: 600; color: var(--navy); }
+
+.abbr-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 11px; }
+.abbr-table th { text-align: left; font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding: 4px 10px; border-bottom: 2px solid var(--border); }
+.abbr-table td { padding: 3px 10px; border-bottom: 1px solid var(--border-subtle); color: var(--steel); }
+.abbr-table td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
+.ref-list { font-size: 11px; line-height: 1.65; color: var(--steel); padding-left: 20px; margin-top: 16px; column-count: 2; column-gap: 24px; }
+.ref-list li { margin-bottom: 6px; break-inside: avoid; padding-left: 16px; text-indent: -16px; }
+
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 14px; padding: 0; max-width: 500px; margin: 0 auto; }
+.toc-list a { font-size: 16px; font-weight: 500; color: var(--steel); text-decoration: none; transition: color 0.2s; }
+.toc-list a:hover { color: var(--orange); }
+
+.pub-item { border-left: 3px solid var(--blue); padding: 18px 22px; margin-bottom: 20px; background: var(--paper); border-radius: 0 8px 8px 0; }
+.pub-title { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 6px; }
+.pub-meta { font-family: var(--font-mono); font-size: 11px; color: var(--blue); font-weight: 500; margin-bottom: 8px; }
+.pub-link a { font-family: var(--font-mono); font-size: 11px; color: var(--orange); font-weight: 600; text-decoration: none; }
+
+.slide-num { position: absolute; bottom: 4vh; right: 5vw; font-family: var(--font-mono); font-size: 10px; color: var(--muted); }
+.slide.dark .slide-num { color: #475569; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(15,23,42,0.98); flex-direction: column; padding: 16px; gap: 12px; }
+    .nav-links.open { display: flex; }
+    #navtoggle { display: block; }
+    .slide { padding: 5vh 6vw; }
+    .case-grid { grid-template-columns: 1fr; }
+    .kpi-row { grid-template-columns: 1fr; }
+    .reg-table { font-size: 11px; }
+    .reg-table th, .reg-table td { padding: 6px 8px; }
+}
+
+@media print {
+    html { scroll-snap-type: none; }
+    body { background: white; }
+    .slide { page-break-after: always; min-height: auto; padding: 15mm 18mm; }
+    .slide:last-child { page-break-after: auto; }
+    .slide-num, nav.top-nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav" id="topnav">
+    <div class="nav-inner">
+        <div class="nav-brand">Dr. Nabil Ktari, M.D.</div>
+        <button id="navtoggle" aria-label="Menu">&#9776;</button>
+        <div class="nav-links" id="navlinks">
+            <a href="#cover" class="active">Cover</a>
+            <a href="#toc">Index</a>
+            <a href="#clinical">Clinical</a>
+            <a href="#systems">Systems</a>
+            <a href="#research">Research</a>
+            <a href="#regulatory">Regulatory</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+            <a href="#abbreviations">Abbreviations</a>
+            <a href="#disclaimer">Disclaimer</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ── SLIDE 1: COVER ─────────────────────────────────────── -->
+<section class="slide" id="cover" style="justify-content: center; align-items: center; text-align: center;">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 48px; max-width: 1100px; width: 100%; flex-wrap: wrap;">
+        <div style="text-align: right; flex: 0 0 auto;">
+            <h1 style="margin-bottom: 10px; font-size: 30px;">Dr. Nabil Ktari, M.D.</h1>
+            <p style="font-size: 16px; color: var(--navy); font-weight: 500; margin-bottom: 0;">Specialist in Internal Medicine &middot; Medical AI Architect</p>
+        </div>
+        <div style="width: 1px; height: 90px; background: var(--border); flex: 0 0 1px;"></div>
+        <div style="flex: 0 1 500px; padding: 26px 32px; border-left: 4px solid var(--teal); text-align: left; background: var(--paper); border-radius: 0 8px 8px 0;">
+            <p style="font-size: 15px; line-height: 1.75; color: var(--ink); font-weight: 400; margin-bottom: 6px;">Systems architecture connecting high-acuity clinical reality with digital execution.</p>
+            <p style="font-size: 15px; line-height: 1.75; color: var(--steel); font-weight: 400; margin-bottom: 6px;">Deterministic safety gates, SaMD governance, and evidence-based longevity protocols.</p>
+            <p style="font-size: 15px; line-height: 1.75; color: var(--muted); font-weight: 400; margin-bottom: 0;">Ongoing medical AI research — within the EU, cross-continental, and peer-to-peer ventures.</p>
+        </div>
+    </div>
+
+    <div class="chip-row" style="justify-content: center; margin-top: 36px;">
+        <div class="chip">Clinical AI Safety</div>
+        <div class="chip">Global SaMD Governance</div>
+        <div class="chip">Healthspan &amp; Neuroscience</div>
+    </div>
+
+    <p style="font-size: 11px; color: var(--muted); margin-top: 28px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">All client engagements published with consent under full anonymity. No proprietary or trade secrets are disclosed. Ongoing research collaborations are described at summary level only &mdash; technical details protected by NDA.</p>
+
+    <div style="margin-top: 24px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 11px;">
+        <a href="mailto:nab.kta@gmail.com" style="color: var(--navy); border-bottom: 1px solid rgba(22,50,79,0.2);">nab.kta@gmail.com</a>
+        <span style="color: var(--border);">|</span>
+        <a href="https://www.linkedin.com/in/nabil-ktari/" target="_blank" style="color: var(--navy); border-bottom: 1px solid rgba(22,50,79,0.2);">linkedin.com/in/nabil-ktari</a>
+        <span style="color: var(--border);">|</span>
+        <span style="color: var(--muted);">D&uuml;sseldorf, Germany</span>
+    </div>
+    <div class="slide-num">01</div>
+</section>
+
+<section class="slide" id="toc">
+    <div class="kicker">Index</div>
+    <h2>Table of Contents</h2>
+    <ul class="toc-list">
+        <li><a href="#clinical">03 &middot; Clinical Foundation</a></li>
+        <li><a href="#systems">04 &middot; Systems Portfolio</a></li>
+        <li><a href="#research">05 &middot; Ongoing Research</a></li>
+        <li><a href="#regulatory">06 &middot; Regulatory Expertise</a></li>
+        <li><a href="#services">07 &middot; Advisory Services</a></li>
+        <li><a href="#contact">08 &middot; Languages &amp; Contact</a></li>
+        <li><a href="#abbreviations">09 &middot; Abbreviations</a></li>
+        <li><a href="#disclaimer">10 &middot; Consent, NDA &amp; Regulation</a></li>
+    </ul>
+    <div class="slide-num">02</div>
+</section>
+
+<section class="slide" id="clinical">
+    <div class="kicker">Clinical Foundation</div>
+    <h2>Eight Years at the Edge of Clinical Failure</h2>
+    <p style="max-width: 700px; margin-bottom: 24px;">Board-certified specialist in Internal Medicine (Ärztekammer Nordrhein, 2026). Eight years across intensive care, emergency medicine, cardiology, geriatrics, pulmonology, and gastroenterology &mdash; the environments where systems fail at scale and the cost is measured in trust, not revenue.</p>
+
+    <div class="kpi-row" style="max-width: 800px;">
+        <div class="kpi"><div class="val">8</div><div class="label">Years Clinical<br>Experience</div></div>
+        <div class="kpi"><div class="val">6+</div><div class="label">Specialties<br>Covered</div></div>
+        <div class="kpi"><div class="val">2</div><div class="label">Peer-Reviewed<br>Publications</div></div>
+        <div class="kpi"><div class="val">5</div><div class="label">Languages<br>(EN DE FR AR ES)</div></div>
+    </div>
+
+    <h3 style="margin-top: 24px;">Publications</h3>
+    <div class="pub-item">
+        <div class="pub-title">Sustained participation and quality of life after three decades of phrenic nerve stimulation and home mechanical ventilation in high cervical spinal cord injury</div>
+        <div class="pub-meta">Springer Nature &middot; Spinal Cord &middot; Case Report &middot; Accepted 2026 &middot; IF 2.5</div>
+        <p style="font-size: 12px; color: var(--steel); margin-bottom: 8px;">Co-authors: L. Peiler, M.-C. Hallwachs, PD Dr. med. S. Hirschfeld, Dr. med. M. Groß</p>
+        <div class="pub-link"><a href="https://hyypernab.github.io/showroom/publication-spinal-cord.html" target="_blank">Publication Summary &rarr;</a></div>
+    </div>
+    <div class="pub-item">
+        <div class="pub-title">Profil épidémio-clinique, histologique et thérapeutique du syndrome de Sweet: à propos de 25 cas</div>
+        <div class="pub-meta">Elsevier &middot; Annales de Dermatologie &middot; Published 2018 &middot; DOI: 10.1016/j.annder.2018.03.049</div>
+        <div class="pub-link"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0151963818301844" target="_blank">DOI Link &rarr;</a></div>
+    </div>
+
+    <div class="slide-num">03</div>
+</section>
+
+<section class="slide" id="systems">
+    <div class="kicker">Systems Portfolio</div>
+    <h2>Systems Portfolio</h2>
+
+    <h3>Client Engagements &mdash; Delivered Private Consulting</h3>
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">Anonymized case studies published with client consent. No proprietary or trade secrets are disclosed.</p>
+    <div class="case-grid">
+        <div class="case-card">
+            <div class="case-title">Neural-State Ventilation Engine</div>
+            <div class="case-codename">Client: Project Phrenic Edge</div>
+            <p class="case-desc">Closed-loop AI architecture for brainstem-driven ventilation. Eight pathological breathing patterns classified in real time with deterministic safety fallback.</p>
+            <div class="case-fokus">&#9679; Focus: <strong>Critical Care</strong></div>
+            <div class="case-link"><a href="https://hyypernab.github.io/showroom/neural-ventilation_en.html" target="_blank">Case Study &rarr;</a></div>
+        </div>
+        <div class="case-card">
+            <div class="case-title">Biomarker Governance Architecture</div>
+            <div class="case-codename">Client: European Longevity Startup</div>
+            <p class="case-desc">Three-gate clinical safety architecture for high-dimensional biomarker AI. Cross-border regulatory fencing across four European jurisdictions.</p>
+            <div class="case-fokus">&#9679; Focus: <strong>Clinical Governance</strong></div>
+            <div class="case-link"><a href="https://hyypernab.github.io/showroom/biomarker-governance_en.html" target="_blank">Case Study &rarr;</a></div>
+        </div>
+        <div class="case-card">
+            <div class="case-title">Early Signal Monitor</div>
+            <div class="case-codename">Client: DAX-40 Industrial</div>
+            <p class="case-desc">Predictive health monitoring architecture for a large industrial workforce. Identifies clinical stress signals months before the first long-term absence case.</p>
+            <div class="case-fokus">&#9679; Focus: <strong>Scalability</strong></div>
+            <div class="case-link"><a href="https://hyypernab.github.io/showroom/burnout-prevention_en.html" target="_blank">Case Study &rarr;</a></div>
+        </div>
+        <div class="case-card">
+            <div class="case-title">Engagement Timing Model</div>
+            <div class="case-codename">Client: Voice Platform</div>
+            <p class="case-desc">Algorithmic timing engine optimizing patient communication by matching delivery to neural receptivity windows. Adherent communication, not just more communication.</p>
+            <div class="case-fokus">&#9679; Focus: <strong>Patient Journey</strong></div>
+            <div class="case-link"><a href="https://hyypernab.github.io/showroom/neurotargeting_en.html" target="_blank">Case Study &rarr;</a></div>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 24px;">Research Systems &mdash; Open Source, Ongoing</h3>
+    <div class="case-grid">
+        <div class="case-card">
+            <div class="case-title">Clinical Safety Gate</div>
+            <div class="case-codename">Repository: CGNR Matrix</div>
+            <p class="case-desc">Deterministic logic engine validating AI outputs against hard-coded clinical protocols prior to patient delivery.</p>
+            <div class="case-fokus">&#9679; Focus: <strong>Patient Safety</strong></div>
+            <div class="case-link"><a href="https://cgnr-matrix-cdss.vercel.app/" target="_blank">Live</a> &middot; <a href="https://github.com/HyyperNab/CGNR-Matrix-CDSS" target="_blank">GitHub</a></div>
+        </div>
+        <div class="case-card">
+            <div class="case-title">Decision Engine</div>
+            <div class="case-codename">Repository: MOAC QMM</div>
+            <p class="case-desc">Algorithmic decision engine processing complex pharmacological interactions and high-density physiological edge cases.</p>
+            <div class="case-fokus">&#9679; Focus: <strong>Clinical Validity</strong></div>
+            <div class="case-link"><a href="https://moac-qmm-demo.vercel.app/" target="_blank">Live</a> &middot; <a href="https://github.com/HyyperNab/moac-qmm" target="_blank">GitHub</a></div>
+        </div>
+        <div class="case-card">
+            <div class="case-title">Compliance Shield</div>
+            <div class="case-codename">Repository: RAGNAR &Omega;</div>
+            <p class="case-desc">Automated regulatory engine fencing clinical outputs within the correct legal perimeter per jurisdiction.</p>
+            <div class="case-fokus">&#9679; Focus: <strong>Governance</strong></div>
+            <div class="case-link"><a href="https://ragnar-omni-hyypernabs-projects.vercel.app/" target="_blank">Live</a> &middot; <a href="https://github.com/HyyperNab/ragnar-omni" target="_blank">GitHub</a></div>
+        </div>
+        <div class="case-card">
+            <div class="case-title">Lab Data Guardian</div>
+            <div class="case-codename">Repository: ChronosLab</div>
+            <p class="case-desc">Anti-drift governance for medical lab parameters &mdash; normalizes reference ranges across labs and flags values outside plausible clinical bounds.</p>
+            <div class="case-fokus">&#9679; Focus: <strong>Data Integrity</strong></div>
+            <div class="case-link"><a href="https://hyypernab.github.io/ChronosLab/" target="_blank">Live</a> &middot; <a href="https://github.com/HyyperNab/ChronosLab" target="_blank">GitHub</a></div>
+        </div>
+    </div>
+    <div class="slide-num">04</div>
+</section>
+
+<section class="slide" id="research">
+    <div class="kicker">Ongoing Research</div>
+    <h2 style="color: var(--navy);">Cross-Continental AI SaMD Collaboration</h2>
+    <p style="max-width: 700px; margin-bottom: 24px;">Active research collaboration with a renowned cross-continental research institute on AI-driven neural-state classification for ventilator weaning. The project applies deterministic safety architecture to brainstem breathing pattern recognition in critical care.</p>
+
+    <div class="nda-block">
+        <div class="nda-label">Summary</div>
+        <p style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;"><span style="color: var(--steel);">The collaboration validates an eight-pattern brainstem breathing classifier through retrospective adult ICU data and prospective pediatric advisory deployment. Federated learning architecture ensures no raw patient data crosses borders. Regulatory pathway under evaluation across three jurisdictions.</span></p>
+        <hr class="nda-divider">
+        <div class="nda-label" style="margin-bottom: 6px;">NDA Boundary</div>
+        <p style="font-size: 12px; color: #64748b;">Technical specifications, partner institution, budget, and timeline details are protected by NDA. Available on request under written authorization.</p>
+    </div>
+
+    <div class="kpi-row" style="max-width: 600px; margin-top: 24px;">
+        <div class="kpi"><div class="val">8</div><div class="label">Brainstem Pattern<br>Classes</div></div>
+        <div class="kpi"><div class="val">&lt;50ms</div><div class="label">Safety<br>Fallback</div></div>
+        <div class="kpi"><div class="val">3</div><div class="label">Regulatory<br>Jurisdictions</div></div>
+    </div>
+    <div class="slide-num">05</div>
+</section>
+
+<section class="slide" id="regulatory">
+    <div class="kicker">Regulatory Expertise</div>
+    <h2>Global SaMD Governance</h2>
+    <p style="max-width: 700px; margin-bottom: 20px;">Regulatory strategy across three frameworks. No timelines stated &mdash; pathways are under evaluation per jurisdiction.</p>
+
+    <table class="reg-table">
+        <thead><tr><th style="width:18%">Jurisdiction</th><th style="width:30%">Framework</th><th style="width:18%">Classification</th><th>Key Requirement</th></tr></thead>
+        <tbody>
+            <tr><td><strong>EU (EEA)</strong></td><td>MDR 2017/745 + AI Act 2024/1689</td><td>Class IIb (Rule 11)</td><td>Notified Body conformity assessment + AI Act high-risk compliance</td></tr>
+            <tr><td><strong>USA</strong></td><td>FDA 21 CFR + AI/ML Guidance</td><td>Class II (De Novo)</td><td>PCCP (Predetermined Change Control Plan) for model updates</td></tr>
+            <tr><td><strong>Third Jurisdiction</strong></td><td>AMAR (reference jurisdiction framework)</td><td>Reference jurisdiction</td><td>Recognizes CE mark or FDA clearance</td></tr>
+        </tbody>
+    </table>
+
+    <h3 style="margin-top: 24px;">Compliance Architecture</h3>
+    <div class="case-grid">
+        <div class="case-card">
+            <p class="case-desc" style="font-size: 13px;"><strong style="color: var(--navy);">Data Governance:</strong> Federated learning with differential privacy. Raw patient data remains at each institution. Only model gradients are shared via secure aggregation.</p>
+        </div>
+        <div class="case-card">
+            <p class="case-desc" style="font-size: 13px;"><strong style="color: var(--navy);">Human-in-the-Loop:</strong> AI operates in advisory mode during clinical validation. Deterministic safety floor overrides AI when confidence drops below threshold.</p>
+        </div>
+        <div class="case-card">
+            <p class="case-desc" style="font-size: 13px;"><strong style="color: var(--navy);">Post-Market:</strong> Automated event logging, periodic model audit, PMCF per MDR Annex XIV Part B. PCCP enables model updates without full resubmission.</p>
+        </div>
+    </div>
+    <div class="slide-num">06</div>
+</section>
+
+<section class="slide" id="services">
+    <div class="kicker">Advisory Services</div>
+    <h2>Core Engagement Areas</h2>
+
+    <div class="service-card">
+        <div class="service-title">Clinical AI Safety</div>
+        <p class="service-desc">Deterministic CDSS safety gates and clinical LLM validation. Red-teaming AI outputs against hard-coded clinical protocols before patient delivery. Anti-hallucination guardrails for healthcare AI platforms.</p>
+    </div>
+        <p style="margin-top: 24px; font-size: 11px; color: var(--muted); font-style: italic;">Note: Pure B2B strategic advisory. No clinical consultations, diagnoses, or medical treatments provided.</p>
+    <div class="service-card">
+        <div class="service-title">Global SaMD Governance</div>
+        <p class="service-desc">EU MDR / AI Act compliance, FDA 510(k) and PCCP strategy, cross-border regulatory fencing. Clinical evaluation planning, technical documentation, and QMS alignment for software-as-a-medical-device companies.</p>
+    </div>
+    <div class="service-card">
+        <div class="service-title">Healthspan &amp; Neuroscience</div>
+        <p class="service-desc">Evidence-based longevity protocols grounded in internal medicine and peer-reviewed research. Neuroscience-informed patient engagement strategies. Health optimization as an engineering problem.</p>
+    </div>
+    <div class="slide-num">07</div>
+</section>
+
+<section class="slide" id="abbreviations">
+    <div class="kicker">Abbreviations</div>
+    <h2>Acronym Reference</h2>
+    <table class="abbr-table">
+        <thead><tr><th style="width:15%; text-align:left; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding: 8px 12px; border-bottom: 2px solid var(--border);">Abbreviation</th><th style="text-align:left; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding: 8px 12px; border-bottom: 2px solid var(--border);">Definition</th></tr></thead>
+        <tbody>
+            <tr><td><strong>AI Act</strong></td><td>EU Regulation 2024/1689 on Artificial Intelligence</td></tr>
+            <tr><td><strong>AMAR</strong></td><td>Medical Equipment Division, reference jurisdiction</td></tr>
+            <tr><td><strong>CDSS</strong></td><td>Clinical Decision Support System</td></tr>
+            <tr><td><strong>DIGAB</strong></td><td>Deutsche Interdisziplinäre Gesellschaft für Außerklinische Beatmung</td></tr>
+            <tr><td><strong>EEA</strong></td><td>European Economic Area</td></tr>
+            <tr><td><strong>FDA</strong></td><td>U.S. Food and Drug Administration</td></tr>
+            <tr><td><strong>GDPR</strong></td><td>General Data Protection Regulation (EU 2016/679)</td></tr>
+            <tr><td><strong>ICU</strong></td><td>Intensive Care Unit</td></tr>
+            <tr><td><strong>LLM</strong></td><td>Large Language Model</td></tr>
+            <tr><td style="font-weight: 600; color: var(--navy); white-space: nowrap; padding: 6px 12px; border-bottom: 1px solid var(--border-subtle);"><strong>MDR</strong></td><td style="padding: 6px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--steel);">EU Medical Device Regulation 2017/745</td></tr>
+            <tr><td><strong>NDA</strong></td><td>Non-Disclosure Agreement</td></tr>
+            <tr><td><strong>PCCP</strong></td><td>Predetermined Change Control Plan (FDA)</td></tr>
+            <tr><td><strong>PMCF</strong></td><td>Post-Market Clinical Follow-up</td></tr>
+            <tr><td><strong>QMS</strong></td><td>Quality Management System</td></tr>
+            <tr><td><strong>SaMD</strong></td><td>Software as a Medical Device</td></tr>
+            <tr><td><strong>SPOF</strong></td><td>Single Point of Failure</td></tr>
+        </tbody>
+    </table>
+    <div class="slide-num">09</div>
+</section>
+
+<section class="slide" id="disclaimer">
+    <div class="kicker">Consent, NDA &amp; Regulation</div>
+    <h2>Consent, NDA &amp; Regulation</h2>
+
+    <div class="disclaimer">
+        <p style="margin-bottom: 12px;"><strong>Client Consent:</strong> All client engagement case studies are published with explicit consent from the respective clients. Client identities, proprietary methods, and trade secrets have been removed or anonymized. No confidential information is disclosed. Clients may withdraw their consent at any time, and published materials will be removed from this portfolio in accordance with applicable data protection regulations.</p>
+        <p style="margin-bottom: 12px;"><strong>NDA Protection:</strong> Ongoing research collaborations are described at summary level only. Technical specifications, partner institutions, budget figures, and timelines are protected by NDA and available on request under authorization from all parties.</p>
+        <p style="margin-bottom: 12px;"><strong>Anonymization:</strong> Client names are replaced with sector descriptors (e.g., "DAX-40 Industrial," "European Longevity Startup"). No back-identification is possible from the published content.</p>
+        <p style="margin-bottom: 0;"><strong>Applicable Law:</strong> This portfolio is governed by the EU General Data Protection Regulation (GDPR, Regulation 2016/679), the German Federal Data Protection Act (BDSG), and applicable non-disclosure agreements executed between Dr. Nabil Ktari and the respective clients. All published materials comply with these frameworks.</p>
+    </div>
+
+    <h3 style="margin-top: 24px;">Regulatory Disclaimer</h3>
+    <p style="font-size: 13px; color: var(--steel); max-width: 700px;">Regulatory pathways described on this portfolio are under evaluation. No timeline, classification, or approval status is guaranteed. Regulatory strategy is advisory and must be confirmed with the relevant Notified Body, competent authority, or regulatory counsel per jurisdiction.</p>
+
+    <h3 style="margin-top: 20px;">Publications</h3>
+    <p style="font-size: 13px; color: var(--steel); max-width: 700px;">Peer-reviewed publications are cited with DOI or journal reference. Publication summaries link to the original journal or publisher pages. No content on this portfolio replaces the original peer-reviewed articles.</p>
+    <div class="slide-num">10</div>
+</section>
+
+<section class="slide" id="references">
+    <div class="kicker">References</div>
+    <h2>References</h2>
+    <ol class="ref-list">
+        <li>European Parliament and Council. Regulation (EU) 2017/745 on medical devices, amending Directive 2001/83/EC, Regulation (EC) No 178/2002 and Regulation (EC) No 1223/2009 and repealing Council Directives 90/385/EEC and 93/42/EEC (Medical Device Regulation). <em>Off J Eur Union</em>. 2017;L 117:1–175.</li>
+        <li>European Parliament and Council. Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). <em>Off J Eur Union</em>. 2024;L 1689:1–102.</li>
+        <li>European Parliament and Council. Regulation (EU) 2016/679 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data (General Data Protection Regulation). <em>Off J Eur Union</em>. 2016;L 119:1–88.</li>
+        <li>Medical Device Coordination Group. MDCG 2019-11 Rev.1: Guidance on qualification and classification of software under Regulation (EU) 2017/745 and Regulation (EU) 2017/746. Brussels: European Commission; 2025.</li>
+        <li>U.S. Food and Drug Administration. Marketing Submission Recommendations for a Predetermined Change Control Plan for Artificial Intelligence-Enabled Device Software Functions. <em>FDA Guidance Document</em>. 2024.</li>
+        <li>International Organization for Standardization. ISO 14971:2019 — Medical devices: Application of risk management to medical devices. Geneva: ISO; 2019.</li>
+        <li>Van Kolfschooten H. The EU Artificial Intelligence Act (2024): Implications for healthcare and medical devices. <em>Int J Health Plann Manage</em>. 2024;39(5):1450–1467.</li>
+        <li>Vardas EP, et al. Medicine, healthcare and the AI Act: gaps, challenges and opportunities. <em>NPJ Digit Med</em>. 2025;8:142.</li>
+        <li>Carvalho E, et al. Predetermined Change Control Plans for Machine Learning-Enabled Medical Devices: Guiding Principles. <em>J Med Internet Res</em>. 2025;27:e12577744.</li>
+        <li>Kaissis GA, Makowski MR, Rückert D, Braren RF. Secure, privacy-preserving and federated machine learning in medical imaging. <em>Nat Mach Intell</em>. 2020;2(6):305–311.</li>
+        <li>Noor A, et al. Federated learning in healthcare: A comprehensive survey. <em>Synth Data Appl</em>. 2026;4(1):1–28.</li>
+        <li>Prabha S, et al. Enhancing Clinical Decision Support with Adaptive Iterative Retrieval-Augmented Generation. <em>PMC12383471</em>. 2025.</li>
+        <li>Baur D, et al. Development and Evaluation of a Retrieval-Augmented Generation System for Clinical Decision Support. <em>JMIR</em>. 2025;1:e75262.</li>
+        <li>Ekram T, et al. Red-Teaming Medical AI: Systematic Adversarial Evaluation of LLM Safety Guardrails in Clinical Contexts. <em>medRxiv</em>. 2026;2026.02.26.26347212.</li>
+        <li>Peiler L, Ktari N, Hallwachs MC, Hirschfeld S, Groß M. Sustained participation and quality of life after three decades of phrenic nerve stimulation and home mechanical ventilation in high cervical spinal cord injury: a clinical case report. <em>Spinal Cord</em>. 2026 (accepted).</li>
+        <li>Harbaoui S, Litaiem N, Jones M, Chouk C, Ktari N, Rammeh S, Ezzine N, Zeglaoui F. Profil épidémio-clinique, histologique et thérapeutique du syndrome de Sweet: à propos de 25 cas. <em>Ann Dermatol Vénéréol</em>. 2018;145(4S):S.</li>
+        <li>Romero-Ganuza FJ, Gambarruta C, Merlo-Gonzalez VE, et al. Long-term evaluation of phrenic nerve pacing for respiratory failure due to high cervical spinal cord injury. <em>Spinal Cord</em>. 2012;50(12):895–898.</li>
+        <li>Hirschfeld S, Exner G, Luukkaala T, Baer GA. Mechanical ventilation or phrenic nerve stimulation for treatment of spinal cord injury-induced respiratory insufficiency. <em>Spinal Cord</em>. 2008;46(11):738–742.</li>
+        <li>DiMarco AF. Phrenic nerve stimulation in patients with spinal cord injury. <em>Respir Physiol Neurobiol</em>. 2009;169(2):200–209.</li>
+        <li>Stanford Online. AI in Healthcare Capstone. Coursera; 2026. Available from: coursera.org/learn/ai-in-healthcare-capstone.</li>
+    </ol>
+    <div class="slide-num">11</div>
+</section>
+
+<section class="slide" id="contact" style="justify-content: center; align-items: center; text-align: center;">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; width: 100%; max-width: 900px; margin: 0 auto;">
+        <div style="flex: 1; min-width: 300px; text-align: left;">
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--teal); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600;">Contact</div>
+            <p style="font-size: 15px; color: var(--steel); line-height: 2.0; margin-bottom: 0;">
+                <a href="mailto:nab.kta@gmail.com" style="color: var(--navy); border-bottom: 1px solid rgba(22,50,79,0.2);">nab.kta@gmail.com</a><br>
+                <a href="https://www.linkedin.com/in/nabil-ktari/" target="_blank" style="color: var(--navy); border-bottom: 1px solid rgba(22,50,79,0.2);">linkedin.com/in/nabil-ktari</a><br>
+                
+                <span style="color: var(--muted);">D&uuml;sseldorf, Germany</span>
+            </p>
+        </div>
+        <div style="width: 1px; height: 200px; background: var(--border);"></div>
+        <div style="flex: 1; min-width: 300px; text-align: right;">
+            <h1 style="color: var(--navy); font-size: 28px; font-weight: 600; margin-bottom: 6px;">Dr. Nabil Ktari, M.D.</h1>
+            <p style="font-size: 14px; color: var(--navy); font-weight: 500; margin-bottom: 20px;">Specialist in Internal Medicine &middot; Medical AI Architect</p>
+            <p style="color: var(--steel); font-size: 14px; line-height: 1.8; margin-bottom: 12px; font-style: italic;">Translating between registers</p>
+            <p style="color: var(--muted); font-size: 13px; line-height: 1.7; margin-bottom: 18px;">Operating at the intersection of clinical truth, digital architecture, and regulatory precision &mdash; in five languages.</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;">
+                <span style="background: var(--teal-bg, #f0fdfa); border: 1px solid var(--teal); padding: 4px 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 10px; color: var(--teal);">English (C1&ndash;C2)</span>
+                <span style="background: var(--teal-bg, #f0fdfa); border: 1px solid var(--teal); padding: 4px 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 10px; color: var(--teal);">German (C1&ndash;C2)</span>
+                <span style="background: var(--teal-bg, #f0fdfa); border: 1px solid var(--teal); padding: 4px 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 10px; color: var(--teal);">French (Native)</span>
+                <span style="background: var(--teal-bg, #f0fdfa); border: 1px solid var(--teal); padding: 4px 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 10px; color: var(--teal);">Arabic (Native)</span>
+                <span style="background: var(--teal-bg, #f0fdfa); border: 1px solid var(--teal); padding: 4px 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 10px; color: var(--teal);">Spanish (B1&ndash;B2)</span>
+            </div>
+        </div>
+    </div>
+    <div class="slide-num">11</div>
+</section>
+
+
+<script>
+// ── Navigation ──
+(function() {
+    const slides = [...document.querySelectorAll('.slide')];
+    const nav = document.getElementById('topnav');
+    const links = document.querySelectorAll('.nav-links a');
+    const toggle = document.getElementById('navtoggle');
+    const navlinks = document.getElementById('navlinks');
+    let currentSlide = 0;
+    let isScrolling = false;
+    let lastScroll = 0;
+
+    // Hide/show nav on scroll
+    window.addEventListener('scroll', () => {
+        const sy = window.scrollY;
+        if (sy > lastScroll && sy > 100) { nav.classList.add('hidden'); }
+        else { nav.classList.remove('hidden'); }
+        lastScroll = sy;
+    }, { passive: true });
+
+    // Toggle mobile nav
+    toggle.addEventListener('click', () => navlinks.classList.toggle('open'));
+
+    // Wheel navigation: one slide per scroll
+    window.addEventListener('wheel', (e) => {
+        if (isScrolling) return;
+        isScrolling = true;
+        const dir = e.deltaY > 0 ? 1 : -1;
+        const next = Math.max(0, Math.min(slides.length - 1, currentSlide + dir));
+        if (next !== currentSlide) {
+            currentSlide = next;
+            slides[next].scrollIntoView({ behavior: 'smooth' });
+            updateActiveLink(next);
+        }
+        setTimeout(() => { isScrolling = false; }, 800);
+    }, { passive: true });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (isScrolling) return;
+        let dir = 0;
+        if (['ArrowDown','ArrowRight',' '].includes(e.key)) dir = 1;
+        else if (['ArrowUp','ArrowLeft'].includes(e.key)) dir = -1;
+        else if (e.key === 'Home') { e.preventDefault(); currentSlide = 0; slides[0].scrollIntoView({behavior:'smooth'}); updateActiveLink(0); return; }
+        else if (e.key === 'End') { e.preventDefault(); currentSlide = slides.length-1; slides[slides.length-1].scrollIntoView({behavior:'smooth'}); updateActiveLink(slides.length-1); return; }
+        else return;
+        e.preventDefault();
+        isScrolling = true;
+        const next = Math.max(0, Math.min(slides.length - 1, currentSlide + dir));
+        if (next !== currentSlide) { currentSlide = next; slides[next].scrollIntoView({behavior:'smooth'}); updateActiveLink(next); }
+        setTimeout(() => { isScrolling = false; }, 800);
+    });
+
+    // Touch navigation
+    let touchStartY = 0;
+    window.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+    window.addEventListener('touchend', (e) => {
+        if (isScrolling) return;
+        const dy = touchStartY - e.changedTouches[0].clientY;
+        if (Math.abs(dy) < 50) return;
+        isScrolling = true;
+        const dir = dy > 0 ? 1 : -1;
+        const next = Math.max(0, Math.min(slides.length - 1, currentSlide + dir));
+        if (next !== currentSlide) { currentSlide = next; slides[next].scrollIntoView({behavior:'smooth'}); updateActiveLink(next); }
+        setTimeout(() => { isScrolling = false; }, 800);
+    }, { passive: true });
+
+    // IntersectionObserver: fade-in + active link
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                const idx = slides.indexOf(entry.target);
+                if (idx >= 0) { currentSlide = idx; updateActiveLink(idx); }
+            }
+        });
+    }, { threshold: 0.5 });
+    slides.forEach(s => observer.observe(s));
+
+    // Nav link click
+    links.forEach((link, i) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+                currentSlide = slides.indexOf(target);
+                target.scrollIntoView({ behavior: 'smooth' });
+                updateActiveLink(currentSlide);
+                navlinks.classList.remove('open');
+            }
+        });
+    });
+
+    function updateActiveLink(idx) {
+        links.forEach((link, i) => link.classList.toggle('active', i === idx));
+    }
+})();
+</script>
+</body>
+</html>
