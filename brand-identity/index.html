@@ -62,9 +62,9 @@ body { font-family: var(--font-sans); color: var(--ink); background: var(--navy)
 nav.top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(15,23,42,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; }
 nav.top-nav.hidden { transform: translateY(-100%); }
 .nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 20px; }
-.nav-brand { font-family: var(--font-mono); font-size: 12px; color: #e2e8f0; font-weight: 600; letter-spacing: 1px; white-space: nowrap; }
+.nav-brand { color: #ffffff;  font-family: var(--font-mono); font-size: 12px; color: #e2e8f0; font-weight: 600; letter-spacing: 1px; white-space: nowrap; }
 .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
-.nav-links a { color: #94a3b8; font-size: 12px; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+.nav-links a { color: #ffffff; font-size: 12px; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
 .nav-links a:hover, .nav-links a.active { color: var(--orange); }
 #navtoggle { display: none; background: none; border: none; color: #e2e8f0; font-size: 20px; cursor: pointer; }
 
@@ -172,7 +172,7 @@ p { margin-bottom: 14px; line-height: 1.7; }
             <a href="#cover">Cover</a>
             <a href="#toc">Index</a>
             <div class="nav-dropdown">
-                <span class="dropdown-toggle">My Work ▾</span>
+                <span class="dropdown-toggle" style="color: #ffffff;">My Work ▾</span>
                 <div class="dropdown-menu">
                     <a href="#clinical">Clinical</a>
                     <a href="#systems">Systems</a>
@@ -181,14 +181,14 @@ p { margin-bottom: 14px; line-height: 1.7; }
             </div>
             <a href="#services">Services</a>
             <div class="nav-dropdown">
-                <span class="dropdown-toggle">Annexes ▾</span>
+                <span class="dropdown-toggle" style="color: #ffffff;">Annexes ▾</span>
                 <div class="dropdown-menu">
                     <a href="#abbreviations">Abbreviations</a>
                     <a href="#references">References</a>
                 </div>
             </div>
             <div class="nav-dropdown">
-                <span class="dropdown-toggle">Legal ▾</span>
+                <span class="dropdown-toggle" style="color: #ffffff;">Legal ▾</span>
                 <div class="dropdown-menu">
                     <a href="#disclaimer">NDA &amp; Consent</a>
                     <a href="https://hyypernab.github.io/showroom/legal/" target="_blank">Impressum</a>
