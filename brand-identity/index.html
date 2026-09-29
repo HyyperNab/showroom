@@ -104,9 +104,16 @@ p { margin-bottom: 14px; line-height: 1.7; }
 .service-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
 .service-desc { font-size: 13px; color: var(--steel); line-height: 1.6; }
 
-.nda-block { background: var(--paper); border: 1px dashed var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.nav-dropdown { position: relative; display: inline-block; }
+.dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-subtle); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 8px 0; min-width: 160px; z-index: 1001; }
+.nav-dropdown:hover .dropdown-menu { display: block; animation: fadeSlide 0.2s ease-out; }
+.dropdown-menu a { display: block; padding: 8px 16px; font-size: 12px; color: var(--steel); border: none; }
+.dropdown-menu a:hover { background: var(--paper); color: var(--teal); }
+.dropdown-toggle { cursor: default; }
+
+.nda-block { background: var(--paper); border: 1px dashed var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--steel); line-height: 1.6; }
 .nda-divider { border: none; border-top: 1px dashed var(--border); margin: 14px 0; }
-.nda-label { font-family: var(--font-mono); font-size: 10px; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+.nda-label { font-family: var(--font-mono); font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
 
 .disclaimer { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--steel); line-height: 1.6; }
 .disclaimer strong { color: var(--navy); }
@@ -160,12 +167,12 @@ p { margin-bottom: 14px; line-height: 1.7; }
 
 <nav class="top-nav" id="topnav">
     <div class="nav-inner">
-        <a href="#cover" class="nav-brand">Dr. Nabil Ktari, M.D.</a>
+        <span class="nav-brand">Dr. Nabil Ktari, M.D.</span>
         <div class="nav-links" id="navlinks">
             <a href="#cover">Cover</a>
             <a href="#toc">Index</a>
             <div class="nav-dropdown">
-                <a href="#systems" class="dropdown-toggle">My Work ▾</a>
+                <span class="dropdown-toggle">My Work ▾</span>
                 <div class="dropdown-menu">
                     <a href="#clinical">Clinical</a>
                     <a href="#systems">Systems</a>
@@ -174,14 +181,14 @@ p { margin-bottom: 14px; line-height: 1.7; }
             </div>
             <a href="#services">Services</a>
             <div class="nav-dropdown">
-                <a href="#abbreviations" class="dropdown-toggle">Annexes ▾</a>
+                <span class="dropdown-toggle">Annexes ▾</span>
                 <div class="dropdown-menu">
                     <a href="#abbreviations">Abbreviations</a>
                     <a href="#references">References</a>
                 </div>
             </div>
             <div class="nav-dropdown">
-                <a href="#disclaimer" class="dropdown-toggle">Legal ▾</a>
+                <span class="dropdown-toggle">Legal ▾</span>
                 <div class="dropdown-menu">
                     <a href="#disclaimer">NDA &amp; Consent</a>
                     <a href="https://hyypernab.github.io/showroom/legal/" target="_blank">Impressum</a>
