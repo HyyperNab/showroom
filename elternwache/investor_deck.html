@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elternwache — Investoren-Dossier</title>
+<meta name="description" content="Investoren-Dossier Elternwache. Exklusive Seniorenbetreuung und Pflegekoordination für HNW-Familien in Düsseldorf-Meerbusch.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f5efe6;--clay:#c47a54;--clay-text:#955432;--moss:#8a9a7b;--ink:#2b2119;--ink-soft:#4a3f35;--line:#d9d0c5;--space-xs:4px;--space-sm:8px;--space-md:16px;--space-lg:24px;--space-xl:40px;--space-2xl:64px;--space-3xl:96px;--font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;--ts-hero:clamp(1.75rem,5vw,3rem);--ts-h2:clamp(1.375rem,3vw,2.125rem);--ts-h3:clamp(1.0625rem,2vw,1.3125rem);--ts-body:clamp(0.9375rem,1.5vw,1.0625rem);--ts-small:0.8125rem;--ts-tiny:0.6875rem;--radius:4px;--max-prose:760px;--max-wide:1100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-snap-type:y mandatory;scroll-padding-top:0}
+body{font-family:var(--font-body);font-size:var(--ts-body);line-height:1.7;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-y:scroll}
+.slide{min-height:100vh;min-height:100dvh;width:100%;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;justify-content:center;padding:clamp(var(--space-2xl),8vw,var(--space-3xl)) clamp(var(--space-md),5vw,var(--space-2xl));position:relative}
+.slide--prose{max-width:var(--max-prose);margin:0 auto}
+.slide--wide{max-width:var(--max-wide);margin:0 auto}
+.slide--dark{background:var(--ink);color:var(--paper)}
+.slide--dark h1,.slide--dark h2,.slide--dark h3{color:var(--paper)}
+.slide--dark p,.slide--dark td,.slide--dark th{color:rgba(245,239,230,0.75)}
+.slide--dark .kicker{color:var(--clay)}
+.kicker{font-family:var(--font-mono);font-size:var(--ts-tiny);text-transform:uppercase;letter-spacing:0.18em;color:var(--clay-text);font-weight:600;margin-bottom:var(--space-lg)}
+.slide-num{position:absolute;top:var(--space-lg);right:clamp(var(--space-md),5vw,var(--space-2xl));font-family:var(--font-mono);font-size:var(--ts-tiny);color:var(--line);letter-spacing:0.1em}
+h1{font-family:var(--font-display);font-size:var(--ts-hero);font-weight:500;line-height:1.2;letter-spacing:-0.02em;margin-bottom:var(--space-lg)}
+h2{font-family:var(--font-display);font-size:var(--ts-h2);font-weight:500;line-height:1.25;letter-spacing:-0.01em;margin-bottom:var(--space-lg)}
+h3{font-family:var(--font-display);font-size:var(--ts-h3);font-weight:500;margin-bottom:var(--space-sm)}
+p{margin-bottom:var(--space-md);color:var(--ink-soft)}
+p:last-child{margin-bottom:0}
+strong{color:var(--ink);font-weight:600}
+.slide--dark strong{color:var(--paper)}
+table{width:100%;border-collapse:collapse;margin:var(--space-lg) 0;font-size:var(--ts-small)}
+th{text-align:left;font-family:var(--font-mono);font-size:var(--ts-tiny);text-transform:uppercase;letter-spacing:0.1em;color:var(--clay-text);font-weight:600;padding:var(--space-sm) var(--space-md);border-bottom:2px solid var(--clay-text)}
+td{padding:var(--space-sm) var(--space-md);border-bottom:1px solid var(--line);color:var(--ink-soft)}
+.slide--dark td{border-color:rgba(245,239,230,0.1)}
+.slide--dark th{color:var(--clay);border-color:var(--clay)}
+td.num{font-family:var(--font-mono);text-align:right;white-space:nowrap}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-md)}
+@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.card{padding:var(--space-lg) var(--space-xl);border:1px solid var(--line);border-radius:var(--radius)}
+.card--accent{border-left:3px solid var(--clay-text)}
+.slide--dark .card{border-color:rgba(245,239,230,0.12)}
+.stat{text-align:center}
+.stat-val{font-family:var(--font-display);font-size:2.5rem;font-weight:500;color:var(--clay-text);line-height:1;margin-bottom:var(--space-xs)}
+.slide--dark .stat-val{color:var(--clay)}
+.stat-label{font-family:var(--font-mono);font-size:var(--ts-tiny);text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-soft)}
+.slide--dark .stat-label{color:rgba(245,239,230,0.5)}
+.callout{padding:var(--space-lg) var(--space-xl);border-left:3px solid var(--clay-text);margin:var(--space-xl) 0;font-size:1.0625rem;color:var(--ink);line-height:1.6}
+.slide--dark .callout{color:var(--paper);border-color:var(--clay)}
+ul.clean{list-style:none}
+ul.clean li{padding:var(--space-sm) 0;border-bottom:1px solid var(--line);color:var(--ink-soft);font-size:var(--ts-small)}
+ul.clean li:last-child{border-bottom:none}
+ul.clean li::before{content:"— ";color:var(--moss)}
+.tag{display:inline-block;padding:2px 8px;border-radius:var(--radius);font-family:var(--font-mono);font-size:var(--ts-tiny);font-weight:500;margin:2px}
+.tag--crit{background:rgba(196,122,84,0.15);color:var(--clay-text)}
+.tag--warn{background:rgba(138,154,123,0.15);color:var(--moss)}
+.tag--ok{background:rgba(138,154,123,0.2);color:#5a6b4a}
+.tag--dark{background:rgba(245,239,230,0.08);color:rgba(245,239,230,0.6)}
+.svg-chart{width:100%;max-width:680px;margin:var(--space-xl) auto;display:block}
+.index-list{list-style:none;counter-reset:idx}
+.index-list li{counter-increment:idx;padding:var(--space-sm) 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:2.5rem 1fr;gap:var(--space-md);align-items:baseline}
+.index-list li::before{content:counter(idx,decimal-leading-zero);font-family:var(--font-mono);font-size:var(--ts-small);color:var(--clay-text)}
+.index-title{font-family:var(--font-display);font-size:1.0625rem;font-weight:500;color:var(--ink)}
+.index-sub{font-size:var(--ts-tiny);color:var(--ink-soft);font-family:var(--font-mono)}
+.refs{font-size:var(--ts-tiny);line-height:1.6;color:var(--ink-soft)}
+.refs li{padding:var(--space-xs) 0;border-bottom:1px solid var(--line)}
+.footnote{font-size:var(--ts-tiny);color:var(--ink-soft);line-height:1.6;margin-top:var(--space-xl);padding-top:var(--space-lg);border-top:1px solid var(--line)}
+.slide--dark .footnote{color:rgba(245,239,230,0.4);border-color:rgba(245,239,230,0.1)}
+@media print{.slide{page-break-after:always;min-height:auto}}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 01: INDEX -->
+
+
+<!-- SLIDE 01: COVER -->
+
+
+<!-- SLIDE 01: COVER -->
+
+
+<section class="slide slide--dark">
+<div class="slide-num">01 / 18</div>
+<div class="kicker">Investoren-Dossier · Vertraulich</div>
+<h1>Elternwache.</h1>
+<p style="font-size:1.125rem;max-width:540px;color:rgba(245,239,230,0.7)">Exklusive Betreuung und Koordination für die Eltern wohlhabender Familien im Raum Düsseldorf–Meerbusch. Ein Geschäftsmodell, das eine Lücke schließt, die niemand sonst schließt.</p>
+<p style="margin-top:var(--space-2xl);font-family:var(--font-mono);font-size:var(--ts-small);color:rgba(245,239,230,0.4)">Oliver Grötzsch · Drängenburger Str. 35 · 40593 Düsseldorf · 2026</p>
+</section>
+
+<section class="slide slide--prose">
+<div class="slide-num">02 / 18</div>
+<div class="kicker">Inhalt</div>
+<h2>Investoren-Dossier Elternwache.</h2>
+<ol class="index-list">
+
+</ol>
+
+</section>
+
+<section class="slide slide--prose">
+<div class="slide-num">03 / 18</div>
+<div class="kicker">Abkürzungen</div>
+<h2>Verwendete Kürzel.</h2>
+<table style="font-size:var(--ts-small)">
+<tr><th>Kürzel</th><th>Bedeutung</th></tr>
+<tr><td><strong>HNW</strong></td><td>High Net Worth — vermögende Privatkunden</td></tr>
+<tr><td><strong>SPOF</strong></td><td>Single Point of Failure — kritische Schwachstelle</td></tr>
+<tr><td><strong>TAM</strong></td><td>Total Addressable Market — Gesamtmarkt</td></tr>
+<tr><td><strong>MVP</strong></td><td>Minimum Viable Product — erste Testversion</td></tr>
+<tr><td><strong>OMTM</strong></td><td>One Metric That Matters — Leitkennzahl</td></tr>
+<tr><td><strong>LTV</strong></td><td>Lifetime Value — Kundenswert über Vertragslaufzeit</td></tr>
+<tr><td><strong>CAC</strong></td><td>Customer Acquisition Cost — Kundengewinnungskosten</td></tr>
+<tr><td><strong>EAP</strong></td><td>Employee Assistance Program — betriebliches Hilfsprogramm</td></tr>
+<tr><td><strong>DSGVO</strong></td><td>Datenschutz-Grundverordnung der EU</td></tr>
+<tr><td><strong>BGB</strong></td><td>Bürgerliches Gesetzbuch</td></tr>
+<tr><td><strong>StGB</strong></td><td>Strafgesetzbuch</td></tr>
+<tr><td><strong>SGB XI</strong></td><td>Sozialgesetzbuch XI — Pflegeversicherung</td></tr>
+<tr><td><strong>GewO</strong></td><td>Gewerbeordnung</td></tr>
+<tr><td><strong>EStG</strong></td><td>Einkommensteuergesetz</td></tr>
+<tr><td><strong>UStG</strong></td><td>Umsatzsteuergesetz</td></tr>
+<tr><td><strong>BDSG</strong></td><td>Bundesdatenschutzgesetz</td></tr>
+<tr><td><strong>BFH</strong></td><td>Bundesfinanzhof</td></tr>
+<tr><td><strong>BGH</strong></td><td>Bundesgerichtshof</td></tr>
+<tr><td><strong>UG</strong></td><td>Unternehmergesellschaft (haftungsbeschränkt)</td></tr>
+<tr><td><strong>GmbH</strong></td><td>Gesellschaft mit beschränkter Haftung</td></tr>
+<tr><td><strong>PDCA</strong></td><td>Plan-Do-Check-Act — Verbesserungszyklus</td></tr>
+<tr><td><strong>DPA</strong></td><td>Data Processing Agreement — Auftragsverarbeitungsvertrag</td></tr>
+<tr><td><strong>JP</strong></td><td>Japan</td></tr>
+<tr><td><strong>PNOG</strong></td><td>Pflegeneuordnungsgesetz 2027</td></tr>
+<tr><td><strong>PG1</strong></td><td>Pflegegrad 1</td></tr>
+<tr><td><strong>EU</strong></td><td>Europäische Union</td></tr>
+</table>
+</section>
+
+<section class="slide slide--prose">
+<div class="slide-num">04 / 18</div>
+<div class="kicker">Das Problem</div>
+<h2>Die Angehörigen-Illusion.</h2>
+<p>Der Sohn handelt an der Börse in New York. Die Tochter dreht einen Film in Brisbane. Der Fujifilm-Manager sitzt den ganzen Tag im C-Suite-Meeting. Ihre Eltern leben allein in Düsseldorf, Köln oder Remscheid.</p>
+<p>Sie sagen am Telefon: „Mama geht es gut." Die Realität: unbezahlte Rechnungen, keine Vollmacht, ein Sturz, ein leerer Kühlschrank. Niemand geht in die Wohnung. Niemand sieht hin.</p>
+<div class="callout">Deutschland hat keine Struktur für Fernbetreuung. Es gibt Alltagsbegleiter (€25–45/Stunde, stundenweise). Es gibt Pflegedienste (medizinisch, getaktet). Es gibt kostenlose Pflegeberatung (§7a SGB XI*). Aber es gibt niemanden, der regelmäßig in die Wohnung geht, die Termine führt und einen Monatsbericht* liefert. Die Lücke ist leer.</p></div>
+</section>
+
+<section class="slide slide--wide">
+<div class="slide-num">05 / 18</div>
+<div class="kicker">Markt</div>
+<h2>Der Markt ist da. Er ist tief genug für 25 Familien.</h2>
+<div class="grid-4">
+<div class="stat"><div class="stat-val">5,1M</div><div class="stat-label">Pflegebedürftige DE</div></div>
+<div class="stat"><div class="stat-val">4,7M</div><div class="stat-label">Pflegende Angehörige</div></div>
+<div class="stat"><div class="stat-val">25%</div><div class="stat-label">Kinder >100 km entfernt</div></div>
+<div class="stat"><div class="stat-val">128,3</div><div class="stat-label">Meerbusch Kaufkraftindex</div></div>
+</div>
+<table>
+<tr><th>Segment</th><th>Quelle</th><th>Zahl</th></tr>
+<tr><td>Einkommensmillionäre Meerbusch</td><td>WDR / IT.NRW</td><td class="num">~92 Haushalte</td></tr>
+<tr><td>Einkommensmillionäre Düsseldorf</td><td>RP Online (2017)</td><td class="num">527+ (2026: ~600+)</td></tr>
+<tr><td>Japanische Unternehmen Düsseldorf</td><td>duesseldorf.de</td><td class="num">~500</td></tr>
+<tr><td>Japanische Einwohner Region</td><td>visitduesseldorf.de</td><td class="num">~15.000</td></tr>
+<tr><td><strong>*TAM* HNW-Haushalte</strong></td><td>Kaufkraft + Demografie</td><td class="num"><strong>800–1.200</strong></td></tr>
+<tr><td><strong>Addressierbar (5–10% mit Bedarf)</strong></td><td>Konservativ</td><td class="num"><strong>40–120</strong></td></tr>
+</table>
+<svg class="svg-chart" viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+<text x="300" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#955432" letter-spacing="2">TAM FUNNEL</text>
+<polygon points="300,35 590,35 540,85 360,85" fill="#c47a54" opacity="0.15" stroke="#c47a54" stroke-width="1"/>
+<text x="475" y="65" text-anchor="middle" font-family="Inter" font-size="11" fill="#2b2119">800–1.200 HNW-Haushalte</text>
+<polygon points="300,90 540,90 490,140 360,140" fill="#c47a54" opacity="0.25" stroke="#c47a54" stroke-width="1"/>
+<text x="445" y="120" text-anchor="middle" font-family="Inter" font-size="11" fill="#2b2119">40–120 addressierbar</text>
+<polygon points="300,145 490,145 440,195 360,195" fill="#c47a54" opacity="0.4" stroke="#c47a54" stroke-width="1"/>
+<text x="425" y="175" text-anchor="middle" font-family="Inter" font-size="11" fill="#2b2119" font-weight="600">25 Kapazität</text>
+<line x1="300" y1="35" x2="300" y2="195" stroke="#d9d0c5" stroke-width="1"/>
+</svg>
+<p>Elternwache braucht 25 aktive Familien. Das sind 20–30% des addressierbaren Marktes. Die Knappheit ist echt, nicht künstlich.</p>
+</section>
+
+<section class="slide slide--wide">
+<div class="slide-num">06 / 18</div>
+<div class="kicker">Zielgruppen</div>
+<h2>Zwei Zielgruppen, ein Produkt.</h2>
+<div class="grid-2">
+<div class="card card--accent">
+<h3>B2C: Vermögende Diaspora</h3>
+<p>Deutsche Expats in NYC, Sydney, London, Singapur. Eltern in Düsseldorf, Köln, Remscheid, Meerbusch. Kaufkraftindex 128,3 (höchste Kommune in NRW). Bereit, €3.000/Monat für Gewissensruhe zu zahlen.</p>
+<p style="font-family:var(--font-mono);font-size:var(--ts-small);color:var(--clay-text)">Oberkassel · Lörick · Heerdt · Kaiserswerth · Meerbusch-Büderich</p>
+</div>
+<div class="card card--accent">
+<h3>B2B: Japanische Konzerne</h3>
+<p>~500 japanische Unternehmen in Düsseldorf. Entsandte Führungskräfte mit alternden Eltern in Deutschland. Keine Zeit, kein Deutsch, keine Kenntnis des deutschen Pflegesystems. Arbeitgeber zahlt als Expat-Benefit.</p>
+<p style="font-family:var(--font-mono);font-size:var(--ts-small);color:var(--clay-text)">Käufer: HR / Global Mobility · Budget: €42.000–61.200/Jahr</p>
+</div>
+</div>
+<svg class="svg-chart" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+<text x="0" y="20" font-family="JetBrains Mono" font-size="10" fill="#955432" letter-spacing="2">REVENUE SPLIT YEAR 3</text>
+<rect x="0" y="40" width="480" height="35" fill="#955432" rx="2"/>
+<text x="490" y="62" font-family="JetBrains Mono" font-size="11" fill="#2b2119">€720k B2C (70%)</text>
+<rect x="0" y="90" width="306" height="35" fill="#8a9a7b" rx="2"/>
+<text x="316" y="112" font-family="JetBrains Mono" font-size="11" fill="#2b2119">€306k B2B (30%)</text>
+<text x="0" y="155" font-family="JetBrains Mono" font-size="9" fill="#4a3f35">20 B2C × €36.000 + 5 B2B × €61.200 = €1.026.000</text>
+<line x1="0" y1="170" x2="600" y2="170" stroke="#d9d0c5" stroke-width="1"/>
+<text x="0" y="190" font-family="JetBrains Mono" font-size="9" fill="#4a3f35">Quelle: eigene Berechnung, Hebesatz 440% (duesseldorf.de 2026)</text>
+</svg>
+</section>
+
+<section class="slide slide--prose">
+<div class="slide-num">07 / 18</div>
+<div class="kicker">Das Produkt</div>
+<h2>Audit. Autopilot. Monatsbericht.</h2>
+<p>Der Sohn in New York arbeitet. In Ruhe. Ich kümmere mich um die Mutter in Düsseldorf. Die Schauspielerin aus Köln lebt in Brisbane. In Ruhe. Ich halte Wache bei den Eltern. Der Fujifilm-Manager kommt abends aus dem Meeting. Er schläft ruhig. Oma Saki in Meerbusch ist versorgt.</p>
+<div class="callout">Eine Meta-Agentur — über Pflegedienst, Zahnarzt, Notar und allem anderen. Wir koordinieren nicht nur. Wir übernehmen. Kein „das machen wir nicht."</div>
+<p><strong>Der Prozess in drei Schritten:</strong></p>
+<ul class="clean">
+<li><strong>Audit</strong> — Ein Besuch, ein dokumentierter Bericht. Sechs Punkte: Kühlschrank, Kleidung, Hygiene, Termine, Briefe, Agenda. Jede Beobachtung mit Foto und Zeitstempel.</li>
+<li><strong>Autopilot</strong> — Wir übernehmen. Agenda-Führung, Termin-Koordination, Meta-Service. Der Hund, der Friseur, das wöchentliche Bad. Kein Katalog, keine Zuständigkeitsgrenzen innerhalb des vereinbarten Rahmens.</li>
+<li><strong>Monatsbericht</strong> — Was wir gesehen haben, was sich verändert hat, was uns überrascht hat. „Dieser Monat: alles in Ordnung. Das ist kein Nichts. Das ist das Ergebnis."</li>
+</ul>
+</section>
+
+<section class="slide slide--prose">
+<div class="slide-num">08 / 18</div>
+<div class="kicker">Preisstruktur</div>
+<h2>Vier Stufen. Maximum minus 15%.</h2>
+<p>Marktrecherche: US-amerikanische Geriatric Care Manager verlangen $100–300/Stunde* (~€93–279). Ultra-Premium-Concierge-Medizin: bis $40.000/Jahr* (~€37.200). Premium-Seniorenresidenz Düsseldorf: €2.600–5.000/Monat. Der maximale marktfähige Preis für eine Koordinationsleistung (nicht Pflege, nicht medizinisch) liegt bei ~€3.500–5.000/Monat. Elternwache nimmt das Maximum und reduziert um 15%.</p>
+<table>
+<tr><th>Stufe</th><th>Max. Marktpreis</th><th>−15%</th><th>Rolle</th></tr>
+<tr><td>Basis</td><td class="num">€1.800</td><td class="num"><strong>€1.500</strong></td><td><span class="tag tag--warn">Einstieg</span></td></tr>
+<tr><td><strong>Premium</strong></td><td class="num">€3.500</td><td class="num"><strong>€3.000</strong></td><td><span class="tag tag--crit">Ziel</span></td></tr>
+<tr><td>Signature</td><td class="num">€5.000</td><td class="num"><strong>€4.200</strong></td><td><span class="tag tag--warn">Aspirational</span></td></tr>
+<tr><td>VIP</td><td class="num">—</td><td class="num"><strong>Auf Anfrage</strong></td><td><span class="tag tag--ok">On-Demand</span></td></tr>
+</table>
+<table>
+<tr><th>B2B (JP*)</th><th>Max. Marktpreis</th><th>−15%</th><th>Leistung</th></tr>
+<tr><td>Standard</td><td class="num">€4.200</td><td class="num"><strong>€3.500</strong></td><td>Agenda, 2 Besuche, Monatsbericht</td></tr>
+<tr><td>Premium</td><td class="num">€6.000</td><td class="num"><strong>€5.100</strong></td><td>Wöchentlich, Vollmacht, 通訳*込み</td></tr>
+</table>
+<div class="callout"><strong>§35a EStG*:</strong> 20% der Kosten (bis €4.000/Jahr) werden von der Steuerschuld abgezogen. Bei €3.000/Monat: effektiver Preis €2.667/Monat. Rechnung + Überweisung erforderlich.</div>
+</section>
+
+<section class="slide slide--prose">
+<div class="slide-num">09 / 18</div>
+<div class="kicker">Preispsychologie</div>
+<h2>Warum €3.000 und nicht €1.800.</h2>
+<p>Der Zielkunde kann Qualität bei Pflege nicht beurteilen — also nutzt er den Preis als Signal. €1.800 signalisiert: Mittelklasse. €3.000 signalisiert: Diskretion und Ernsthaftigkeit. Runde Zahlen, keine Charm-Preise: €2.999 liest sich wie ein Discounter. €3.000 liest sich wie Zurückhaltung.</p>
+<p><strong>Verlustaversion (Prospect Theory*):</strong> Verluste wiegen doppelt so schwer wie Gewinne. Der Verkauf lautet nicht „Sie gewinnen Komfort", sondern „Sie vermeiden eine Katastrophe: ein verpasster PSA*-Termin, ein unbemerkter Sturz, eine unbezahlte Mahnung."</p>
+<p><strong>Knappheit als Filter:</strong> „Wir nehmen nur eine begrenzte Zahl an Familien auf. Wir wählen unsere Kunden aus." Die Barriere ist das Signal. Keine Rabatte. Keine Dringlichkeit. Das ist Massenmarkt-Sprache.</p>
+<svg class="svg-chart" viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+<text x="0" y="15" font-family="JetBrains Mono" font-size="9" fill="#955432" letter-spacing="2">PREIS-QUALITÄTS-HEURISTIK</text>
+<line x1="50" y1="150" x2="580" y2="150" stroke="#d9d0c5" stroke-width="1"/>
+<line x1="50" y1="30" x2="50" y2="150" stroke="#d9d0c5" stroke-width="1"/>
+<text x="50" y="165" font-family="JetBrains Mono" font-size="8" fill="#4a3f35">€0</text>
+<text x="170" y="165" font-family="JetBrains Mono" font-size="8" fill="#4a3f35">€1.000</text>
+<text x="320" y="165" font-family="JetBrains Mono" font-size="8" fill="#4a3f35">€3.000</text>
+<text x="470" y="165" font-family="JetBrains Mono" font-size="8" fill="#4a3f35">€5.000+</text>
+<text x="10" y="150" font-family="JetBrains Mono" font-size="8" fill="#4a3f35" transform="rotate(-90 10,150)">Wahrgenommene Qualität</text>
+<path d="M 50,145 Q 200,130 320,70 T 580,35" stroke="#c47a54" stroke-width="2" fill="none"/>
+<circle cx="170" cy="115" r="4" fill="#8a9a7b"/>
+<text x="180" y="113" font-family="Inter" font-size="9" fill="#4a3f35">Alltagsbegleiter €25-45/h</text>
+<circle cx="320" cy="70" r="5" fill="#955432"/>
+<text x="330" y="68" font-family="Inter" font-size="9" fill="#2b2119" font-weight="600">Elternwache €3.000</text>
+<circle cx="470" cy="42" r="4" fill="#8a9a7b"/>
+<text x="480" y="40" font-family="Inter" font-size="9" fill="#4a3f35">US Care Mgr $300/h</text>
+</svg>
+</section>
+
+<section class="slide slide--wide">
+<div class="slide-num">10 / 18</div>
+<div class="kicker">Wettbewerb</div>
+<h2>Die Lücke ist leer.</h2>
+<table>
+<tr><th>Akteur</th><th>Modell</th><th>Preis</th><th>Was fehlt</th></tr>
+<tr><td>pme Familienservice</td><td>B2B *EAP* (Elder-Care)</td><td>nicht öffentlich</td><td>Call-Center, nicht lokal, nicht persönlich</td></tr>
+<tr><td>Alltagsbegleiter</td><td>stundenweise Betreuung</td><td>€25–45/h</td><td>Keine Koordination, kein Monatsbericht</td></tr>
+<tr><td>US Geriatric Care Mgr</td><td>Professionelle Koordination</td><td>$100–300/h</td><td>Existiert nicht in Deutschland</td></tr>
+<tr><td>DeJaK-Tomonokai e.V.</td><td>Ehrenamtliche JP*-Besuche</td><td>kostenlos</td><td>Freiwillig, nicht premium, nicht B2B</td></tr>
+<tr><td><strong>Elternwache</strong></td><td><strong>Meta-Agentur</strong></td><td><strong>€1.500–4.200/Monat</strong></td><td><strong>— (die Lücke)</strong></td></tr>
+</table>
+<div class="grid-2">
+<div class="card"><h3>Blue Ocean</h3><p>Elternwache ist der einzige Akteur im Schnitt von: physische Präsenz × Agenda-Führung × Monatsbericht × Meta-Service × exklusiv × trilingual. Kein Konkurrent besetzt dieses Feld.</p></div>
+<div class="card"><h3>MOAT — Burggraben</h3><p>Konkurrenten können das Audit kopieren. Sie können die Preise kopieren. Sie können nicht 12 Monate kumulierte, vertrauenswürdige Monatsberichte kopieren. Glaubwürdigkeit ist das nicht-replizierbare Alpha.</p></div>
+</div>
+</section>
+
+<!-- SLIDE 11: SCENARIOS -->
+<section class="slide slide--wide">
+<div class="slide-num">11 / 18</div>
+<div class="kicker">Szenarien</div>
+<h2>Vier Szenarien. Jahr 1, Einzelunternehmen.</h2>
+<table>
+<tr><th>Szenario</th><th>Klienten</th><th>Umsatz</th><th>Kosten</th><th>GewSt*</th><th>ESt*</th><th>Soli</th><th><strong>Netto</strong></th></tr>
+<tr><td>Pessimistisch</td><td class="num">2 B2C</td><td class="num">€72.000</td><td class="num">€11.620</td><td class="num">€5.526</td><td class="num">€9.656</td><td class="num">€0</td><td class="num"><strong>€45.198</strong></td></tr>
+<tr><td>Konservativ</td><td class="num">3 B2C</td><td class="num">€108.000</td><td class="num">€11.620</td><td class="num">€11.070</td><td class="num">€19.725</td><td class="num">€1.085</td><td class="num"><strong>€64.500</strong></td></tr>
+<tr><td><strong>Realistisch</strong></td><td class="num"><strong>5 B2C</strong></td><td class="num"><strong>€180.000</strong></td><td class="num"><strong>€11.620</strong></td><td class="num"><strong>€22.158</strong></td><td class="num"><strong>€45.308</strong></td><td class="num"><strong>€2.492</strong></td><td class="num"><strong>€98.422</strong></td></tr>
+<tr><td>Semi-optimistisch</td><td class="num">5+1 B2B</td><td class="num">€222.000</td><td class="num">€11.620</td><td class="num">€28.626</td><td class="num">€60.232</td><td class="num">€3.313</td><td class="num"><strong>€118.209</strong></td></tr>
+</table>
+<svg class="svg-chart" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+<text x="300" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#955432" letter-spacing="2">NETTO-JAHRESEINKOMMEN NACH STEUERN</text>
+<line x1="0" y1="200" x2="600" y2="200" stroke="#d9d0c5" stroke-width="1"/>
+<rect x="40" y="155" width="100" height="45" fill="#8a9a7b" rx="2"/>
+<text x="90" y="148" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2b2119">€45k</text>
+<text x="90" y="215" text-anchor="middle" font-family="Inter" font-size="8" fill="#4a3f35">Pessimistisch</text>
+<rect x="180" y="118" width="100" height="82" fill="#8a9a7b" rx="2" opacity="0.8"/>
+<text x="230" y="111" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2b2119">€65k</text>
+<text x="230" y="215" text-anchor="middle" font-family="Inter" font-size="8" fill="#4a3f35">Konservativ</text>
+<rect x="320" y="55" width="100" height="145" fill="#955432" rx="2"/>
+<text x="370" y="48" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2b2119" font-weight="600">€98k</text>
+<text x="370" y="215" text-anchor="middle" font-family="Inter" font-size="8" fill="#2b2119" font-weight="600">Realistisch</text>
+<rect x="460" y="30" width="100" height="170" fill="#c47a54" rx="2"/>
+<text x="510" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2b2119">€118k</text>
+<text x="510" y="215" text-anchor="middle" font-family="Inter" font-size="8" fill="#4a3f35">Semi-opt.</text>
+</svg>
+<p>Break-even bei 1 Klienten (Monatsbeitrag €3.000 > monatliche Fixkosten €968). Alle vier Szenarien sind profitabel ab dem ersten Klienten.</p>
+</section>
+
+<section class="slide slide--wide">
+<div class="slide-num">12 / 18</div>
+<div class="kicker">3-Jahr-Projektion</div>
+<h2>Einzelunternehmen → GmbH*.</h2>
+<table>
+<tr><th>Kennzahl</th><th>Jahr 1 (solo)</th><th>Jahr 2 (+1 Agent, GmbH)</th><th>Jahr 3 (+2 Agenten, GmbH)</th></tr>
+<tr><td>Klienten (B2C / B2B)</td><td class="num">5 / 0</td><td class="num">12 / 2</td><td class="num">20 / 5</td></tr>
+<tr><td>Umsatz</td><td class="num">€180.000</td><td class="num">€516.000</td><td class="num">€1.026.000</td></tr>
+<tr><td>Kosten</td><td class="num">€11.620</td><td class="num">€55.000</td><td class="num">€100.000</td></tr>
+<tr><td>Gewinn vor Steuern</td><td class="num">€168.380</td><td class="num">€461.000</td><td class="num">€926.000</td></tr>
+<tr><td>Gewerbesteuer (440%)</td><td class="num">€22.158</td><td class="num">€70.994</td><td class="num">€142.604</td></tr>
+<tr><td>ESt* / KörpSt* + Soli</td><td class="num">€47.800</td><td class="num">€72.953</td><td class="num">€146.540</td></tr>
+<tr><td><strong>Netto nach Steuern</strong></td><td class="num"><strong>€98.422</strong></td><td class="num"><strong>€317.053</strong></td><td class="num"><strong>€636.856</strong></td></tr>
+</table>
+<svg class="svg-chart" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+<text x="300" y="15" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#955432" letter-spacing="2">UMSATZ- UND GEWINNWACHSTUM</text>
+<line x1="50" y1="180" x2="580" y2="180" stroke="#d9d0c5" stroke-width="1"/>
+<line x1="50" y1="30" x2="50" y2="180" stroke="#d9d0c5" stroke-width="1"/>
+<text x="50" y="195" font-family="JetBrains Mono" font-size="8" fill="#4a3f35">Jahr 1</text>
+<text x="250" y="195" font-family="JetBrains Mono" font-size="8" fill="#4a3f35">Jahr 2</text>
+<text x="450" y="195" font-family="JetBrains Mono" font-size="8" fill="#4a3f35">Jahr 3</text>
+<rect x="80" y="145" width="60" height="35" fill="#c47a54" opacity="0.3" rx="2"/>
+<text x="110" y="138" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#2b2119">€180k</text>
+<rect x="280" y="95" width="60" height="85" fill="#c47a54" opacity="0.5" rx="2"/>
+<text x="310" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#2b2119">€516k</text>
+<rect x="480" y="35" width="60" height="145" fill="#c47a54" opacity="0.8" rx="2"/>
+<text x="510" y="28" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#2b2119">€1.026k</text>
+<polyline points="110,145 310,95 510,35" stroke="#955432" stroke-width="2" fill="none"/>
+<circle cx="110" cy="145" r="4" fill="#955432"/>
+<circle cx="310" cy="95" r="4" fill="#955432"/>
+<circle cx="510" cy="35" r="4" fill="#955432"/>
+<text x="5" y="100" font-family="JetBrains Mono" font-size="8" fill="#4a3f35" transform="rotate(-90 5,100)">T€</text>
+</svg>
+<div class="grid-3">
+<div class="stat"><div class="stat-val">€72k</div><div class="stat-label">*LTV* (24 Mo.)</div></div>
+<div class="stat"><div class="stat-val">36:1</div><div class="stat-label">LTV/*CAC* (konserv.)</div></div>
+<div class="stat"><div class="stat-val">1</div><div class="stat-label">Break-even Klienten</div></div>
+</div>
+<p style="font-size:var(--ts-tiny);color:var(--ink-soft);margin-top:var(--space-lg)">Gewerbesteuer: Düsseldorf Hebesatz 440% (duesseldorf.de, 2026). ESt 2026: Grundfreibetrag €12.348, progressiv 14–42%. KörpSt 15% + Soli 5.5%. GmbH hat keinen GewSt-Freibetrag. Alle Zahlen gerundet.</p>
+</section>
+
+<section class="slide slide--wide">
+<div class="slide-num">13 / 18</div>
+<div class="kicker">Budget</div>
+<h2>Startkapital: €3.500.</h2>
+<table>
+<tr><th>Position</th><th>Kosten</th><th>Anmerkung</th></tr>
+<tr><td>Gewerbeanmeldung</td><td class="num">€40</td><td>Gewerbeamt Düsseldorf</td></tr>
+<tr><td>Vermögensschadenhaftpflicht + Betriebshaftpflicht</td><td class="num">€1.500</td><td>Erstjahr, ~€750–2.200 p.a.</td></tr>
+<tr><td>Rechtsberatung (AGB*, Verträge)</td><td class="num">€800</td><td>Reduzierter Umfang, Anwalt</td></tr>
+<tr><td>EU-Hosting + sicheres Portal</td><td class="num">€300</td><td>Hetzner, nicht US</td></tr>
+<tr><td>Domain (elternwache.de)</td><td class="num">€60</td><td>Jahresregistrierung</td></tr>
+<tr><td>Reisekosten (erstes Quartal)</td><td class="num">€400</td><td>~1.300 km × €0,30</td></tr>
+<tr><td>Telefon, Admin, Werkzeuge</td><td class="num">€400</td><td>Erstes Quartal</td></tr>
+<tr><td><strong>Summe Startkapital</strong></td><td class="num"><strong>€3.500</strong></td><td><strong>Keine Burn-Rate</strong></td></tr>
+</table>
+<div class="callout">Das Geschäftsmodell ist kapital-effizient. Kein Lager. Keine Maschinen. Kein Burn-Rate. Die Investition ist die Zeit des Gründers. UG* haftungsbeschränkt (€1 Stammkapital) wird bei erstem B2B-Klienten gegründet (~€1.000 Notar).</div>
+</section>
+
+<section class="slide slide--prose">
+<div class="slide-num">14 / 18</div>
+<div class="kicker">Recht</div>
+<h2>Der rechtliche Rahmen.</h2>
+<table>
+<tr><th>Gesetz</th><th>Bedeutung für Elternwache</th></tr>
+<tr><td><strong>§7a SGB XI*</strong></td><td>„Pflegeberater" ist geschützt. Elternwache bietet keine Pflegeberatung. Disclaimer auf jeder Seite.</td></tr>
+<tr><td><strong>*PNOG* 2027</strong></td><td>Pflegeneuordnungsgesetz: Pflegegeld → Entlastungsbudget, Entlastungsbetrag → Sozialraumbudget (PG1* verliert €131/Monat). Neue Pflegebegleitung ab 2028. Bestandsschutz für bestehende Pflegegrade, schärfere Einstufung für Neuzugänge. Elternwache muss bei Audit Pflegegrad-Status und PNOG-Übergang prüfen.</td></tr>
+<tr><td><strong>§203 StGB*</strong></td><td>Schweigepflicht. Entbindung durch die Eltern persönlich, nicht durch das zahlende Kind.</td></tr>
+<tr><td><strong>Art. 9 DSGVO*</strong></td><td>Gesundheitsdaten. Ausdrückliche Einwilligung der Eltern. EU-Hosting. Keine US-Cloud.</td></tr>
+<tr><td><strong>Art. 49 DSGVO</strong></td><td>Datenübermittlung in Drittländer (USA, AU, JP*). Einwilligung der Eltern erforderlich.</td></tr>
+<tr><td><strong>§323c StGB</strong></td><td>Unterlassene Hilfeleistung. Meldepflicht bei Gefahr. Hat Vorrang vor Vertrag.</td></tr>
+<tr><td><strong>§225 StGB</strong></td><td>Misshandlung Schutzbefohlener. Elternwache übernimmt keine Fürsorgepflicht. Rolle: Besuchsdienst.</td></tr>
+<tr><td><strong>§1896 BGB*</strong></td><td>Betreuungsrecht. Ohne Vollmacht + ohne Einwilligungsfähigkeit: Betreuer durch Amtsgericht.</td></tr>
+<tr><td><strong>§§305–310 BGB</strong></td><td>AGB*-Recht. 14-tägiges Widerrufsrecht (B2C). Anwalt-drafted.</td></tr>
+<tr><td><strong>§35a EStG*</strong></td><td>20% Steuerermäßigung für haushaltsnahe Dienstleistungen. Rechnung + Überweisung.</td></tr>
+<tr><td><strong>§34f GewO*</strong></td><td>Keine Finanzanlagenberatung. Bankauszüge = Beobachtung, nicht Beratung.</td></tr>
+<tr><td><strong>§4 Nr. 16 UStG*</strong></td><td>USt*-Befreiung nur für Pflegedienste. Oliver wahrscheinlich MwSt-pflichtig (19%). Kleinunternehmer §19 UStG Jahr 1.</td></tr>
+<tr><td><strong>BGH* XII ZB 334/22</strong></td><td>Demenz-Patient kann Vollmacht durch „natürlichen Willen" widerrufen. Oliver respektiert immer den Willen der Eltern.</td></tr>
+<tr><td><strong>§1358 BGB</strong></td><td>Ehegatten-Notvertretungsrecht (max. 6 Monate). Kinder haben KEIN automatisches Notvertretungsrecht — explizite Notfallvollmacht zwingend.</td></tr>
+<tr><td><strong>Bestimmtheitsgebot Vollmacht</strong></td><td>Vollmacht muss Art und Umfang der Geschäfte genau bezeichnen (BGH st. Rspr.). Untervollmacht für Oliver muss ausdrücklich autorisiert sein. Kein Blanko-Vollmachten.</td></tr>
+<tr><td><strong>Notfallprotokoll</strong></td><td>Eltern und Kind unterschreiben: (a) Notfalldefinition, (b) Handlungsprotokoll bei Nichterreichbarkeit, (c) Einwilligung zu ärztlichen Notmaßnahmen nach §630d BGB. §323c StGB (Hilfspflicht) kann nicht abbedungen werden — aber der Ablauf ist definiert.</td></tr>
+<tr><td><strong>Art. 45/49 DSGVO* (Drittland)</strong></td><td>USA: keine Angemessenheitsentscheidung (Schrems II). AU: keine Angemessenheitsentscheidung. JP*: Angemessenheitsentscheidung seit 2019. Datenübermittlung in USA/AU erfordert Art. 49 Abs. 1a (ausdrückliche Einwilligung der Eltern). Nach JP: vereinfacht durch Angemessenheitsentscheidung.</td></tr>
+</table>
+</section>
+
+<section class="slide slide--wide">
+<div class="slide-num">15 / 18</div>
+<div class="kicker">Ethik & *SPOFs*</div>
+<h2>79 SPOFs identifiziert. Alle gefiltert oder bepreist.</h2>
+<div class="grid-3">
+<div class="stat"><div class="stat-val">79</div><div class="stat-label">SPOFs gesamt</div></div>
+<div class="stat"><div class="stat-val">31</div><div class="stat-label">CRITICAL (alle gefiltert)</div></div>
+<div class="stat"><div class="stat-val">0</div><div class="stat-label">Unmitigiert</div></div>
+</div>
+<svg class="svg-chart" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+<text x="300" y="15" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#955432" letter-spacing="2">SPOF-VERTEILUNG</text>
+<rect x="20" y="30" width="310" height="25" fill="#955432" rx="2"/>
+<text x="180" y="47" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#f5efe6">31 CRITICAL (gefiltert)</text>
+<rect x="20" y="60" width="280" height="25" fill="#c47a54" rx="2"/>
+<text x="160" y="77" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#f5efe6">28 WARNING (gefiltert)</text>
+<rect x="20" y="90" width="145" height="25" fill="#8a9a7b" rx="2"/>
+<text x="92" y="107" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#f5efe6">15 LOW/POSITIVE</text>
+<rect x="20" y="120" width="60" height="25" fill="#d9d0c5" rx="2"/>
+<text x="50" y="137" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2b2119">5 PRICED</text>
+</svg>
+<div class="callout"><strong>Ethisches Kernprinzip:</strong> Der Wille der Eltern hat Vorrang. Der Wille des Kindes finanziert. Oliver dient beiden — aber in einem Konflikt gewinnen Sicherheit und Würde der Eltern.</div>
+</section>
+
+<section class="slide slide--prose">
+<div class="slide-num">16 / 18</div>
+<div class="kicker">Roadmap</div>
+<h2>Drei Jahre. Drei Phasen.</h2>
+<table>
+<tr><th>Phase</th><th>Zeitraum</th><th>Meilenstein</th><th>Gate</th></tr>
+<tr><td><strong>MVP*</strong></td><td>Q1 2026</td><td>2–3 Pilot-Familien, Situation Check, SOP*-Pack</td><td>0 verpasste Termine in 90 Tagen</td></tr>
+<tr><td><strong>Validierung</strong></td><td>Q2–Q3 2026</td><td>5 B2C Klienten, Kleinunternehmer, Gewerbe angemeldet</td><td>€15.000/Monat Umsatz</td></tr>
+<tr><td><strong>B2B Einstieg</strong></td><td>Q4 2026</td><td>UG* gegründet, DPA* vorbereitet, erste JP* Corp</td><td>1 B2B Jahresvertrag</td></tr>
+<tr><td><strong>Skalierung</strong></td><td>2027</td><td>12 B2C + 2 B2B, 1 Agent, GmbH, SOP delegierbar</td><td>Agent unabhängig im Gemba</td></tr>
+<tr><td><strong>Reife</strong></td><td>2028</td><td>25 Klienten, 2 Agenten, trilinguale Plattform</td><td>€1M+ Umsatz</td></tr>
+</table>
+<div class="grid-2">
+<div class="card card--accent"><h3>Lean Startup</h3><p>*OMTM*: 0 verpasste Termine. Anti-Burnout-Metrik: Olivers Schlafstunden. Pivot, wenn der Monatsbericht das einzige ist, was geschätzt wird.</p></div>
+<div class="card card--accent"><h3>Kaizen</h3><p>Jeder Besuch endet mit „Was hat mich überrascht?" Das ist die Antifragilitäts-Maschine: Stress → Überraschung → SOP-Update → System stärker.</p></div>
+</div>
+</section>
+
+<section class="slide slide--prose">
+<div class="slide-num">17 / 18</div>
+<div class="kicker">Referenzen</div>
+<h2>Quellen. Vancouver-Format.</h2>
+<ol class="refs">
+<li>Ülgüt R, et al. Experiences and support needs of informal long-distance caregivers of older adults. BMJ Open. 2023;13(4):e068175. doi:10.1136/bmjopen-2022-068175</li>
+<li>Budnick A, et al. CaRegiving frOm A Distance (ROAD): home care in the future. BMC Geriatr. 2022;22:704. doi:10.1186/s12877-022-03386-7</li>
+<li>Herbst F, et al. Long-distance caregiving at the end of life: a protocol for a mixed-methods study. BMC Palliat Care. 2022;21:211. doi:10.1186/s12904-022-00967-8</li>
+<li>Klingel M. Distancing and Changes in Intergenerational Support. J Intergener Relatsh. 2025;23(4). doi:10.1080/15350770.2025.2504393</li>
+<li>Hall LT, et al. Trust and Betrayal in Older Adult Financial Exploitation. J Elder Abuse Negl. 2023;35(4). PMC10587358</li>
+<li>BFH, VI R 2/20. Urteil vom 12.04.2022. Steuerermäßigung nach §35a EStG bei ambulanten Pflege- und Betreuungsleistungen.</li>
+<li>BGH, XII ZB 334/22. Beschluss vom 13.12.2023. Widerruf einer Vorsorgevollmacht bei Demenz.</li>
+<li>Bundesministerium für Gesundheit. Pflege-Neuausrichtungs-Gesetz. Entlastungsbudget ab 01.07.2025. Berlin: BMG; 2025.</li>
+<li>Bundesministerium für Gesundheit. Referentenentwurf Pflegeneuordnungsgesetz (PNOG). Berlin: BMG; 04.06.2026.</li>
+<li>Jensen MC, Meckling WH. Theory of the Firm: Managerial Behavior, Agency Costs and Ownership Structure. J Financ Econ. 1976;3(4):305-360.</li>
+<li>Klein G. Sources of Power: How People Make Decisions. Cambridge: MIT Press; 1998.</li>
+<li>Taleb NN. Antifragile: Things That Gain from Disorder. New York: Random House; 2012.</li>
+<li>Kahneman D, Tversky A. Prospect Theory: An Analysis of Decision under Risk. Econometrica. 1979;47(2):263-291.</li>
+<li>Christensen CM. The Innovator's Dilemma. Boston: Harvard Business School Press; 1997.</li>
+<li>Maister DH. The Trusted Advisor. New York: Free Press; 2000.</li>
+<li>Kim WC, Mauborgne R. Blue Ocean Strategy. Boston: Harvard Business School Press; 2005.</li>
+<li>GfK. Kaufkraft Deutschland 2025. Nürnberg: GfK; 2025.</li>
+<li>IT.NRW. Verfügbares Einkommen je Einwohner 2021. Düsseldorf: Landesbetrieb IT.NRW; 2023.</li>
+<li>Stadt Düsseldorf. Gewerbesteuerhebesatz 2026: 440%. Düsseldorf: Steueramt; 2026.</li>
+<li>Europäische Kommission. Angemessenheitsentscheidung für Japan. Brüssel: EU-Kommission; 2019.</li>
+</ol>
+</section>
+
+<section class="slide slide--dark">
+<div class="slide-num">18 / 18</div>
+<div class="kicker">Zusammenfassung</div>
+<h1>Elternwache.</h1>
+<svg class="svg-chart" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+<text x="300" y="15" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#c47a54" letter-spacing="2">KENNZAHLEN AUF EINEN BLICK</text>
+<circle cx="100" cy="60" r="30" fill="none" stroke="#c47a54" stroke-width="2"/>
+<text x="100" y="65" text-anchor="middle" font-family="Fraunces" font-size="14" fill="#f5efe6">€3.500</text>
+<text x="100" y="105" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="rgba(245,239,230,0.5)">Startkapital</text>
+<circle cx="300" cy="60" r="30" fill="none" stroke="#c47a54" stroke-width="2"/>
+<text x="300" y="65" text-anchor="middle" font-family="Fraunces" font-size="14" fill="#f5efe6">€98k</text>
+<text x="300" y="105" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="rgba(245,239,230,0.5)">Netto Jahr 1</text>
+<circle cx="500" cy="60" r="30" fill="none" stroke="#c47a54" stroke-width="2"/>
+<text x="500" y="65" text-anchor="middle" font-family="Fraunces" font-size="14" fill="#f5efe6">€637k</text>
+<text x="500" y="105" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="rgba(245,239,230,0.5)">Netto Jahr 3</text>
+</svg>
+<div class="callout">Eine Lücke, die niemand schließt. Ein Produkt, das nicht kopierbar ist. Ein Markt, der tief genug für 25 Familien ist. Eine rechtliche und ethische Architektur, die 79 SPOFs überlebt. Kapital-effizient. Break-even bei 1 Klienten. Skalierbar durch SOPs und Agenten.</div>
+<p style="margin-top:var(--space-2xl);font-family:var(--font-mono);font-size:var(--ts-small);color:rgba(245,239,230,0.4)">Oliver Grötzsch · Drängenburger Str. 35 · 40593 Düsseldorf · groetzscho@outlook.de · 0151 21 52 8787</p>
+</section>
+
+
+</body>
+</html>
