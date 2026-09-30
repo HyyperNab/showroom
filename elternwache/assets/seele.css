@@ -49,6 +49,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 a { color: var(--clay-text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
 a:hover { border-bottom-color: var(--clay-text); }
+.footer a { color: rgba(245, 239, 230, 0.7); border: none; }
+.footer a:hover { color: var(--clay); }
+.footer a[href^="tel:"], .footer a[href^="mailto:"] { color: inherit; }
 
 button { font-family: inherit; cursor: pointer; }
 
