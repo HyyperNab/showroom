@@ -91,10 +91,13 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ── Layout ── */
 .section {
-  padding: clamp(var(--space-2xl), 8vw, var(--space-3xl)) clamp(var(--space-md), 5vw, var(--space-2xl));
+  padding: clamp(var(--space-lg), 4vw, var(--space-xl)) clamp(var(--space-md), 5vw, var(--space-2xl));
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-y: auto;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
@@ -137,12 +140,15 @@ strong { color: var(--ink); font-weight: 600; }
 
 /* ── Hero ── */
 .hero {
-  padding: clamp(var(--space-2xl), 10vw, 7rem) clamp(var(--space-md), 5vw, var(--space-2xl)) clamp(var(--space-2xl), 8vw, var(--space-3xl));
+  padding: clamp(var(--space-xl), 6vw, 5rem) clamp(var(--space-md), 5vw, var(--space-2xl)) clamp(var(--space-xl), 4vw, 3rem);
   max-width: var(--max-prose);
   margin: 0 auto;
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-y: auto;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
@@ -202,11 +208,11 @@ strong { color: var(--ink); font-weight: 600; }
 .audit-list { list-style: none; counter-reset: audit; }
 .audit-list li {
   counter-increment: audit;
-  padding: var(--space-lg) 0;
+  padding: var(--space-sm) 0;
   border-bottom: 1px solid var(--line);
   display: grid;
-  grid-template-columns: 2.25rem 1fr;
-  gap: var(--space-md);
+  grid-template-columns: 2rem 1fr;
+  gap: var(--space-sm);
   align-items: baseline;
 }
 .audit-list li::before {
@@ -258,11 +264,11 @@ strong { color: var(--ink); font-weight: 600; }
 .offer-intro { margin-bottom: var(--space-2xl); }
 .tiers { display: grid; gap: 0; }
 .tier {
-  padding: var(--space-xl) 0;
+  padding: var(--space-md) 0;
   border-top: 1px solid var(--line);
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: var(--space-xl);
+  gap: var(--space-md);
   align-items: start;
 }
 .tier:last-child { border-bottom: 1px solid var(--line); }
@@ -279,10 +285,10 @@ strong { color: var(--ink); font-weight: 600; }
 }
 .tier-features { list-style: none; }
 .tier-features li {
-  padding: var(--space-xs) 0;
-  font-size: var(--ts-small);
+  padding: 2px 0;
+  font-size: var(--ts-tiny);
   color: var(--ink-soft);
-  line-height: 1.55;
+  line-height: 1.4;
 }
 .tier-features li::before { content: "— "; color: var(--moss); }
 .tier-vip {
@@ -354,13 +360,13 @@ strong { color: var(--ink); font-weight: 600; }
 }
 
 /* ── Form ── */
-.apply-form { display: grid; gap: var(--space-lg); max-width: 580px; margin: 0 auto; }
+.apply-form { display: grid; gap: var(--space-sm); max-width: 580px; margin: 0 auto; }
 .form-field { display: flex; flex-direction: column; gap: var(--space-xs); }
 .form-field label { font-size: var(--ts-small); color: var(--ink); font-weight: 500; }
 .form-field input, .form-field textarea, .form-field select {
-  font-family: inherit; font-size: var(--ts-body); color: var(--ink);
+  font-family: inherit; font-size: var(--ts-small); color: var(--ink);
   background: transparent; border: none; border-bottom: 1px solid var(--line);
-  padding: var(--space-sm) 0; border-radius: 0;
+  padding: 4px 0; border-radius: 0;
   transition: border-color 0.15s;
 }
 .form-field input:focus, .form-field textarea:focus, .form-field select:focus {
@@ -380,9 +386,12 @@ strong { color: var(--ink); font-weight: 600; }
 .footer {
   background: var(--ink);
   color: var(--paper);
-  padding: clamp(var(--space-xl), 5vw, var(--space-2xl)) clamp(var(--space-md), 5vw, var(--space-2xl));
+  padding: clamp(var(--space-xl), 3vw, var(--space-lg)) clamp(var(--space-md), 5vw, var(--space-2xl));
   min-height: 100vh;
   min-height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-y: auto;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
