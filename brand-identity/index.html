@@ -175,183 +175,6 @@ p { margin-bottom: 14px; line-height: 1.7; }
 </style>
 </head>
 <body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dr. Nabil Ktari, M.D. — Brand Identity Portfolio</title>
-<meta name="description" content="Dr. Nabil Ktari, M.D. — Board-Certified Internal Medicine Specialist & Medical AI Architect. Deterministic safety gates, SaMD governance, evidence-based longevity protocols. B2B advisory for healthtech, investors, and SaMD governance.">
-<meta name="keywords" content="Dr. Nabil Ktari, Medical AI Architect, SaMD governance, Clinical AI Safety, EU MDR, EU AI Act, FDA PCCP, deterministic safety gates, CDSS, healthtech advisory, B2B consulting, Freiberufler, Düsseldorf">
-<meta name="author" content="Dr. Nabil Ktari, M.D.">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Dr. Nabil Ktari, M.D. — Medical AI Architect & SaMD Governance Advisor">
-<meta property="og:description" content="Deterministic safety gates, SaMD governance, and evidence-based longevity protocols. B2B strategic advisory for healthtech leadership and investors.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://hyypernab.github.io/showroom/brand-identity/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dr. Nabil Ktari, M.D. — Medical AI Architect">
-<meta name="twitter:description" content="Deterministic safety gates, SaMD governance, evidence-based longevity protocols. B2B advisory.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-    --surface: #ffffff;
-    --paper: #f8fafc;
-    --border: #cbd5e1;
-    --border-subtle: #e2e8f0;
-    --ink: #0f172a;
-    --steel: #334155;
-    --muted: #64748b;
-    --navy: #16324f;
-    --blue: #46698f;
-    --blue-line: rgba(70, 105, 143, 0.35);
-    --orange: #e95d0e;
-    --teal: #0d9488;
-    --teal-light: #14b8a6;
-    --teal-bg: #f0fdfa;
-    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-    --font-mono: "JetBrains Mono", ui-monospace, monospace;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-snap-type: y mandatory; }
-body { font-family: var(--font-sans); color: var(--ink); background: var(--navy); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-
-/* ── Fade-in ── */
-@keyframes fadeSlide { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.slide { opacity: 0; }
-.slide.visible { animation: fadeSlide 0.4s ease-out both; }
-
-/* ── Slides ── */
-.slide {
-    width: 100vw; min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center; align-items: stretch;
-    padding: 6vh 8vw; position: relative;
-    scroll-snap-align: start; scroll-snap-stop: always;
-    overflow: hidden; background: var(--surface); color: var(--ink);
-}
-.slide.dark { background: var(--navy); color: #e2e8f0; }
-.slide.dark h1, .slide.dark h2, .slide.dark h3 { color: #f1f5f9; }
-.slide.dark p { color: #cbd5e1 !important; }
-.slide.dark strong { color: #f1f5f9; }
-.slide.dark .kpi .val { color: var(--teal-light) !important; }
-.slide.dark .kpi .label { color: #94a3b8 !important; }
-.slide.dark .kpi { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); }
-.slide.dark .chip { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1); color: #e2e8f0; }
-.slide.dark .case-card { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
-.slide.dark .case-card .case-title { color: #f1f5f9; }
-.slide.dark .case-card .case-desc { color: #94a3b8; }
-.slide.dark .nda-block { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.08); color: #64748b; }
-.slide.dark th { background: rgba(255,255,255,0.1); color: #f1f5f9; }
-.slide.dark td { color: #94a3b8; border-color: rgba(255,255,255,0.06); }
-
-/* ── Navigation ── */
-nav.top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(15,23,42,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; }
-nav.top-nav.hidden { transform: translateY(-100%); }
-.nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 20px; }
-.nav-brand { color: #ffffff;  font-family: var(--font-mono); font-size: 12px; color: #e2e8f0; font-weight: 600; letter-spacing: 1px; white-space: nowrap; }
-.nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
-.nav-links a { color: #ffffff; font-size: 12px; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
-.nav-links a:hover, .nav-links a.active { color: var(--orange); }
-#navtoggle { display: none; background: none; border: none; color: #e2e8f0; font-size: 20px; cursor: pointer; }
-
-/* ── Typography ── */
-h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 600; letter-spacing: -1px; margin-bottom: 12px; }
-h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 600; margin-bottom: 20px; letter-spacing: -0.5px; }
-h3 { font-size: clamp(16px, 2vw, 20px); font-weight: 600; margin-bottom: 12px; }
-p { margin-bottom: 14px; line-height: 1.7; }
-
-/* ── Components ── */
-.kicker { font-family: var(--font-mono); font-size: 11px; color: var(--orange); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; margin-bottom: 30px; }
-.slide.dark .kicker { color: var(--orange); }
-
-.nutshell { background: var(--paper); border-left: 4px solid var(--orange); padding: 28px 36px; border-radius: 0 8px 8px 0; max-width: 700px; margin: 0 auto; }
-.nutshell p { font-size: 16px; line-height: 1.8; color: var(--steel); }
-
-.kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 30px 0; }
-.kpi { background: var(--paper); border: 1px solid var(--border-subtle); border-top: 3px solid var(--blue); border-radius: 8px; padding: 18px 14px; text-align: center; }
-.kpi .val { font-family: var(--font-mono); font-size: clamp(22px, 2.5vw, 30px); font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-.kpi .label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; font-weight: 500; }
-
-.case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 20px; }
-.case-card { background: var(--paper); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; }
-.case-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-.case-codename { font-family: var(--font-mono); font-size: 10px; color: var(--muted); margin-bottom: 8px; }
-.case-desc { font-size: 13px; color: var(--steel); margin-bottom: 12px; line-height: 1.5; flex-grow: 1; }
-.case-fokus { font-family: var(--font-mono); font-size: 10px; color: var(--muted); margin-bottom: 10px; }
-.case-fokus strong { color: var(--orange); }
-.case-link { font-family: var(--font-mono); font-size: 11px; border-top: 1px solid var(--border-subtle); padding-top: 10px; }
-.case-link a { color: var(--orange); font-weight: 600; text-decoration: none; }
-.case-link a:hover { text-decoration: underline; }
-
-.chip-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0; }
-.chip { background: var(--teal-bg); border: 1px solid var(--teal); padding: 10px 20px; border-radius: 4px; font-family: var(--font-mono); font-size: 13px; color: var(--teal); font-weight: 600; }
-
-.service-card { background: var(--paper); border: 1px solid var(--border-subtle); border-left: 4px solid var(--blue); border-radius: 0 10px 10px 0; padding: 24px 28px; margin-bottom: 16px; }
-.service-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-.service-desc { font-size: 13px; color: var(--steel); line-height: 1.6; }
-
-.nav-dropdown { position: relative; display: flex; align-items: center; }
-.dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-subtle); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 8px 0; min-width: 160px; z-index: 1001; }
-.nav-dropdown:hover .dropdown-menu { display: block; animation: fadeSlide 0.2s ease-out; }
-.dropdown-menu a { display: block; padding: 8px 16px; font-size: 12px; color: var(--steel); border: none; }
-.dropdown-menu a:hover { background: var(--paper); color: var(--teal); }
-.dropdown-toggle { cursor: default; color: #ffffff; font-size: 12px; display: flex; align-items: center; height: 100%; }
-
-.nda-block { background: var(--paper); border: 1px dashed var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--steel); line-height: 1.6; }
-.nda-divider { border: none; border-top: 1px dashed var(--border); margin: 14px 0; }
-.nda-label { font-family: var(--font-mono); font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
-
-.disclaimer { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-size: 13px; color: var(--steel); line-height: 1.6; }
-.disclaimer strong { color: var(--navy); }
-
-.reg-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
-.reg-table th { text-align: left; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding: 10px 12px; border-bottom: 2px solid var(--border); }
-.reg-table td { padding: 10px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--steel); vertical-align: top; }
-.reg-table td:first-child { font-weight: 600; color: var(--navy); }
-
-.abbr-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 11px; }
-.abbr-table th { text-align: left; font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding: 4px 10px; border-bottom: 2px solid var(--border); }
-.abbr-table td { padding: 3px 10px; border-bottom: 1px solid var(--border-subtle); color: var(--steel); }
-.abbr-table td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
-.ref-list { font-size: 11px; line-height: 1.65; color: var(--steel); padding-left: 20px; margin-top: 16px; column-count: 2; column-gap: 24px; }
-.ref-list li { margin-bottom: 6px; break-inside: avoid; padding-left: 16px; text-indent: -16px; }
-
-.toc-list { list-style: none; display: flex; flex-direction: column; gap: 14px; padding: 0; max-width: 500px; margin: 0 auto; }
-.toc-list a { font-size: 16px; font-weight: 500; color: var(--steel); text-decoration: none; transition: color 0.2s; }
-.toc-list a:hover { color: var(--orange); }
-
-.pub-item { border-left: 3px solid var(--blue); padding: 18px 22px; margin-bottom: 20px; background: var(--paper); border-radius: 0 8px 8px 0; }
-.pub-title { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 6px; }
-.pub-meta { font-family: var(--font-mono); font-size: 11px; color: var(--blue); font-weight: 500; margin-bottom: 8px; }
-.pub-link a { font-family: var(--font-mono); font-size: 11px; color: var(--orange); font-weight: 600; text-decoration: none; }
-
-.slide-num { position: absolute; bottom: 4vh; right: 5vw; font-family: var(--font-mono); font-size: 10px; color: var(--muted); }
-.slide.dark .slide-num { color: #475569; }
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(15,23,42,0.98); flex-direction: column; padding: 16px; gap: 12px; }
-    .nav-links.open { display: flex; }
-    #navtoggle { display: block; }
-    .slide { padding: 5vh 6vw; }
-    .case-grid { grid-template-columns: 1fr; }
-    .kpi-row { grid-template-columns: 1fr; }
-    .reg-table { font-size: 11px; }
-    .reg-table th, .reg-table td { padding: 6px 8px; }
-}
-
-@media print {
-    html { scroll-snap-type: none; }
-    body { background: white; }
-    .slide { page-break-after: always; min-height: auto; padding: 15mm 18mm; }
-    .slide:last-child { page-break-after: auto; }
-    .slide-num, nav.top-nav { display: none; }
-}
-</style>
-</head>
-<body>
 
 <nav class="top-nav" id="topnav">
     <div class="nav-inner">
@@ -420,6 +243,8 @@ p { margin-bottom: 14px; line-height: 1.7; }
         <span style="color: var(--border);">|</span>
         <a href="https://www.linkedin.com/in/nabil-ktari/" target="_blank" style="color: var(--navy); border-bottom: 1px solid rgba(22,50,79,0.2);">linkedin.com/in/nabil-ktari</a>
         <span style="color: var(--border);">|</span>
+        <a href="https://github.com/HyyperNab" target="_blank" style="color: var(--navy); border-bottom: 1px solid rgba(22,50,79,0.2);">github.com/HyyperNab</a>
+        <span style="color: var(--border);">|</span>
         <span style="color: var(--muted);">D&uuml;sseldorf, Germany</span>
     </div>
     <div class="slide-num">01</div>
@@ -458,13 +283,13 @@ p { margin-bottom: 14px; line-height: 1.7; }
         <div class="service-title">Healthspan &amp; Neuroscience</div>
         <p class="service-desc">Evidence-based longevity protocols grounded in internal medicine and peer-reviewed research. Neuroscience-informed patient engagement strategies. Health optimization as an engineering problem.</p>
     </div>
-    <div class="slide-num">07</div>
+    <div class="slide-num">03</div>
 </section>
 
 <section class="slide" id="clinical">
     <div class="kicker">Clinical Foundation</div>
-    <h2>Ten Years of Broad Clinical Experience</h2>
-    <p style="max-width: 700px; margin-bottom: 24px;">Board-certified specialist in Internal Medicine (Ärztekammer Nordrhein, 2026). Ten years across intensive care, emergency medicine, cardiology, geriatrics, pulmonology, and gastroenterology &mdash; the environments where systems fail at scale and the cost is measured in trust, not revenue.</p>
+    <h2>Eight Years of Clinical Practice</h2>
+    <p style="max-width: 700px; margin-bottom: 24px;">Board-certified specialist in Internal Medicine (Ärztekammer Nordrhein, 2026). Eight years across intensive care, emergency medicine, cardiology, geriatrics, pulmonology, and gastroenterology &mdash; the environments where systems fail at scale and the cost is measured in trust, not revenue.</p>
 
     <div class="kpi-row" style="max-width: 800px;">
         <div class="kpi"><div class="val">8</div><div class="label">Years Clinical<br>Experience</div></div>
@@ -486,7 +311,7 @@ p { margin-bottom: 14px; line-height: 1.7; }
         <div class="pub-link"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0151963818301844" target="_blank">DOI Link &rarr;</a></div>
     </div>
 
-    <div class="slide-num">03</div>
+    <div class="slide-num">04</div>
 </section>
 
 <section class="slide" id="systems">
@@ -557,7 +382,7 @@ p { margin-bottom: 14px; line-height: 1.7; }
             <div class="case-link"><a href="https://hyypernab.github.io/ChronosLab/" target="_blank">Live</a> &middot; <a href="https://github.com/HyyperNab/ChronosLab" target="_blank">GitHub</a></div>
         </div>
     </div>
-    <div class="slide-num">04</div>
+    <div class="slide-num">05</div>
 </section>
 
 <section class="slide" id="regulatory">
@@ -605,9 +430,9 @@ p { margin-bottom: 14px; line-height: 1.7; }
     <div class="kpi-row" style="max-width: 600px; margin-top: 24px;">
         <div class="kpi"><div class="val">8</div><div class="label">Brainstem Pattern<br>Classes</div></div>
         <div class="kpi"><div class="val">&lt;50ms</div><div class="label">Safety<br>Fallback</div></div>
-        <div class="kpi"><div class="val">3</div><div class="label">Regulatory<br>Jurisdictions</div></div>
+        <div class="kpi"><div class="val">5</div><div class="label">Regulatory<br>Jurisdictions</div></div>
     </div>
-    <div class="slide-num">05</div>
+    <div class="slide-num">07</div>
 </section>
 
 <section class="slide" id="disclaimer">
@@ -641,7 +466,7 @@ p { margin-bottom: 14px; line-height: 1.7; }
     <h3 style="margin-top: 28px; margin-bottom: 12px; color: var(--navy);">Impressum</h3>
     <p style="font-size: 13px; color: var(--steel); line-height: 1.6;">Please follow this <a href="https://hyypernab.github.io/showroom/legal/" target="_blank" style="color: var(--steel); border-bottom: 1px solid var(--border);">link</a> for the Impressum.</p>
     
-    <div class="slide-num">9</div>
+    <div class="slide-num">08</div>
 </section>
 
 <section class="slide" id="contact" style="justify-content: center; align-items: center; text-align: center;">
@@ -651,7 +476,8 @@ p { margin-bottom: 14px; line-height: 1.7; }
             <p style="font-size: 15px; color: var(--steel); line-height: 2.0; margin-bottom: 0;">
                 <a href="mailto:nab.kta@gmail.com" style="color: var(--navy); border-bottom: 1px solid rgba(22,50,79,0.2);">nab.kta@gmail.com</a><br>
                 <a href="https://www.linkedin.com/in/nabil-ktari/" target="_blank" style="color: var(--navy); border-bottom: 1px solid rgba(22,50,79,0.2);">linkedin.com/in/nabil-ktari</a><br>
-                
+                <a href="https://github.com/HyyperNab" target="_blank" style="color: var(--navy); border-bottom: 1px solid rgba(22,50,79,0.2);">github.com/HyyperNab</a><br>
+                <span style="color: var(--muted);">Tel: +49 162 4366 224</span><br>
                 <span style="color: var(--muted);">D&uuml;sseldorf, Germany</span>
             </p>
         </div>
@@ -670,7 +496,7 @@ p { margin-bottom: 14px; line-height: 1.7; }
             </div>
         </div>
     </div>
-    <div class="slide-num">11</div>
+    <div class="slide-num">09</div>
 </section>
 
 <section class="slide" id="abbreviations">
@@ -697,7 +523,7 @@ p { margin-bottom: 14px; line-height: 1.7; }
             <tr><td><strong>SPOF</strong></td><td>Single Point of Failure</td></tr>
         </tbody>
     </table>
-    <div class="slide-num">09</div>
+    <div class="slide-num">10</div>
 </section>
 
 <section class="slide" id="references">
